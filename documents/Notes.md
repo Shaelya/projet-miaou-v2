@@ -37,9 +37,6 @@ Il peut poster0 ou plusieurs annonces// et 1 annonce a été postée par 1 seul 
 UNe annonce contient 0 ou plusieurs photos (0N) ET 1 PHOTO CORRESPOND À 1 ANNONCE (11)
 "CONTIENT, 0N ANNONCE, 11 PHOTO :" 
 L'utilisateur peut commenter 0 ou plusieurs commentaires // 1 commentaire peut avoir 1 seu et unique utilisateur
-
-
-
 voir pour mettre une entité photo ( une annonce peut contenir plusieurs photos ) reliée à annonce
 
  

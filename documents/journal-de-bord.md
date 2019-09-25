@@ -65,6 +65,33 @@ Nous avons préparé le travail des wireframes en expliquant les différentes pa
 - une page profil utilisateur
 
 
+## **25/09/2019**
+
+### 1. Wireframes
+ 
+Nous avons mis en commun nos wireframes et rassemblé nos idées. 
+Au final , nous avons opté pour les pages suivantes:
+
+- page d'accueil 
+- page de connexion 
+- page d'inscription
+- page d'accueil connnectée
+- page fiche alerte
+- page fiche alerte vu compte utilisateur
+- page fiche alerte vu compte propriétaire
+- page profil
+
+
+### 2. Routes
+
+Nous avons élaboré les routes en fonction du wireframe . Nous avons encore besoin de maitriser le système des APIS afin de voir si les routes sont bien écrites de la sorte .
+ 
+Nous voulons modifier des informations directement sur la page à voir comment cela se passe en Front et en Back (pour une page vu du profil et modification du profil).
+
+### Notes
+
+Suite au twitch des Sirius nous avons entendu parler de MERCURE (Faux serveur) . Nous allons chercher dans ce sens et voir si cela peut se combiner avec notre projet . Cette méthode nous permettrait d'éviter de créer une API et donc générerait un gain de temps et permettrait un affichage immédiat sans recharger la page; 
+
 
 
 
