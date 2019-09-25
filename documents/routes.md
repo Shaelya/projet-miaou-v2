@@ -14,4 +14,3 @@
 | `/comment-ca-marche` | Comment ça marche ? | Tuto fonctionnement du site | GET | FooterController | howItWorks | footer |
 | `/mentions-legales` | Mentions legales | Mentions légales du site | GET | FooterController | mentionsLegales | footer |
 | `/liens-externes` | Liens Externes | Liens externes du site | GET | FooterController | Liens Externes | footer |
-
