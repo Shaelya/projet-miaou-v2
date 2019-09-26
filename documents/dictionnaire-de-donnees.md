@@ -31,6 +31,7 @@
 |id|INT|PRIMARY KEY, NOT NULL, UNSIGNED, AUTO_INCREMENT|L'identifiant de l'annonce|
 |lattitude|INT|NOT NULL|coordonnée|
 |longitude|INT|NOT NULL|coordonnée|
+|visibility|BOOLEAN|NOT NULL| afficher ou non les infos user|
 |title|VARCHAR(64)|NOT NULL|titre de l'annonce|
 |description|VACHAR(150)|NOT NULL|texte accompagnant l'annonce|
 |Photo|Text|NOT NULL| Photos de l'animal perdu |

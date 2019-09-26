@@ -1,3 +1,5 @@
+# JOURNAL DE BORD BACKEND
+
 # **JOURNAL DE BORD DU GROUPE : MIA'où**
 
 
@@ -131,41 +133,27 @@ CONTIENT, 0N ANNONCE, 11 PHOTO :
 PHOTO: image, alt
 ```
 
-### Liens pour fusion entre back et front : 
+### BACKEND
 
-https://github.com/O-clock-Alumni/fiches-recap/blob/ecb5a1c8c8ae9d518b2acfd3229635631c12174d/ldc/local_vhost.md
+1. ***Liens utiles***
 
-### Liens utiles pour l'API de la géolocalisation :
-https://www.journaldunet.com/solutions/seo-referencement/1209643-11-alternatives-a-google-maps-leur-cout-leurs-avantages/
-http://www.yoctopuce.com/FR/article/geolocalisation-gratuite-avec-leaflet
-https://www.openstreetmap.org/about
-https://developer.mozilla.org/fr/docs/Web/API/Geolocation_API
-https://nouvelle-techno.fr/actualites/2018/05/11/pas-a-pas-inserer-une-carte-openstreetmap-sur-votre-site
-https://stackshare.io/stackups/google-maps-vs-leaflet
-https://medium.com/@LoicOrtola/mapocalypse-migrer-depuis-google-maps-maintenant-2-2-e4359112e20a
-https://julienappert.com/creer-des-controles-personnalises-pour-mapbox-gl-js/
-https://docs.mapbox.com/mapbox-gl-js/api/
-https://leafletjs.com/reference-1.3.0.html#popup
-lien avec code pour recup le marqueur de l user : https://stackoverflow.com/questions/39401173/how-do-i-project-a-point-from-x-y-coordinates-to-latlng-in-leaflet
-https://www.programmez.com/actualites/leaflet-une-bibliotheque-javascript-de-cartographie-adaptee-aux-mobiles-28792
-https://www.developpez.net/forums/d1886590/javascript/general-javascript/zoom-dezoom-leaflet/
-https://zestedesavoir.com/tutoriels/1365/des-cartes-sur-votre-site/
-https://nouvelle-techno.fr/actualites/2018/07/10/geolocalisation-et-distance-avec-openstreetmap
-https://codepen.io/superpikar/pen/medwLw
+les notes de Fanny en revision de la spé Symfony
+https://github.com/O-clock-Titan/notes-Symfo-Fanny42/blob/master/S04/S04-E03.md
 
-### Les prochaines étapes : 
+les bonnes pratiques
+https://blog.mwaysolutions.com/2014/06/05/10-best-practices-for-better-restful-api/
 
-#### Pour les backs : 
+Lien de Marie sur les API:
+https://openclassrooms.com/fr/courses/3449001-utilisez-des-api-rest-dans-vos-projets-web/3449008-quest-ce-quune-api
 
-- Faire un formulaire en back en utilisant le système INSOMNIA qui va simuler les données / va remplacer provisoirement la réponse du front => systeme inscription et connexion . 
-https://github.com/O-clock-Titan/notes-S06-Fanny42/blob/master/S06-E08.md#tester-des-requ%C3%AAtes-post-sans-front (notes pour utiliser insomnia)
+Lien de Vanessa:
+https://www.redhat.com/fr/topics/api/what-are-application-programming-interfaces
+https://medium.com/@mercier_remi/c-est-quoi-une-api-f37ae350cb9
 
 
+2. ***API***
 
-#### Pour les fronts : 
+Lien JayGia:
+https://openclassrooms.com/fr/courses/3449001-utilisez-des-api-rest-dans-vos-projets-web
 
-- Marie : 
-Faire AWS pour pouvoir gérer le serveur (=>nom de domaine sera valide dans qq jours).
-Utiliser une API leaflet (avec OpenStreet Map) pour recupérer une map
 
-- Utilisation de l'API leaflet afin de mettre en place la map . 
