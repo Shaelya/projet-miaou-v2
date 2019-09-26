@@ -93,5 +93,20 @@ Nous voulons modifier des informations directement sur la page à voir comment c
 Suite au twitch des Sirius nous avons entendu parler de MERCURE (Faux serveur) . Nous allons chercher dans ce sens et voir si cela peut se combiner avec notre projet . Cette méthode nous permettrait d'éviter de créer une API et donc générerait un gain de temps et permettrait un affichage immédiat sans recharger la page; 
 
 
+## **26/09/2019**
 
+### 1. notes du matin 
 
+Nous Allons créer le domaine dès le début . Voici en dessous quelques liens utiles qui vont nous permettre de le faie . Nous allons devoir définir ensemble le nom de domaine . 
+grille E commande création -> 10 euros pour le domaine payé par O'clock .
+
+- les liens utiles afin de créer notre domaine : 
+
+https://github.com/O-clock-Alumni/fiches-recap/blob/master/wordpress/wp/migration-deploiement.md
+https://github.com/O-clock-Alumni/fiches-recap/blob/master/symfony/themes/deploiement-gandi-debian.md
+https://github.com/O-clock-Alumni/fiches-recap/blob/master/adminsys/aws/create_server.md
+https://github.com/O-clock-Alumni/fiches-recap/blob/master/adminsys/aws/create_account.md
+https://www.gandi.net/en/domain?grid=E
+https://www.gandi.net/domaine
+
+### 2. Compte rendu de la présentation
