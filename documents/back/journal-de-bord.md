@@ -150,10 +150,182 @@ Lien de Vanessa:
 https://www.redhat.com/fr/topics/api/what-are-application-programming-interfaces
 https://medium.com/@mercier_remi/c-est-quoi-une-api-f37ae350cb9
 
+lien d'emilie
+https://symfony.com/doc/current/frontend/encore/reactjs.html
+
+
+***NOTES*** : Nous allons utiliser API REST et JWT
+
+exemple d'une api 
+```php
+<?php
+namespace App\Controller\Api;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
+use FOS\RestBundle\Controller\AbstractFOSRestController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\HttpFoundation\Response;
+use FOS\RestBundle\Controller\Annotations as Rest;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Validator\ConstraintViolationList;
+class TestController extends AbstractFOSRestController
+{
+    /**
+     * @Route("/api/test", name="api_test")
+     */
+    public function test()
+    {
+        $response = new JsonResponse(['data' => 123]);
+        // if you don't know the data to send when creating the response
+        $response = new JsonResponse();
+        // ...
+        $response->setData(['data' => 123]);
+        
+        // if the data to send is already encoded in JSON
+        $response = JsonResponse::fromJsonString('{ "data": 123 }');
+        return $response;
+    }
+}
+```
 
 2. ***API***
 
-Lien JayGia:
-https://openclassrooms.com/fr/courses/3449001-utilisez-des-api-rest-dans-vos-projets-web
+API (Application Programming Interfaces) . 
+- *Interface* : la manière qui permet d'interargir entre 2 entités . ( par exemple le menu est l'interface entre le client et la cuisine ). 
+
+REST signifie “Representational State Transfer”.
+
+## ***27/09/2019***
+
+### déroulement 
+
+*notes* : pour les faker / fixtures https://github.com/O-clock-Titan/notes-Symfo-Fanny42/blob/master/S03/S03-E01.md#cr%C3%A9ation-de-lentit%C3%A9-task
+pour les API
+https://github.com/O-clock-Titan/notes-Symfo-Fanny42/blob/master/S04/S04-E03.md
+
+1. création d'une branche `test-api` afin de comprendre le système des API . 
+2. Installation de Symfony dans le projet back `composer create-project symfony/website-skeleton my_project_name` et le déplacer après .
+3. Faire un `composer install`
+3. création d'une base de données sur phpmyadmin du nom de test avec en mot de passe test
+4. creation du .env.local
+5. Faire un `bin/console m:m`
+6. Faire un `bin/console d:m:m`
+7. vérifier dans phpmyadmin que la migration a bien été faite
+8. commande `composer require annotations` pour utiliser le système de routes en annotation dans les controller
+9. nous allons créer une entity apellée `person` dans laquelle il y aura une table nommée `name` qui pourra renvoyer le nom d'une personne 
+10. faire `bin/console m:m` puis `bin/console d:m:m` pour envoyer vers phpmyadmin
+11. vérification dans phpmmyadmin et voir si l'entité et la table est bien crée : ok 
+12. taper la commande `composer require --dev doctrine/doctrine-fixtures-bundle` dans le terminal afin de pouvoir faire les fixtures
+13. taper la commande`composer require --dev nelmio/alice` qui va permettre d'installer le faker alice
+14. aller dans `config/packages/dev/nelmio_alice.yaml` et coller
+```php
+#config/packages/dev/nelmio_alice.yaml
+
+nelmio_alice:
+    locale: 'fr_FR' # Default locale for the Faker Generator
+    seed: 1     # Value used to make sure Faker generates data consistently across
+                # runs, set to null to disable.
+    functions_blacklist:    # Some Faker formatter may have the same name as PHP
+        - 'current'         # native functions. PHP functions have the priority,
+                            # so if you want to use a Faker formatter instead,
+                            # blacklist this function here
+    loading_limit: 5    # Alice may do some recursion to resolve certain values.
+                        # This parameter defines a limit which will stop the
+                        # resolution once reached.
+    max_unique_values_retry: 150    # Maximum number of time Alice can try to
+                                    # generate a unique value before stopping and
+                                    # failing.
+```
+15. créer le fichier `src/DataFixtures/fixtures.yaml` et écrire les faker que nous voulons écrire
+```php
+App\Entity\Person:
+  person{1..30} :
+    name : ' <name()> '
+```
+
+16. installer le bundle `composer require fzaninotto/faker --dev` et d'utliser la bibliothèque
+17. j'utilise le faker `https://github.com/fzaninotto/Faker` afin de créer les fausses données dans fixtures.yaml
+18. j'utilise la commande `bin/console translation:update --force fr` afin de forcer le fr sur alicebundle
+19. je tape `bin/console make:fixtures` je vais créer une fixture dans ce cas là `AliceFixtures`
+21. j'ai un dossier qui se crée dans src>datafixtures nommé `AliceFixtures.php` et je le remplie avec le code ci dessous
+
+```php
+
+namespace App\DataFixtures;
+
+use Faker\Factory;
+use Nelmio\Alice\Loader\NativeLoader;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\Persistence\ObjectManager;
+
+class AliceFixtures extends Fixture
+{
+    public function load(ObjectManager $manager)
+    {
+        // pour préciser la langue
+        $faker = Factory::create('fr_FR');
+        // on injecte la variable $faker dans le loader du bundle Alice
+        $loader = new NativeLoader($faker);
+        // on précise le chemin vers le fichier fixtures.yaml
+        // cete variable contient un tableau d'objets créés
+        $entities = $loader->loadFile(__DIR__.'/fixtures.yaml')->getObjects();
+        // on boucle sur ce tableau, et pour chaque objet, on fait persist
+        foreach($entities as $entity) {
+            $manager->persist($entity);
+        }
+        // on flush les données qui ont été persistées
+        $manager->flush();
+    }
+}
+```
+22. puis je tape  `bin/console d:f:l` pour charger les fixtures dans la base de donée
+23. je vérifie si phpmyadmin a bien tous les noms : ok
+24. je vais faire un `bin/console make:controller` que je vais nommer `person` et qui va me créer un PersonController . 
+25. dans ce controller je vais pouvoir mettre les use dont je vais avoir besoin afin de créer mon affichage en format json . 
+```php
+use App\Entity\Person;
+use Doctrine\Common\Annotations\AnnotationReader;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
+use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+```
+je vais pouvoir écrire ma variable qui va me permettre de récupérer ma liste de Nom et prénom 
+```php
+        $person = $this->getDoctrine()->getRepository(Person::class)->findAll();
+```
+
+les lignes permettant de transformer mes données 
+
+```php
+            $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));
+                
+            $normalizer = new ObjectNormalizer($classMetadataFactory);
+            $serializer = new Serializer([$normalizer]);
+```
+
+et les lignes permettant de transfomer mes infos en data et les retourner
+
+```php
+            // ligne à modifier selon le nom de notre variable et de notre groupe
+            // ici c'est $person 
+            $data = $serializer->normalize($person);
+        
+            return $this->json($data);
+```
+26. Dans mon terminal je vais activer mon serveur local qui va me permettre de vérifier ce que mon url contient en tapant `bin/console server:start`
+27. Après vérification c'est ok et je vois bien les informations s'afficher en format json 
+28. test avec Insomnia https://support.insomnia.rest/article/23-installation#ubuntu pour telechargement, puis installer . Après pour utiliser dans console `sudo apt-get update` puis `sudo apt-get install insomnia` . en créant un dossier test dans le logiciel insomnia et en choisissant la methode get je peux tester mes affichages . en tapant dans la barre url l'adresse du local host en 8001 . 
+
+*Notes de cette journée* : j'ai effacé la branch test . et je vais maintenant faire un test sous la forme d'une formulaire et tester avec la méthode post ou puth . 
+
+
+## ***27/09/2019***
+
+
+
 
 

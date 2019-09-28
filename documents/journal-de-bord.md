@@ -169,3 +169,14 @@ Faire AWS pour pouvoir gérer le serveur (=>nom de domaine sera valide dans qq j
 Utiliser une API leaflet (avec OpenStreet Map) pour recupérer une map
 
 - Utilisation de l'API leaflet afin de mettre en place la map . 
+
+- par la suite voir si on utilise mercure pour le système d'affichage des évènements en cours (commentaire, alerte etc ... )
+
+https://api-platform.com/ à regarder aussi rommain trello nous en a parlé sur discord . tout est installé et ça permet que tout fonctionne . eventuellement plus interressant que mercure seul . 
+Là tout est déjà installé mais il faudra respecter la MVC ... donc bon ... 
+par exemple ça oblige à utiliser redux en react . 
+
+#### notes diverses 
+
+- *comment fonctionne une API* ? tu enlèves la vue en back ( en symfo on renvoyait sous forme de .twig ) . C'est le travail du front qui lui récupère les données donc on ne s'occupe plus en back de la vue . Afin de communiquer entre le back et le front on va communiquer en envoyant les données au format json qui est comprehensible par php . Le front les met au bon endroit , mais les routes permettent de gérer les API . 
+
