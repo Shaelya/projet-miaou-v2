@@ -325,6 +325,12 @@ et les lignes permettant de transfomer mes infos en data et les retourner
 
 ## ***27/09/2019***
 
+je vais tester le système de connexion et d'inscription . Dans un premier temps je vais utiliser la méthode que nous avions faite avec djyp et voir comment tranformer les informations en json . voir si je test avec la méthode précedente, si cela fonctionne . 
+
+1. je tape dans le terminal la commande `bin/console make:controller`  que je crée en tant que **UtilisateurController** . 
+2. je fais dans le terminal la commande `bin/console make:user`
+3. j'ai fais `bin/console m:m` puis `bin/console d:m:m`
+
 
 
 
