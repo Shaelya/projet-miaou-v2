@@ -180,3 +180,50 @@ par exemple ça oblige à utiliser redux en react .
 
 - *comment fonctionne une API* ? tu enlèves la vue en back ( en symfo on renvoyait sous forme de .twig ) . C'est le travail du front qui lui récupère les données donc on ne s'occupe plus en back de la vue . Afin de communiquer entre le back et le front on va communiquer en envoyant les données au format json qui est comprehensible par php . Le front les met au bon endroit , mais les routes permettent de gérer les API . 
 
+
+## **27/09/2019**
+
+### Pour les fronts : 
+
+#### déroulement 
+
+- Utilisation de composants react simples et juste afficher la carte avec le guide de Leaflet :  https://leafletjs.com/examples/quick-start/ 
+
+- Installation de la librairie Leaflet & React-Leaflet pour utiliser  Leaflet avec React . `yarn add leaflet` `yarn add react-leaflet` . Avec la doc : https://react-leaflet.js.org/
+
+- Code de base pour la map : https://github.com/PaulLeCam/react-leaflet/blob/master/example/components/simple.js  (Adapté à la position GPS de Paris pour nous, et en enlevant State)
+
+- Mise en place du code permettant de récupérer la position de l'utilisateur (via le navigateur avec getCurrentPosition()) Utilisation du code à 40min pour la geolocalisation de l'utilisateur : https://www.youtube.com/watch?v=J7pFiXh-ydA 
+
+- Mise en place de Redux pour gérer le state (notamment pour la position ici). Utilisation du lien : https://redux.js.org/basics/reducers  pour récupérer des infos sur le reducer.
+
+
+### Pour les backs : 
+
+#### déroulement 
+
+*notes* : pour les faker / fixtures https://github.com/O-clock-Titan/notes-Symfo-Fanny42/blob/master/S03/S03-E01.md#cr%C3%A9ation-de-lentit%C3%A9-task
+pour les API
+https://github.com/O-clock-Titan/notes-Symfo-Fanny42/blob/master/S04/S04-E03.md
+https://github.com/fzaninotto/Faker
+https://support.insomnia.rest
+
+
+Pour cette journée nous fais un test API  en méthode GET et nous avons utilisé insomnia pour vérifier les informations transmises ( voir dans documents/back/journal-de-bord.md) .
+
+Nous allons devoir tester la méthode en post afin de vérifier les informations transmises .
+
+*Notes de cette journée* : j'ai effacé la branch test . et je vais maintenant faire un test sous la forme d'une formulaire et tester avec la méthode post ou puth . 
+
+
+## **30/09/2019**
+
+### Pour les fronts : 
+
+#### déroulement 
+
+
+
+### Pour les backs :
+
+#### déroulement 
