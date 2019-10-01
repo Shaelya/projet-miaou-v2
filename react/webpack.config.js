@@ -40,7 +40,7 @@ module.exports = {
     // Nom du bundle vendors si l'option d'optimisation / splitChunks est activée
     chunkFilename: 'vendors.js',
     // Cible des bundles
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './../back/public/assets'),
     publicPath: '/',
   },
   // Optimisation pour le build
