@@ -198,6 +198,8 @@ REST signifie “Representational State Transfer”.
 
 ## ***27/09/2019***
 
+## NOTES HELENE
+
 ### déroulement 
 
 *notes* : pour les faker / fixtures https://github.com/O-clock-Titan/notes-Symfo-Fanny42/blob/master/S03/S03-E01.md#cr%C3%A9ation-de-lentit%C3%A9-task
@@ -322,14 +324,173 @@ et les lignes permettant de transfomer mes infos en data et les retourner
 
 *Notes de cette journée* : j'ai effacé la branch test . et je vais maintenant faire un test sous la forme d'une formulaire et tester avec la méthode post ou puth . 
 
+## NOTES GERALDINE 
 
-## ***27/09/2019***
+### Déroulement 
+
+vue du UtilisateurController.php
+
+```php
+<?php
+
+namespace App\Controller;
+
+
+use App\Entity\Utilisateur;
+use Doctrine\Common\Annotations\AnnotationReader;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
+use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+
+
+/**
+  * @Route("/api", name="api_")
+  */
+class UtilisateurController extends AbstractController
+{
+    /**
+     * @Route("/utilisateur", name="utilisateur")
+     */
+    public function list()
+    {
+        // On souhaite afficher les liste des produits et la retourner dans un JSON
+        // on récupère la liste des produits
+        $noms = $this->getDoctrine()->getRepository(Utilisateur::class)->findAll();
+
+        // lignes à copier telles quelles
+        $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));
+        $normalizer = new ObjectNormalizer($classMetadataFactory);
+        $serializer = new Serializer([$normalizer]);
+
+        // ligne à modifier selon le nom de notre variable et de notre groupe
+        // ici c'est $products et api
+        $data = $serializer->normalize($noms, null, ['groups' => 'api']);
+
+        return $this->json($data);
+    }
+}
+```
+
+vue des entity
+
+```php
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+/**
+ * @ORM\Entity(repositoryClass="App\Repository\UtilisateurRepository")
+ */
+
+class Utilisateur
+{
+    /**
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="integer")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type="string", length=80)
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=80)
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="string", length=80)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=80)
+     */
+    private $motdepasse;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+    /**
+     * @Groups("api")
+     */
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+    
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+    /**
+     * @Groups("api")
+     */
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+    
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getMotdepasse(): ?string
+    {
+        return $this->motdepasse;
+    }
+
+    public function setMotdepasse(string $motdepasse): self
+    {
+        $this->motdepasse = $motdepasse;
+
+        return $this;
+    }
+}
+```
+
+
+## ***30/09/2019***
+
+
 
 je vais tester le système de connexion et d'inscription . Dans un premier temps je vais utiliser la méthode que nous avions faite avec djyp et voir comment tranformer les informations en json . voir si je test avec la méthode précedente, si cela fonctionne . 
+
+### liens utilisés : 
+https://github.com/O-clock-Titan/notes-Symfo-Fanny42/blob/master/S03/S03-E05.md
+
+
 
 1. je tape dans le terminal la commande `bin/console make:controller`  que je crée en tant que **UtilisateurController** . 
 2. je fais dans le terminal la commande `bin/console make:user`
 3. j'ai fais `bin/console m:m` puis `bin/console d:m:m`
+
 
 
 
