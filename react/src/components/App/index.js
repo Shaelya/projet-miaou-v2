@@ -37,12 +37,33 @@ const App = ({location, handleClick}) => (
           <Map location={location} />
           <ButtonGeoloc handleClick={handleClick} />
         </div>
-        <div className="col">
-          <button type="button" className="btn btn-danger">Poster une alerte</button>
+        <div className="col text-center">
+        
+        
+        <button type="button" className="btn btn-danger btn-lg button-alert"><i class="fa fa-bullhorn"></i><div>Poster une alerte</div></button>
+        <div>
+          <div className="btn-group-vertical">
+            <button type="button" className="btn btn-danger btn-lg mb-4">Animaux Perdus</button>
+            <button type="button" className="btn btn-warning btn-lg mb-4">Animaux Vus</button>
+            <button type="button" className="btn btn-info btn-lg">Animaux Trouvés</button>
+            
+          </div>
         </div>
+        
       </div>
-      
-    </div>
+   </div>
+
+   <nav className="navbar fixed-bottom navbar-dark bg-dark mt-4">
+    <a className="text-danger" href="#">Comment ça marche ?</a>
+    <a className="text-white" href="#">L'équipe</a>
+    <a className="text-white" href="#">Mentions Légales</a>
+    <a className="text-white" href="#">Liens Externes</a>
+   </nav>
+
+
+
+  </div>
+
 
     
   </div>
