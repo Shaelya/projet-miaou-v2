@@ -38,7 +38,7 @@ const App = ({location, handleClick}) => (
           <ButtonGeoloc handleClick={handleClick} />
         </div>
         <div className="col">
-          <button type="button" className="btn btn-outline-danger">Poster une alerte</button>
+          <button type="button" className="btn btn-danger">Poster une alerte</button>
         </div>
       </div>
       
