@@ -35,12 +35,12 @@ const App = ({location, handleClick}) => (
       <div className="row">
         <div className="col">
           <Map location={location} />
-          <ButtonGeoloc handleClick={handleClick} />
+          {/* <ButtonGeoloc handleClick={handleClick} /> */}
         </div>
         <div className="col text-center">
         
         
-        <button type="button" className="btn btn-danger btn-lg button-alert"><i class="fa fa-bullhorn"></i><div>Poster une alerte</div></button>
+        <button type="button" className="btn btn-danger btn-lg button-alert"><i className="fa fa-bullhorn"></i><div>Poster une alerte</div></button>
         <div>
           <div className="btn-group-vertical">
             <button type="button" className="btn btn-danger btn-lg mb-4">Animaux Perdus</button>
