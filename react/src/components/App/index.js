@@ -18,7 +18,13 @@ import ButtonGeoloc from 'src/components/ButtonGeoloc';
 import './app.sass';
 
 const App = ({location, handleClick}) => (
-  <div>
+  <div className="App">
+    <nav className="navbar navbar-light bg-light">
+      <a className="navbar-brand" href="#">
+        <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt=""/>
+        MIA'Où
+      </a>
+    </nav>
     <Map location={location} />
     <ButtonGeoloc handleClick={handleClick} />
   </div>
