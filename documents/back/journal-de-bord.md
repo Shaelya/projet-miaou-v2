@@ -491,7 +491,7 @@ https://github.com/O-clock-Titan/notes-Symfo-Fanny42/blob/master/S03/S03-E05.md
 2. je fais dans le terminal la commande `bin/console make:user`
 3. j'ai fais `bin/console m:m` puis `bin/console d:m:m`
 
-
+commande dans le terminal pour react `yarn` et apres `yarn build:dev`
 
 
 
