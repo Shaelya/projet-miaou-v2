@@ -35,7 +35,6 @@ const App = ({location, handleClick}) => (
       <div className="row">
         <div className="col">
           <Map location={location} />
-          {/* <ButtonGeoloc handleClick={handleClick} /> */}
         </div>
         <div className="col text-center">
         
@@ -89,19 +88,7 @@ const connectionStrategies = connect(
 
   // 2d argument : stratégie d'écriture (dans le state privé global)
   (dispatch, ownProps) => {
-    return {
-      handleClick: () => {
-        navigator.geolocation.getCurrentPosition((position) => {
-          dispatch({type: 'UPDATE_LOCATION', location:{
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-            zoom: 17
-          }
-        });
-
-        });
-      }
-    };
+    return {};
   },
 );
 

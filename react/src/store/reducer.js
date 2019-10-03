@@ -19,7 +19,6 @@ const reducer = (state = initialState, action = defaultAction) => {
         lng: action.location.lng,
         zoom: action.location.zoom
       }}
-      console.log(state);
       return { ...state };
     }
     default: {
