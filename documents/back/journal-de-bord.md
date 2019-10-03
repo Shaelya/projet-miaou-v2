@@ -491,7 +491,15 @@ https://github.com/O-clock-Titan/notes-Symfo-Fanny42/blob/master/S03/S03-E05.md
 2. je fais dans le terminal la commande `bin/console make:user`
 3. j'ai fais `bin/console m:m` puis `bin/console d:m:m`
 
-commande dans le terminal pour react `yarn` et apres `yarn build:dev`
+# commande dans le terminal
+
+1. Se placer dans le dossier **react**  : 
+ -`yarn` à faire dans le terminal de  vscode et apres`yarn build:dev` pour la mise à jour de react . 
+2. Se placer dans le dossier **back** :
+- commande dans le terminal pour symfo `composer install` pour la mise à jour de symfony . 
+
+3. Pour detecter les changements dans react et regarder les mises à jour `yarn watch` mais dans un terminal autre que celui de vscode . et le laisser actif durant la periode de travail . 
+4. Pour lancer le serveur avec symfony on se place dans le dossier **back** et on met dans le terminal `bin/console server:start` et il dans le localhost:8001 on pourra acceder au projet . 
 
 
 
