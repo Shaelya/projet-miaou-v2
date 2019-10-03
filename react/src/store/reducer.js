@@ -2,11 +2,7 @@
 export const SIDE_EFFECT = 'SIDE_EFFECT';
 
 const initialState = {
-  location: {
-    lat: 48.866667,
-    lng: 2.333333,
-    zoom: 13
-  }
+  alertButton: false
 };
 
 const defaultAction = {};

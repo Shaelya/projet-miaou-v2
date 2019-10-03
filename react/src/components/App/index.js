@@ -12,12 +12,12 @@ import { connect } from 'react-redux';
 
 // Composants enfants éventuels
 import Map from 'src/components/Map';
-import ButtonGeoloc from 'src/components/ButtonGeoloc';
+import AlertButton from 'src/components/AlertButton';
 
 // Styles et assets
 import './app.sass';
 
-const App = ({location, handleClick}) => (
+const App = () => (
   <div className="App">
     <nav className="navbar navbar-dark">
       <i className="fa fa-user-times"></i><p className="ml-2 text-white">non connecté</p>
@@ -34,12 +34,11 @@ const App = ({location, handleClick}) => (
     <div className="container-fluid">
       <div className="row">
         <div className="col">
-          <Map location={location} />
+          <Map />
         </div>
         <div className="col text-center">
-        
-        
-        <button type="button" className="btn btn-danger btn-lg button-alert"><i className="fa fa-bullhorn"></i><div>Poster une alerte</div></button>
+
+        <AlertButton />
         <div>
           <div className="btn-group-vertical">
             <button type="button" className="btn btn-danger btn-lg mb-4">Animaux Perdus</button>
@@ -77,12 +76,12 @@ const App = ({location, handleClick}) => (
  * Export
  */
 
-// Étape 1 : on définit des stratégies de connexion au store de l'app.
+ // Étape 1 : on définit des stratégies de connexion au store de l'app.
 const connectionStrategies = connect(
   // 1er argument : stratégie de lecture (dans le state privé global)
   (state) => {
     return {
-      location: state.location
+      alertButton: state.alertButton
     };
   },
 
@@ -97,6 +96,7 @@ const AppContainer = connectionStrategies(App);
 
 // Étape 3 : on exporte le composant connecté qui a été généré
 export default AppContainer;
+
 
 // const App = () => (
 // <div>
