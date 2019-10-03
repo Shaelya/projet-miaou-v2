@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import L from "leaflet";
 import * as ELG from "esri-leaflet-geocoder";
 import { Map, TileLayer, Marker } from "react-leaflet";
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 import "./map.sass";
 
 
@@ -59,25 +59,27 @@ class MiaouMap extends Component {
 
 
 
-// Étape 1 : on définit des stratégies de connexion au store de l'app.
-const connectionStrategies = connect(
-  // 1er argument : stratégie de lecture (dans le state privé global)
-  (state) => {
-    return {
-      alertButton: state.alertButton
-    };
-  },
+// // Étape 1 : on définit des stratégies de connexion au store de l'app.
+// const connectionStrategies = connect(
+//   // 1er argument : stratégie de lecture (dans le state privé global)
+//   (state) => {
+//     return {
+//       alertButton: state.alertButton
+//     };
+//   },
 
-  // 2d argument : stratégie d'écriture (dans le state privé global)
-  (dispatch, ownProps) => {
-    return {};
-  },
-);
+//   // 2d argument : stratégie d'écriture (dans le state privé global)
+//   (dispatch, ownProps) => {
+//     return {};
+//   },
+// );
 
-// Étape 2 : on applique ces stratégies à un composant spécifique.
-const MiaouMapContainer = connectionStrategies(MiaouMap);
+// // Étape 2 : on applique ces stratégies à un composant spécifique.
+// const MiaouMapContainer = connectionStrategies(MiaouMap);
 
-// Étape 3 : on exporte le composant connecté qui a été généré
-export default MiaouMapContainer;
+// // Étape 3 : on exporte le composant connecté qui a été généré
+// export default MiaouMapContainer;
+
+export default MiaouMap;
 
 

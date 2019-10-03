@@ -17,7 +17,7 @@ import AlertButton from 'src/components/AlertButton';
 // Styles et assets
 import './app.sass';
 
-const App = () => (
+const App = ({alertButton, handleClick}) => (
   <div className="App">
     <nav className="navbar navbar-dark">
       <i className="fa fa-user-times"></i><p className="ml-2 text-white">non connecté</p>
@@ -34,11 +34,11 @@ const App = () => (
     <div className="container-fluid">
       <div className="row">
         <div className="col">
-          <Map />
+          <Map alertButton={alertButton} />
         </div>
         <div className="col text-center">
 
-        <AlertButton />
+        <AlertButton alertButton={alertButton} handleClick={handleClick} />
         <div>
           <div className="btn-group-vertical">
             <button type="button" className="btn btn-danger btn-lg mb-4">Animaux Perdus</button>
@@ -87,7 +87,12 @@ const connectionStrategies = connect(
 
   // 2d argument : stratégie d'écriture (dans le state privé global)
   (dispatch, ownProps) => {
-    return {};
+    return {
+      handleClick: () => {
+        dispatch({ type: 'TOGGLE_ALERT_BUTTON_VALUE'});
+        
+      }
+    };
   },
 );
 
