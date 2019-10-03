@@ -18,40 +18,16 @@ class Type
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $cat;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $dog;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $rabbit;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $ferret;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $bird;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $other;
-
+    
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Advert", mappedBy="type", orphanRemoval=true)
      */
     private $adverts;
+
+    /**
+     * @ORM\Column(type="string", length=80)
+     */
+    private $species;
 
     public function __construct()
     {
@@ -63,77 +39,7 @@ class Type
         return $this->id;
     }
 
-    public function getCat(): ?bool
-    {
-        return $this->cat;
-    }
-
-    public function setCat(bool $cat): self
-    {
-        $this->cat = $cat;
-
-        return $this;
-    }
-
-    public function getDog(): ?bool
-    {
-        return $this->dog;
-    }
-
-    public function setDog(bool $dog): self
-    {
-        $this->dog = $dog;
-
-        return $this;
-    }
-
-    public function getRabbit(): ?bool
-    {
-        return $this->rabbit;
-    }
-
-    public function setRabbit(bool $rabbit): self
-    {
-        $this->rabbit = $rabbit;
-
-        return $this;
-    }
-
-    public function getFerret(): ?bool
-    {
-        return $this->ferret;
-    }
-
-    public function setFerret(bool $ferret): self
-    {
-        $this->ferret = $ferret;
-
-        return $this;
-    }
-
-    public function getBird(): ?bool
-    {
-        return $this->bird;
-    }
-
-    public function setBird(bool $bird): self
-    {
-        $this->bird = $bird;
-
-        return $this;
-    }
-
-    public function getOther(): ?bool
-    {
-        return $this->other;
-    }
-
-    public function setOther(bool $other): self
-    {
-        $this->other = $other;
-
-        return $this;
-    }
+   
 
     /**
      * @return Collection|Advert[]
@@ -162,6 +68,18 @@ class Type
                 $advert->setType(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSpecies(): ?string
+    {
+        return $this->species;
+    }
+
+    public function setSpecies(string $species): self
+    {
+        $this->species = $species;
 
         return $this;
     }
