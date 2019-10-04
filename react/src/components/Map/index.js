@@ -25,12 +25,17 @@ class MiaouMap extends Component {
 
   addMarker = (e) => {
     if(this.props.alertButton) {
-      const markers = this.state.markers;
-      markers.push(e.latlng);
-      this.props.handleClickMap();
-      this.setState({
-        markers: markers
-      })
+      const answer = window.confirm('Voulez-vous placer une alerte ici ?');
+      if(answer == true) {
+        const markers = this.state.markers;
+        markers.push(e.latlng);
+        this.props.handleClickMap();
+        this.setState({
+          markers: markers
+        })
+      } else {
+        this.props.handleClickMap();
+      }
     }
 
   }
@@ -57,29 +62,6 @@ class MiaouMap extends Component {
     );
   }
 }
-
-
-
-// // Étape 1 : on définit des stratégies de connexion au store de l'app.
-// const connectionStrategies = connect(
-//   // 1er argument : stratégie de lecture (dans le state privé global)
-//   (state) => {
-//     return {
-//       alertButton: state.alertButton
-//     };
-//   },
-
-//   // 2d argument : stratégie d'écriture (dans le state privé global)
-//   (dispatch, ownProps) => {
-//     return {};
-//   },
-// );
-
-// // Étape 2 : on applique ces stratégies à un composant spécifique.
-// const MiaouMapContainer = connectionStrategies(MiaouMap);
-
-// // Étape 3 : on exporte le composant connecté qui a été généré
-// export default MiaouMapContainer;
 
 export default MiaouMap;
 
