@@ -34,7 +34,7 @@ const App = ({alertButton, handleClick}) => (
     <div className="container-fluid">
       <div className="row">
         <div className="col">
-          <Map alertButton={alertButton} />
+          <Map alertButton={alertButton} handleClickMap={handleClick} />
         </div>
         <div className="col text-center">
 

@@ -25,8 +25,9 @@ class MiaouMap extends Component {
 
   addMarker = (e) => {
     if(this.props.alertButton) {
-      const markers = this.state.markers
-      markers.push(e.latlng)
+      const markers = this.state.markers;
+      markers.push(e.latlng);
+      this.props.handleClickMap();
       this.setState({
         markers: markers
       })
