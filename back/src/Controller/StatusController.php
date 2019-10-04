@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Advert;
+use App\Entity\Comment;
 use App\Entity\Status;
+use App\Entity\Type;
+use App\Entity\User;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,60 +26,22 @@ class StatusController extends AbstractController
             'controller_name' => 'StatusController',
         ]);
     }
+
     /**
-     * @Route("/apiLost", name="apiLost")
+     * @Route("/api/Lost", name="apiLost")
      */
     public function statusLost()
     {
 
-        $lost = $this->getDoctrine()->getRepository(Status::class)->findAll();
+        $name = $this->getDoctrine()->getRepository(Advert::class)->findAll();
 
 
         $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));           
         $normalizer = new ObjectNormalizer($classMetadataFactory);
         $serializer = new Serializer([$normalizer]);
-
-
-        $data = $serializer->normalize($lost);
+        $data = $serializer->normalize($name);
         
         return $this->json($data);
     }
 
-    /**
-     * @Route("/apiSeen", name="apiSeen")
-     */
-    public function statusSeen()
-    {
-
-        $seen = $this->getDoctrine()->getRepository(Status::class)->findAll();
-
-
-        $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));           
-        $normalizer = new ObjectNormalizer($classMetadataFactory);
-        $serializer = new Serializer([$normalizer]);
-
-
-        $data = $serializer->normalize($seen);
-        
-        return $this->json($data);
-    }
-
-    /**
-     * @Route("/apiFind", name="apiFind")
-     */
-    public function statusFind()
-    {
-
-        $find = $this->getDoctrine()->getRepository(Status::class)->findAll();
-
-
-        $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));           
-        $normalizer = new ObjectNormalizer($classMetadataFactory);
-        $serializer = new Serializer([$normalizer]);
-
-
-        $data = $serializer->normalize($find);
-        
-        return $this->json($data);
-    }
 }

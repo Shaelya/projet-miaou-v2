@@ -1,5 +1,5 @@
 App\Entity\User:
-  user{1..20} :
+  user{1..40} :
     email : ' <name()> '
     password : ' <password()> '
     lastName : ' <lastName()> '
@@ -7,14 +7,14 @@ App\Entity\User:
     phone : ' <phoneNumber()> '
 
 App\Entity\Advert:
-  advert{1..40} :
+  advert{1..20} :
     user : '@user*'
     type : '@type*'
     status : '@status*'
     name : ' <word()> '
     sex : ' <boolean(50)> '
     age : ' <randomDigit()> '
-    description : ' <text($maxNbChars = 200)>'
+    description : ' <text(200)>'
     longitude : ' <longitude()> '
     latitude : ' <latitude()> '
     createdAt : '<date_create()>'
@@ -24,8 +24,8 @@ App\Entity\Comment:
   comment{1..20} :
     user : '@user*'
     advert : '@advert*'
-    title : ' <sentence(10)> '
-    text : ' <sentence(30)> '
+    title : ' <word(2)> '
+    text : ' <sentence(10)> '
     createdAt : '<date_create()>'
 
 App\Entity\Status:

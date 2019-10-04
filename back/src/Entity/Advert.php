@@ -23,15 +23,7 @@ class Advert
      */
     private $name;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $sex;
 
-    /**
-     * @ORM\Column(type="int")
-     */
-    private $age;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -87,6 +79,16 @@ class Advert
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $sex;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $age;
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
@@ -110,29 +112,6 @@ class Advert
         return $this;
     }
 
-    public function getSex(): ?bool
-    {
-        return $this->sex;
-    }
-
-    public function setSex(bool $sex): self
-    {
-        $this->sex = $sex;
-
-        return $this;
-    }
-
-    public function getAge(): ?int
-    {
-        return $this->age;
-    }
-
-    public function setAge(int $age): self
-    {
-        $this->age = $age;
-
-        return $this;
-    }
 
     public function getDescription(): ?string
     {
@@ -288,6 +267,30 @@ class Advert
                 $comment->setAdvert(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSex(): ?bool
+    {
+        return $this->sex;
+    }
+
+    public function setSex(bool $sex): self
+    {
+        $this->sex = $sex;
+
+        return $this;
+    }
+
+    public function getAge(): ?string
+    {
+        return $this->age;
+    }
+
+    public function setAge(string $age): self
+    {
+        $this->age = $age;
 
         return $this;
     }
