@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Status;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -80,14 +81,19 @@ class Advert
     private $comments;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $sex;
-
-    /**
      * @ORM\Column(type="string", length=10)
      */
     private $age;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $male;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $female;
 
     public function __construct()
     {
@@ -271,18 +277,6 @@ class Advert
         return $this;
     }
 
-    public function getSex(): ?bool
-    {
-        return $this->sex;
-    }
-
-    public function setSex(bool $sex): self
-    {
-        $this->sex = $sex;
-
-        return $this;
-    }
-
     public function getAge(): ?string
     {
         return $this->age;
@@ -291,6 +285,30 @@ class Advert
     public function setAge(string $age): self
     {
         $this->age = $age;
+
+        return $this;
+    }
+
+    public function getMale(): ?bool
+    {
+        return $this->male;
+    }
+
+    public function setMale(bool $male): self
+    {
+        $this->male = $male;
+
+        return $this;
+    }
+
+    public function getFemale(): ?bool
+    {
+        return $this->female;
+    }
+
+    public function setFemale(bool $female): self
+    {
+        $this->female = $female;
 
         return $this;
     }

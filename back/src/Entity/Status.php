@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StatusRepository")
@@ -47,7 +48,9 @@ class Status
     {
         return $this->id;
     }
-
+    /**
+     * @Groups("apiLost")
+     */
     public function getLost(): ?bool
     {
         return $this->lost;
@@ -86,7 +89,9 @@ class Status
 
     /**
      * @return Collection|Advert[]
+     * @Groups("api")
      */
+     
     public function getAdverts(): Collection
     {
         return $this->adverts;
