@@ -29,7 +29,7 @@ class Advert
     private $sex;
 
     /**
-     * @ORM\Column(type="smallint")
+     * @ORM\Column(type="int")
      */
     private $age;
 

@@ -9,9 +9,11 @@ App\Entity\User:
 App\Entity\Advert:
   advert{1..40} :
     user : '@user*'
+    type : '@type*'
+    status : '@status*'
     name : ' <word()> '
-    sex : ' <boolean($chanceOfGettingTrue = 50)> '
-    age : ' <randomDigitNotNull()> '
+    sex : ' <boolean(50)> '
+    age : ' <randomDigit()> '
     description : ' <text($maxNbChars = 200)>'
     longitude : ' <longitude()> '
     latitude : ' <latitude()> '
@@ -28,12 +30,12 @@ App\Entity\Comment:
 
 App\Entity\Status:
   status{1..40} :
-    lost : ' <boolean($chanceOfGettingTrue = 50)> '
-    seen : ' <boolean($chanceOfGettingTrue = 25)> '
-    find : ' <boolean($chanceOfGettingTrue = 25)> '
+    lost : ' <boolean(50)> '
+    seen : ' <boolean(25)> '
+    find : ' <boolean(25)> '
 
 App\Entity\Type:
-  usertype{1..20} :
-  species : ' <word>() '
+  type{1..20} :
+    species : ' <word()> '
 
 
