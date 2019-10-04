@@ -2,27 +2,28 @@
 export const SIDE_EFFECT = 'SIDE_EFFECT';
 
 const initialState = {
-  location: {
-    lat: 48.866667,
-    lng: 2.333333,
-    zoom: 13
-  }
+  alertButton: false
 };
 
 const defaultAction = {};
 
 const reducer = (state = initialState, action = defaultAction) => {
   switch (action.type) {
-    case 'UPDATE_LOCATION': {
-      const state = { ...state, location: {
-        lat: action.location.lat,
-        lng: action.location.lng,
-        zoom: action.location.zoom
-      }}
-      console.log(state);
-      return { ...state };
+    // case 'UPDATE_LOCATION': {
+    //   const state = { ...state, location: {
+    //     lat: action.location.lat,
+    //     lng: action.location.lng,
+    //     zoom: action.location.zoom
+    //   }}
+    //   return { ...state };
+    // }
+    case 'TOGGLE_ALERT_BUTTON_VALUE': {
+      
+      return { ...state, alertButton: !state.alertButton }
+
     }
     default: {
+      console.log(state);
       // return state;
       // Dans le cas où on ne comprend pas quelle est l'action à
       // effecture (action.type n'est pas reconnu), on retourne
