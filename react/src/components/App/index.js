@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 
 /**
@@ -11,58 +12,15 @@ import { connect } from 'react-redux';
 // import { updateInputValue } from 'src/store/reducer';
 
 // Composants enfants éventuels
-import Map from 'src/components/Map';
-import AlertButton from 'src/components/AlertButton';
+import Homepage from 'src/components/Homepage';
+
 
 // Styles et assets
 import './app.sass';
 
 const App = ({alertButton, handleClick}) => (
   <div className="App">
-    <nav className="navbar navbar-dark">
-      <i className="fa fa-user-times"></i><p className="ml-2 text-white">non connecté</p>
-      <a className="navbar-brand mx-auto" href="#">
-        <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt=""/>
-        <h1>MIA'Où</h1>
-      </a>
-      <form className="form-inline">
-        <button className="btn btn-info mr-2" type="button">Se connecter</button>
-        <button className="btn btn-info" type="button">S'inscrire</button>
-      </form>
-    </nav>
-    <p className="subtitle text-white">Le site des animaux perdus</p>
-    <div className="container-fluid">
-      <div className="row">
-        <div className="col">
-          <Map alertButton={alertButton} handleClickMap={handleClick} />
-        </div>
-        <div className="col text-center">
-
-        <AlertButton alertButton={alertButton} handleClick={handleClick} />
-        <div>
-          <div className="btn-group-vertical">
-            <button type="button" className="btn btn-danger btn-lg mb-4">Animaux Perdus</button>
-            <button type="button" className="btn btn-warning btn-lg mb-4">Animaux Vus</button>
-            <button type="button" className="btn btn-info btn-lg">Animaux Trouvés</button>
-            
-          </div>
-        </div>
-        
-      </div>
-   </div>
-
-   <nav className="navbar fixed-bottom navbar-dark bg-dark mt-4">
-    <a className="text-danger" href="#">Comment ça marche ?</a>
-    <a className="text-white" href="#">L'équipe</a>
-    <a className="text-white" href="#">Mentions Légales</a>
-    <a className="text-white" href="#">Liens Externes</a>
-   </nav>
-
-
-
-  </div>
-
-
+    <Route path='/' exact render= {() => <Homepage alertButton={alertButton} handleClick={handleClick} />} />
     
   </div>
 );
