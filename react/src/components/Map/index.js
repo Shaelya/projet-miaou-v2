@@ -6,6 +6,10 @@ import { Map, TileLayer, Marker } from "react-leaflet";
 import "./map.sass";
 
 
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+
 class MiaouMap extends Component {
   state = {
     markers: []
@@ -24,18 +28,48 @@ class MiaouMap extends Component {
   }
 
   addMarker = (e) => {
+    const MySwal = withReactContent(Swal);
+
     if(this.props.alertButton) {
-      const answer = window.confirm('Voulez-vous placer une alerte ici ?');
-      if(answer == true) {
-        const markers = this.state.markers;
-        markers.push(e.latlng);
-        this.props.handleClickMap();
-        this.setState({
-          markers: markers
-        })
-      } else {
-        this.props.handleClickMap();
-      }
+
+      MySwal.fire({
+        title: 'Voulez-vous placer une alerte ici ?',
+        text: '(Si oui, le formulaire d\'alerte s\'ouvrira)',
+        type: "question",
+        showCancelButton: true,
+        confirmButtonText: 'Oui',
+        cancelButtonText: 'Non'
+      }).then((result) => {
+        if(result.value) {
+          //Ici gérer l'ouverture du formulaire d'alerte
+          Swal.fire({
+            text: 'L\'épingle a été placée sur la carte',
+            type: 'success'
+          }
+          )
+          const markers = this.state.markers;
+          markers.push(e.latlng);
+          this.props.handleClickMap();
+          this.setState({
+            markers: markers
+          })
+        } else {
+            this.props.handleClickMap();
+        }
+      })
+      
+      ;
+      // const answer = window.confirm('Voulez-vous placer une alerte ici ?');
+      // if(answer == true) {
+      //   const markers = this.state.markers;
+      //   markers.push(e.latlng);
+      //   this.props.handleClickMap();
+      //   this.setState({
+      //     markers: markers
+      //   })
+      // } else {
+      //   this.props.handleClickMap();
+      // }
     }
 
   }
