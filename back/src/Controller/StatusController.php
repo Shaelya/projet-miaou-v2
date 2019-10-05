@@ -33,14 +33,14 @@ class StatusController extends AbstractController
     public function statusLost()
     {
 
-        $lost = $this->getDoctrine()->getRepository(Status::class)->findAll();
+        $advert = $this->getDoctrine()->getRepository(Advert::class)->findAll();
 
 
         $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));           
         $normalizer = new ObjectNormalizer($classMetadataFactory);
         $serializer = new Serializer([$normalizer]);
 
-        $data = $serializer->normalize($lost, null, ['groups' => 'apiLost']);
+        $data = $serializer->normalize($advert, null, ['groups' => 'apiLost']);
         
         return $this->json($data);
     }

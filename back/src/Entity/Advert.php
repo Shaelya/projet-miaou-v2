@@ -6,6 +6,8 @@ use App\Entity\Status;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdvertRepository")
@@ -105,7 +107,9 @@ class Advert
     {
         return $this->id;
     }
-
+    /**
+     * @Groups("apiLost")
+     */
     public function getName(): ?string
     {
         return $this->name;
@@ -130,7 +134,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiLost")
+     */
     public function getLatitude(): ?string
     {
         return $this->latitude;
@@ -142,7 +148,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiLost")
+     */
     public function getLongitude(): ?string
     {
         return $this->longitude;
@@ -202,7 +210,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiLost")
+     */
     public function getStatus(): ?Status
     {
         return $this->status;
