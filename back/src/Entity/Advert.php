@@ -108,7 +108,7 @@ class Advert
         return $this->id;
     }
     /**
-     * @Groups("apiLost")
+     * @Groups("apiStatus")
      */
     public function getName(): ?string
     {
@@ -135,7 +135,7 @@ class Advert
         return $this;
     }
     /**
-     * @Groups("apiLost")
+     * @Groups("apiStatus")
      */
     public function getLatitude(): ?string
     {
@@ -149,7 +149,7 @@ class Advert
         return $this;
     }
     /**
-     * @Groups("apiLost")
+     * @Groups("apiStatus")
      */
     public function getLongitude(): ?string
     {
@@ -198,7 +198,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getType(): ?Type
     {
         return $this->type;
@@ -211,7 +213,7 @@ class Advert
         return $this;
     }
     /**
-     * @Groups("apiLost")
+     * @Groups("apiStatus")
      */
     public function getStatus(): ?Status
     {
@@ -227,6 +229,7 @@ class Advert
 
     /**
      * @return Collection|Picture[]
+     * @Groups("apiStatus")
      */
     public function getPictures(): Collection
     {

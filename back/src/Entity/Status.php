@@ -49,7 +49,7 @@ class Status
         return $this->id;
     }
     /**
-     * @Groups("apiLost")
+     * @Groups("apiStatus")
      */
     public function getLost(): ?bool
     {
@@ -62,7 +62,9 @@ class Status
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getSeen(): ?bool
     {
         return $this->seen;
@@ -74,7 +76,9 @@ class Status
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getFind(): ?bool
     {
         return $this->find;
@@ -89,7 +93,6 @@ class Status
 
     /**
      * @return Collection|Advert[]
-     * @Groups("api")
      */
      
     public function getAdverts(): Collection

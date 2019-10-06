@@ -57,7 +57,9 @@ class Picture
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getImage(): ?string
     {
         return $this->image;

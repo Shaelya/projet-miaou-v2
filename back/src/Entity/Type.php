@@ -71,7 +71,9 @@ class Type
 
         return $this;
     }
-
+    /**
+     * @Groups("apiFind")
+     */
     public function getSpecies(): ?string
     {
         return $this->species;

@@ -28,9 +28,9 @@ class StatusController extends AbstractController
     }
 
     /**
-     * @Route("/api/Lost", name="apiLost")
+     * @Route("/api/status", name="apiStatus")
      */
-    public function statusLost()
+    public function status() // API qui permet de récupérer une fiche alerte animal perdu/vu/trouvé ( nom + latitude +longitude + status + photo + type) ( url = /api/status )
     {
 
         $advert = $this->getDoctrine()->getRepository(Advert::class)->findAll();
@@ -40,7 +40,7 @@ class StatusController extends AbstractController
         $normalizer = new ObjectNormalizer($classMetadataFactory);
         $serializer = new Serializer([$normalizer]);
 
-        $data = $serializer->normalize($advert, null, ['groups' => 'apiLost']);
+        $data = $serializer->normalize($advert, null, ['groups' => 'apiStatus']);
         
         return $this->json($data);
     }
