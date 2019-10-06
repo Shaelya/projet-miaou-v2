@@ -26,11 +26,11 @@ import Team from 'src/components/Team';
 // Styles et assets
 import './app.sass';
 
-const App = ({alertButton, handleClick}) => (
+const App = ({alertButton, data, handleClick, getData}) => (
   <div className="App">
     {/* Todo : Si l'utilisateur est connecté afficher de HeaderConnected, sinon afficher le HeaderDisconnected */}
     <HeaderDisconnected />
-    <Route path='/' exact render= {() => <Home alertButton={alertButton} handleClick={handleClick} />} />
+    <Route path='/' exact render= {() => <Home alertButton={alertButton} data={data} handleClick={handleClick} getData={getData} />} />
     <Route path='/inscription' exact render= {() => <Inscription />} />
     <Route path='/connexion' exact render= {() => <Connexion />} />
     <Route path='/comment-ca-marche' exact render= {() => <HowItWorks />} />
@@ -56,7 +56,8 @@ const connectionStrategies = connect(
   // 1er argument : stratégie de lecture (dans le state privé global)
   (state) => {
     return {
-      alertButton: state.alertButton
+      alertButton: state.alertButton,
+      data: state.data
     };
   },
 
@@ -66,6 +67,9 @@ const connectionStrategies = connect(
       handleClick: () => {
         dispatch({ type: 'TOGGLE_ALERT_BUTTON_VALUE'});
         
+      },
+      getData: () => {
+        dispatch({type: 'APP_LOAD'});
       }
     };
   },

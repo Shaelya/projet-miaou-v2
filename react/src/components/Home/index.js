@@ -2,11 +2,11 @@ import React from 'react';
 import Map from 'src/components/Map';
 import AlertButton from 'src/components/AlertButton';
 
-const Home = ({alertButton, handleClick}) => (
+const Home = ({alertButton, data, handleClick, getData}) => (
   <div className="container-fluid">
     <div className="row">
       <div className="col">
-        <Map alertButton={alertButton} handleClickMap={handleClick} />
+        <Map alertButton={alertButton} data={data} handleClickMap={handleClick} getData={getData} />
       </div>
       <div className="col text-center">
 

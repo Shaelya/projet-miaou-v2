@@ -2,7 +2,8 @@
 export const SIDE_EFFECT = 'SIDE_EFFECT';
 
 const initialState = {
-  alertButton: false
+  alertButton: false,
+  data:[]
 };
 
 const defaultAction = {};
@@ -21,6 +22,9 @@ const reducer = (state = initialState, action = defaultAction) => {
       
       return { ...state, alertButton: !state.alertButton }
 
+    }
+    case 'GET_ALL_ALERTS': {
+      return { ...state, data: action.data }
     }
     default: {
       console.log(state);

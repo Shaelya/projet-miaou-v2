@@ -18,6 +18,7 @@ class MiaouMap extends Component {
     const map = this.leafletMap.leafletElement;
     const searchControl = new ELG.Geosearch().addTo(map);
     const results = new L.LayerGroup().addTo(map);
+    this.props.getData();
 
     searchControl.on("results", function(data) {
       results.clearLayers();
@@ -76,6 +77,7 @@ class MiaouMap extends Component {
 
   render() {
     const center = [46.227638, 2.213749];
+    const data = this.props.data;
     return (
       <Map
         center={center}
@@ -89,8 +91,11 @@ class MiaouMap extends Component {
           attribution="&copy; <a href='https://osm.org/copyright'>OpenStreetMap</a> contributors"
           url={"http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}
         />
-        {this.state.markers.map((position, idx) => 
-          <Marker key={`marker-${idx}`} position={position}></Marker>
+        {data.map((alerte) => {
+          const position = [alerte.latitude, alerte.longitude];
+          return <Marker position={position}></Marker>
+        }
+          
         )}
       </Map>
     );

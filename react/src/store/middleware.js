@@ -1,4 +1,5 @@
 import { SIDE_EFFECT } from 'src/store/reducer';
+import axios from 'axios';
 
 // On implémente un middleware. Son rôle est d'intercepter des actions
 // dont le but premier n'est pas d'arriver jusqu'au reducer.
@@ -18,6 +19,13 @@ const middleware = (store) => (next) => (action) => {
     case SIDE_EFFECT: {
       console.log('middleware/SIDE_EFFECT');
       // Ici, on peut faire du logging, lancer des requêtes AJAX, etc.
+      break;
+    }
+    case 'APP_LOAD': {
+      axios.get('/api/status').then(result => store.dispatch({ type: 'GET_ALL_ALERTS' , data: result.data }))
+      .catch((error) => {
+        console.error(error);
+      });
       break;
     }
 
