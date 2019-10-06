@@ -14,5 +14,3 @@ nelmio_alice:
     max_unique_values_retry: 150    # Maximum number of time Alice can try to
                                     # generate a unique value before stopping and
                                     # failing.
-
-

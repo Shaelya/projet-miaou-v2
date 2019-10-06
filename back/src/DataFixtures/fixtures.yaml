@@ -1,0 +1,42 @@
+App\Entity\User:
+  user{1..40} :
+    email : ' <name()> '
+    password : ' <password()> '
+    lastName : ' <lastName()> '
+    firstName : ' <firstName()> '
+    phone : ' <phoneNumber()> '
+
+App\Entity\Advert:
+  advert{1..20} :
+    user : '@user*'
+    type : '@type*'
+    status : '@status*'
+    name : ' <word()> '
+    male : ' <boolean(50)> '
+    female : ' <boolean(50)> '
+    age : ' <randomDigit()> '
+    description : ' <text(200)>'
+    longitude : ' <longitude()> '
+    latitude : ' <latitude()> '
+    createdAt : '<date_create()>'
+  
+
+App\Entity\Comment:
+  comment{1..20} :
+    user : '@user*'
+    advert : '@advert*'
+    title : ' <word(2)> '
+    text : ' <sentence(10)> '
+    createdAt : '<date_create()>'
+
+App\Entity\Status:
+  status{1..40} :
+    lost : ' <boolean(50)> '
+    seen : ' <boolean(25)> '
+    find : ' <boolean(25)> '
+
+App\Entity\Type:
+  type{1..20} :
+    species : ' <word()> '
+
+
