@@ -12,7 +12,15 @@ import { Route } from 'react-router-dom';
 // import { updateInputValue } from 'src/store/reducer';
 
 // Composants enfants éventuels
-import Homepage from 'src/components/Homepage';
+import Home from 'src/components/Home';
+import HeaderDisconnected from 'src/components/HeaderDisconnected';
+import Footer from 'src/components/Footer';
+import Inscription from 'src/components/Inscription';
+import Connexion from 'src/components/Connexion';
+import HowItWorks from 'src/components/HowItWorks';
+import Legal from 'src/components/Legal';
+import ExternalLinks from 'src/components/ExternalLinks';
+import Team from 'src/components/Team';
 
 
 // Styles et assets
@@ -20,8 +28,17 @@ import './app.sass';
 
 const App = ({alertButton, handleClick}) => (
   <div className="App">
-    <Route path='/' exact render= {() => <Homepage alertButton={alertButton} handleClick={handleClick} />} />
-    
+    {/* Todo : Si l'utilisateur est connecté afficher de HeaderConnected, sinon afficher le HeaderDisconnected */}
+    <HeaderDisconnected />
+    <Route path='/' exact render= {() => <Home alertButton={alertButton} handleClick={handleClick} />} />
+    <Route path='/inscription' exact render= {() => <Inscription />} />
+    <Route path='/connexion' exact render= {() => <Connexion />} />
+    <Route path='/comment-ca-marche' exact render= {() => <HowItWorks />} />
+    <Route path='/mentions-legales' exact render= {() => <Legal />} />
+    <Route path='/liens-externes' exact render= {() => <ExternalLinks />} />
+    <Route path='/equipe' exact render= {() => <Team />} />
+    {/* Todo : Faire une route profil + navLink dans le HeaderConnected */}
+    <Footer />
   </div>
 );
 
