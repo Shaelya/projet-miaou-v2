@@ -15,8 +15,6 @@ import { Route } from 'react-router-dom';
 import Home from 'src/components/Home';
 import HeaderDisconnected from 'src/components/HeaderDisconnected';
 import Footer from 'src/components/Footer';
-import Inscription from 'src/components/Inscription';
-import Connexion from 'src/components/Connexion';
 import HowItWorks from 'src/components/HowItWorks';
 import Legal from 'src/components/Legal';
 import ExternalLinks from 'src/components/ExternalLinks';
