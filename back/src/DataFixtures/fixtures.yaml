@@ -7,7 +7,7 @@ App\Entity\User:
     phone : ' <phoneNumber()> '
 
 App\Entity\Advert:
-  advert{1..20} :
+  advert{1..6} :
     user : '@user*'
     type : '@type*'
     status : '@status*'
@@ -30,13 +30,13 @@ App\Entity\Comment:
     createdAt : '<date_create()>'
 
 App\Entity\Status:
-  status{1..40} :
+  status{1..6} :
     lost : ' <boolean(50)> '
     seen : ' <boolean(25)> '
     find : ' <boolean(25)> '
 
 App\Entity\Type:
-  type{1..20} :
+  type{1..6} :
     species : ' <word()> '
 
 
