@@ -14,13 +14,13 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
-/**
- * @Route("/app", name="app_")
- */
+// /**
+// * @Route("/app", name="app_")
+// */
 class UserController extends AbstractController
 {
     /**
-     * @Route("/login", name="login")
+     * @Route("/connexion", name="login")
      */
     public function login(AuthenticationUtils $authenticationUtils): Response 
     {
@@ -37,7 +37,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/logout", name="logout")
+     * @Route("/deconnexion", name="logout")
      */
     public function logout()
     {
@@ -45,7 +45,7 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/register", name="register")
+     * @Route("/inscription", name="register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $encoder)
     {
