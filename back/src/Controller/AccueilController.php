@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AccueilController extends AbstractController
 {
      /**
-     * @Route("/{reactRouting}", name="index", defaults={"reactRouting": null})
+     * @Route("/{reactRouting}", name="index", requirements={"reactRouting"="(.+)[^connexion][^inscription]"}, defaults={"reactRouting": null})
      */
     public function index()
     {
