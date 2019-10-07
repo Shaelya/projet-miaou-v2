@@ -93,7 +93,7 @@ class MiaouMap extends Component {
         />
         {data.map((alerte) => {
           const position = [alerte.latitude, alerte.longitude];
-          return <Marker position={position}></Marker>
+          return <Marker key={alerte.id} position={position}></Marker>
         }
           
         )}
