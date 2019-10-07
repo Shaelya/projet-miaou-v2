@@ -102,7 +102,9 @@ class Advert
         $this->pictures = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getId(): ?int
     {
         return $this->id;
