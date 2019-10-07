@@ -98,9 +98,9 @@ class MiaouMap extends Component {
           return <Marker key={alerte.id} position={position}></Marker>
         }
         )}
-        {markers.map((marker) => {
+        {markers.map((marker, index) => {
           const position = [marker.lat, marker.lng];
-          return <Marker position={position}></Marker>
+          return <Marker key={index} position={position}></Marker>
         }
         )}
       </Map>
