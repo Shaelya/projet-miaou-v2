@@ -32,7 +32,7 @@ const App = ({alertButton, data, handleClick, getData}) => (
     <HeaderDisconnected />
     <Route path='/' exact render= {() => <Home alertButton={alertButton} data={data} handleClick={handleClick} getData={getData} />} />
     <Route path='/inscription' exact render= {() => <Inscription />} />
-    <Route path='/connexion' exact render= {() => <Connexion />} />
+    <Route path='/app/login' exact render= {() => <Connexion />} />
     <Route path='/comment-ca-marche' exact render= {() => <HowItWorks />} />
     <Route path='/mentions-legales' exact render= {() => <Legal />} />
     <Route path='/liens-externes' exact render= {() => <ExternalLinks />} />
