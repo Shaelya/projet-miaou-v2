@@ -78,6 +78,8 @@ class MiaouMap extends Component {
   render() {
     const center = [46.227638, 2.213749];
     const data = this.props.data;
+    let markers = this.state.markers;
+    
     return (
       <Map
         center={center}
@@ -95,7 +97,11 @@ class MiaouMap extends Component {
           const position = [alerte.latitude, alerte.longitude];
           return <Marker key={alerte.id} position={position}></Marker>
         }
-          
+        )}
+        {markers.map((marker) => {
+          const position = [marker.lat, marker.lng];
+          return <Marker position={position}></Marker>
+        }
         )}
       </Map>
     );
