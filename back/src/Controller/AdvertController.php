@@ -4,13 +4,14 @@ namespace App\Controller;
 //ce sont mes entites que je vais chercher dans le use
 use App\Entity\Advert;
 use App\Form\AdvertType;
+use Symfony\Flex\Response;
 use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Form\Extension\Core\Type\SubmitTYpe;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Form\Extension\Core\Type\SubmitTYpe;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -48,8 +49,9 @@ class AdvertController extends AbstractController
         return $this->render('advert/index.html.twig', [
              'form' => $form->createView()
         ]);
-    }
+     }
+
+
 
     
-    
-}
+    }
