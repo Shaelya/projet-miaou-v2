@@ -95,12 +95,16 @@ class Advert
         $this->pictures = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
-
+    /**
+     * @Groups ("apiStatus")
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
-
+    /**
+     * @Groups ("apiStatus")
+     */
     public function getName(): ?string
     {
         return $this->name;
@@ -125,7 +129,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups ("apiStatus")
+     */
     public function getLatitude(): ?string
     {
         return $this->latitude;
@@ -137,7 +143,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups ("apiStatus")
+     */
     public function getLongitude(): ?string
     {
         return $this->longitude;
