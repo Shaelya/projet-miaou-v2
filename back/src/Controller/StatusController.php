@@ -17,15 +17,15 @@ use Symfony\Component\Serializer\Serializer;
 
 class StatusController extends AbstractController
 {
-    /**
-     * @Route("/status", name="status")
-     */
-    public function index()
-    {
-        return $this->render('status/index.html.twig', [
-            'controller_name' => 'StatusController',
-        ]);
-    }
+    //**
+    // * @Route("/status", name="status")
+    // */
+    //public function index()
+    //{
+    //    return $this->render('status/index.html.twig', [
+    //        'controller_name' => 'StatusController',
+    //    ]);
+    //}
 
     /**
      * @Route("/api/status", name="apiStatus")

@@ -9,16 +9,15 @@ App\Entity\User:
 App\Entity\Advert:
   advert{1..6} :
     user : '@user*'
-    type : '@type*'
-    status : '@status*'
     name : ' <word()> '
-    male : ' <boolean(50)> '
-    female : ' <boolean(50)> '
+    sex : ' <word()> '
     age : ' <randomDigit()> '
     description : ' <text(200)>'
     longitude : ' <longitude()> '
     latitude : ' <latitude()> '
     createdAt : '<date_create()>'
+    type : ' <word()> ' 
+    status : ' <word()> '
   
 
 App\Entity\Comment:
@@ -29,14 +28,6 @@ App\Entity\Comment:
     text : ' <sentence(10)> '
     createdAt : '<date_create()>'
 
-App\Entity\Status:
-  status{1..6} :
-    lost : ' <boolean(50)> '
-    seen : ' <boolean(25)> '
-    find : ' <boolean(25)> '
 
-App\Entity\Type:
-  type{1..6} :
-    species : ' <word()> '
 
 

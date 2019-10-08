@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-use App\Entity\Status;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -61,18 +61,6 @@ class Advert
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Type", inversedBy="adverts")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $type;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Status", inversedBy="adverts")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $status;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Picture", mappedBy="advert")
      */
     private $pictures;
@@ -88,30 +76,31 @@ class Advert
     private $age;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="string", length=255)
      */
-    private $male;
+    private $sex;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="string", length=255)
      */
-    private $female;
+    private $type;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $status;
 
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
-    /**
-     * @Groups("apiStatus")
-     */
+
     public function getId(): ?int
     {
         return $this->id;
     }
-    /**
-     * @Groups("apiStatus")
-     */
+
     public function getName(): ?string
     {
         return $this->name;
@@ -136,9 +125,7 @@ class Advert
 
         return $this;
     }
-    /**
-     * @Groups("apiStatus")
-     */
+
     public function getLatitude(): ?string
     {
         return $this->latitude;
@@ -150,9 +137,7 @@ class Advert
 
         return $this;
     }
-    /**
-     * @Groups("apiStatus")
-     */
+
     public function getLongitude(): ?string
     {
         return $this->longitude;
@@ -197,34 +182,6 @@ class Advert
     public function setUser(?User $user): self
     {
         $this->user = $user;
-
-        return $this;
-    }
-    /**
-     * @Groups("apiStatus")
-     */
-    public function getType(): ?Type
-    {
-        return $this->type;
-    }
-
-    public function setType(?Type $type): self
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-    /**
-     * @Groups("apiStatus")
-     */
-    public function getStatus(): ?Status
-    {
-        return $this->status;
-    }
-
-    public function setStatus(?Status $status): self
-    {
-        $this->status = $status;
 
         return $this;
     }
@@ -304,29 +261,40 @@ class Advert
         return $this;
     }
 
-    public function getMale(): ?bool
+    public function getSex(): ?string
     {
-        return $this->male;
+        return $this->sex;
     }
 
-    public function setMale(bool $male): self
+    public function setSex(string $sex): self
     {
-        $this->male = $male;
+        $this->sex = $sex;
 
         return $this;
     }
 
-    public function getFemale(): ?bool
+    public function getType(): ?string
     {
-        return $this->female;
+        return $this->type;
     }
 
-    public function setFemale(bool $female): self
+    public function setType(string $type): self
     {
-        $this->female = $female;
+        $this->type = $type;
 
         return $this;
     }
 
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
 
 }
