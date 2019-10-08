@@ -48,6 +48,11 @@ class Comment
      */
     private $user;
 
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime(); // quand je crée une annonce le createdAt se crée automatiquement 
+    }
+
     public function getId(): ?int
     {
         return $this->id;

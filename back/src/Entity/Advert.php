@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-
+use App\Picture;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -34,12 +34,12 @@ class Advert
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $latitude;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $longitude;
 
@@ -61,17 +61,12 @@ class Advert
     private $user;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Picture", mappedBy="advert")
-     */
-    private $pictures;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="advert", orphanRemoval=true)
      */
     private $comments;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="integer")
      */
     private $age;
 
@@ -90,9 +85,19 @@ class Advert
      */
     private $status;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lieu;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture;
+
     public function __construct()
     {
-        $this->pictures = new ArrayCollection();
+        $this->createdAt = new \DateTime(); // quand je crée une annonce le createdAt se crée automatiquement 
         $this->comments = new ArrayCollection();
     }
 
@@ -187,38 +192,6 @@ class Advert
     }
 
     /**
-     * @return Collection|Picture[]
-     * @Groups("apiStatus")
-     */
-    public function getPictures(): Collection
-    {
-        return $this->pictures;
-    }
-
-    public function addPicture(Picture $picture): self
-    {
-        if (!$this->pictures->contains($picture)) {
-            $this->pictures[] = $picture;
-            $picture->setAdvert($this);
-        }
-
-        return $this;
-    }
-
-    public function removePicture(Picture $picture): self
-    {
-        if ($this->pictures->contains($picture)) {
-            $this->pictures->removeElement($picture);
-            // set the owning side to null (unless already changed)
-            if ($picture->getAdvert() === $this) {
-                $picture->setAdvert(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Comment[]
      */
     public function getComments(): Collection
@@ -293,6 +266,30 @@ class Advert
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getLieu(): ?string
+    {
+        return $this->lieu;
+    }
+
+    public function setLieu(string $lieu): self
+    {
+        $this->lieu = $lieu;
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }
