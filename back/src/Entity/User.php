@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Form\UserType;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -18,6 +18,7 @@ class User implements UserInterface
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
+     
     private $id;
 
     /**
@@ -66,12 +67,16 @@ class User implements UserInterface
         $this->adverts = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getEmail(): ?string
     {
         return $this->email;
@@ -144,7 +149,9 @@ class User implements UserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getLastName(): ?string
     {
         return $this->lastName;
@@ -156,7 +163,9 @@ class User implements UserInterface
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getFirstName(): ?string
     {
         return $this->firstName;
@@ -168,7 +177,9 @@ class User implements UserInterface
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getPhone(): ?string
     {
         return $this->phone;

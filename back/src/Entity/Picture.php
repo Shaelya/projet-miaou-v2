@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PictureRepository")
@@ -40,12 +43,16 @@ class Picture
      * @ORM\ManyToOne(targetEntity="App\Entity\Advert", inversedBy="pictures")
      */
     private $advert;
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getTitle(): ?string
     {
         return $this->title;

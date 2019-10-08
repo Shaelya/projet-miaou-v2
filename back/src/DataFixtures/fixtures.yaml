@@ -10,6 +10,7 @@ App\Entity\Advert:
   advert{1..6} :
     user : '@user*'
     name : ' <word()> '
+    secret : ' <word()> '
     sex : ' <word()> '
     age : ' <randomDigit()> '
     description : ' <text(200)>'
@@ -28,6 +29,9 @@ App\Entity\Comment:
     text : ' <sentence(10)> '
     createdAt : '<date_create()>'
 
-
-
-
+App\entity\Picture:
+  picture{1..20} : 
+    advert : '@advert*'
+    title : ' <word(2)> '
+    image : ' <url()> '
+    createdAt : '<date_create()>'

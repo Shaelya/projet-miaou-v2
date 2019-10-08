@@ -90,20 +90,25 @@ class Advert
      */
     private $status;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $secret;
+
     public function __construct()
     {
         $this->pictures = new ArrayCollection();
         $this->comments = new ArrayCollection();
     }
     /**
-     * @Groups ("apiStatus")
+     * @Groups("apiStatus")
      */
     public function getId(): ?int
     {
         return $this->id;
     }
     /**
-     * @Groups ("apiStatus")
+     * @Groups("apiStatus")
      */
     public function getName(): ?string
     {
@@ -116,8 +121,9 @@ class Advert
 
         return $this;
     }
-
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getDescription(): ?string
     {
         return $this->description;
@@ -130,7 +136,7 @@ class Advert
         return $this;
     }
     /**
-     * @Groups ("apiStatus")
+     * @Groups("apiStatus")
      */
     public function getLatitude(): ?string
     {
@@ -144,7 +150,7 @@ class Advert
         return $this;
     }
     /**
-     * @Groups ("apiStatus")
+     * @Groups("apiStatus")
      */
     public function getLongitude(): ?string
     {
@@ -157,7 +163,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+    * @Groups("apiStatus")
+    */
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
@@ -181,7 +189,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getUser(): ?User
     {
         return $this->user;
@@ -228,7 +238,9 @@ class Advert
 
     /**
      * @return Collection|Comment[]
+     * @Groups("apiStatus")
      */
+    
     public function getComments(): Collection
     {
         return $this->comments;
@@ -256,7 +268,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getAge(): ?string
     {
         return $this->age;
@@ -268,7 +282,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getSex(): ?string
     {
         return $this->sex;
@@ -280,7 +296,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getType(): ?string
     {
         return $this->type;
@@ -292,7 +310,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -301,6 +321,20 @@ class Advert
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+    /**
+     * @Groups("apiStatus")
+     */
+    public function getSecret(): ?string
+    {
+        return $this->secret;
+    }
+
+    public function setSecret(string $secret): self
+    {
+        $this->secret = $secret;
 
         return $this;
     }
