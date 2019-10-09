@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Comment;
 use App\Picture;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -100,12 +101,16 @@ class Advert
         $this->createdAt = new \DateTime(); // quand je crée une annonce le createdAt se crée automatiquement 
         $this->comments = new ArrayCollection();
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getName(): ?string
     {
         return $this->name;
@@ -117,8 +122,9 @@ class Advert
 
         return $this;
     }
-
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getDescription(): ?string
     {
         return $this->description;
@@ -130,7 +136,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getLatitude(): ?string
     {
         return $this->latitude;
@@ -142,7 +150,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getLongitude(): ?string
     {
         return $this->longitude;
@@ -154,7 +164,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
@@ -178,7 +190,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getUser(): ?User
     {
         return $this->user;
@@ -193,6 +207,7 @@ class Advert
 
     /**
      * @return Collection|Comment[]
+     * @Groups("apiStatus")
      */
     public function getComments(): Collection
     {
@@ -221,7 +236,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getAge(): ?string
     {
         return $this->age;
@@ -233,7 +250,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getSex(): ?string
     {
         return $this->sex;
@@ -245,7 +264,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getType(): ?string
     {
         return $this->type;
@@ -257,7 +278,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getStatus(): ?string
     {
         return $this->status;
@@ -269,7 +292,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getLieu(): ?string
     {
         return $this->lieu;
@@ -281,7 +306,9 @@ class Advert
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     */
     public function getPicture(): ?string
     {
         return $this->picture;
