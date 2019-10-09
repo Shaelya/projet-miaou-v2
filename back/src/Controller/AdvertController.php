@@ -50,8 +50,5 @@ class AdvertController extends AbstractController
              'form' => $form->createView()
         ]);
      }
-
-
-
-    
+ 
     }

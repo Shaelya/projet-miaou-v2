@@ -2,10 +2,7 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
@@ -50,25 +47,17 @@ class Comment
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
-<<<<<<< HEAD
 
     public function __construct()
     {
         $this->createdAt = new \DateTime(); // quand je crée une annonce le createdAt se crée automatiquement 
     }
 
-=======
-    /**
-     * @Groups("apiStatus")
-     */
->>>>>>> master
     public function getId(): ?int
     {
         return $this->id;
     }
-    /**
-     * @Groups("apiStatus")
-     */
+
     public function getTitle(): ?string
     {
         return $this->title;
@@ -80,9 +69,7 @@ class Comment
 
         return $this;
     }
-    /**
-     * @Groups("apiStatus")
-     */
+
     public function getText(): ?string
     {
         return $this->text;
@@ -94,9 +81,7 @@ class Comment
 
         return $this;
     }
-    /**
-     * @Groups("apiStatus")
-     */
+
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
@@ -132,9 +117,7 @@ class Comment
 
         return $this;
     }
-    /**
-     * @Groups("apiStatus")
-     */
+
     public function getUser(): ?User
     {
         return $this->user;
