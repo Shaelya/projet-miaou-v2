@@ -8,9 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\PictureRepository")
  */
-class Comment
+class Picture
 {
     /**
      * @ORM\Id()
@@ -20,14 +20,14 @@ class Comment
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=80)
+     * @ORM\Column(type="string", length=100)
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $text;
+    private $image;
 
     /**
      * @ORM\Column(type="datetime")
@@ -40,28 +40,12 @@ class Comment
     private $updatedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Advert", inversedBy="comments")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Advert", inversedBy="pictures")
      */
     private $advert;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="comments")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
-<<<<<<< HEAD
-
-    public function __construct()
-    {
-        $this->createdAt = new \DateTime(); // quand je crée une annonce le createdAt se crée automatiquement 
-    }
-
-=======
     /**
      * @Groups("apiStatus")
      */
->>>>>>> master
     public function getId(): ?int
     {
         return $this->id;
@@ -83,20 +67,18 @@ class Comment
     /**
      * @Groups("apiStatus")
      */
-    public function getText(): ?string
+    public function getImage(): ?string
     {
-        return $this->text;
+        return $this->image;
     }
 
-    public function setText(string $text): self
+    public function setImage(string $image): self
     {
-        $this->text = $text;
+        $this->image = $image;
 
         return $this;
     }
-    /**
-     * @Groups("apiStatus")
-     */
+
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
@@ -129,20 +111,6 @@ class Comment
     public function setAdvert(?Advert $advert): self
     {
         $this->advert = $advert;
-
-        return $this;
-    }
-    /**
-     * @Groups("apiStatus")
-     */
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
 
         return $this;
     }
