@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fiche Alerte{% endblock %}
+
+{% block body %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            Bienvenue {{ app.user.firstName }}, <a href="{{ path('logout') }}">Déconnexion</a>
+        </div>
+    {% endif %}
+
+<main class="container">
+
+    <h2>Fiche Alerte</h2>
+    <!--ici je mettrais l'affichage de coordonnée de l'utilisateur fait par helene via le formulaire d'inscription-->
+
+  
+<h2>Informations Propriétaire/ Utilisateur</h2>
+
+<h2>Informations Animal</h2>
+{{ form_start(form) }}
+
+
+{{ form_end(form)}}
+
+
+</main>
+
+{% endblock %}

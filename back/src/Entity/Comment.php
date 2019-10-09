@@ -50,9 +50,18 @@ class Comment
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+<<<<<<< HEAD
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime(); // quand je crée une annonce le createdAt se crée automatiquement 
+    }
+
+=======
     /**
      * @Groups("apiStatus")
      */
+>>>>>>> master
     public function getId(): ?int
     {
         return $this->id;
