@@ -98,7 +98,7 @@ class MiaouMap extends Component {
           const position = [alerte.latitude, alerte.longitude];
           return (
           <Marker key={alerte.id} position={position}>
-            <Popup><img className="popup-image" src={alerte.pictures[0].image} /><br />Nom : {alerte.name}<br />Espèce : {alerte.type} <br />Details : <Link to={ {
+            <Popup><img className="popup-image" src={alerte.picture} /><br />Nom : {alerte.name}<br />Espèce : {alerte.type} <br />Details : <Link to={ {
               pathname: '/fiche-alerte-vue',
               state: { alertData: alerte  }
             } }> Fiche alerte</Link></Popup>

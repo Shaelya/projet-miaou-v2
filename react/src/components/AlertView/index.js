@@ -19,7 +19,7 @@ const AlertView = ({data}) => {
         </tr>
         <tr>
           <th>Lieu</th>
-            <td></td>
+            <td>{alertData.lieu}</td>
         </tr>
         <tr>
           <th>Sexe</th>
@@ -47,10 +47,9 @@ const AlertView = ({data}) => {
     
     <button>Infos proprietaire</button>
     <button>Poster un commentaire</button>
+    
+    <img src={alertData.picture} />
 
-    {alertData.pictures.map((picture) => (
-      <div key={picture.id}><img src={picture.image} /></div>
-    ))}
 
 
   </div>
