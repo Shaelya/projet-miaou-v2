@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import L from "leaflet";
 import * as ELG from "esri-leaflet-geocoder";
-import { Map, TileLayer, Marker } from "react-leaflet";
+import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+import { Link } from 'react-router-dom';
 // import { connect } from 'react-redux';
 import "./map.sass";
 
@@ -95,7 +96,15 @@ class MiaouMap extends Component {
         />
         {data.map((alerte) => {
           const position = [alerte.latitude, alerte.longitude];
-          return <Marker key={alerte.id} position={position}></Marker>
+          return (
+          <Marker key={alerte.id} position={position}>
+            <Popup><img className="popup-image" src={alerte.picture} /><br />Nom : {alerte.name}<br />Espèce : {alerte.type} <br />Details : <Link to={ {
+              pathname: '/fiche-alerte-vue',
+              state: { alertData: alerte  }
+            } }> Fiche alerte</Link></Popup>
+          </Marker>
+          )
+
         }
         )}
         {markers.map((marker, index) => {
@@ -109,5 +118,4 @@ class MiaouMap extends Component {
 }
 
 export default MiaouMap;
-
 

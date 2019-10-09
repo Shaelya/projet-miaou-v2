@@ -13,15 +13,15 @@ class Home extends React.Component {
 
     switch (filter) {
       case 'lost': {
-        filteredData = this.props.data.filter((alerte) => alerte.status.lost);
+        filteredData = this.props.data.filter((alerte) => alerte.status == 'perdu');
         break;
       }
       case 'seen': {
-        filteredData = this.props.data.filter((alerte) => alerte.status.seen);
+        filteredData = this.props.data.filter((alerte) => alerte.status == 'vu');
         break;
       }
       case 'found': {
-        filteredData = this.props.data.filter((alerte) => alerte.status.find);
+        filteredData = this.props.data.filter((alerte) => alerte.status == 'trouvé');
         break;
       }
       default: {

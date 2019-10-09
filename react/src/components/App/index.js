@@ -19,6 +19,7 @@ import HowItWorks from 'src/components/HowItWorks';
 import Legal from 'src/components/Legal';
 import ExternalLinks from 'src/components/ExternalLinks';
 import Team from 'src/components/Team';
+import AlertView from 'src/components/AlertView';
 
 
 // Styles et assets
@@ -31,6 +32,7 @@ const App = ({alertButton, data, handleClick, getData}) => (
     <Route path='/' exact render= {() => <Home alertButton={alertButton} data={data} handleClick={handleClick} getData={getData} />} />
     {/* <Route path='/inscription' exact render= {() => <Inscription />} /> */}
     {/* <Route path='' exact render= {() => <Connexion />} /> */}
+    <Route path='/fiche-alerte-vue' exact render= {(alertData) => <AlertView data={alertData} />} />
     <Route path='/comment-ca-marche' exact render= {() => <HowItWorks />} />
     <Route path='/mentions-legales' exact render= {() => <Legal />} />
     <Route path='/liens-externes' exact render= {() => <ExternalLinks />} />
@@ -90,4 +92,3 @@ export default AppContainer;
 
 
 // export default App;
-
