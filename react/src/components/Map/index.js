@@ -43,17 +43,18 @@ class MiaouMap extends Component {
         cancelButtonText: 'Non'
       }).then((result) => {
         if(result.value) {
-          //Ici gérer l'ouverture du formulaire d'alerte
           Swal.fire({
             text: 'L\'épingle a été placée sur la carte',
             type: 'success'
           }
-          )
-          const markers = this.state.markers;
-          markers.push(e.latlng);
-          this.props.handleClickMap();
-          this.setState({
-            markers: markers
+          ).then((result) => {
+            const markers = this.state.markers;
+            markers.push(e.latlng);
+            this.props.handleClickMap();
+            this.setState({
+              markers: markers
+            })
+            window.location.href = "/advert/new?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng;
           })
         } else {
             this.props.handleClickMap();
