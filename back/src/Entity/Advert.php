@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Comment;
-use App\Picture;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
