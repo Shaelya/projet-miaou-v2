@@ -22,6 +22,7 @@ import Legal from 'src/components/Legal';
 import ExternalLinks from 'src/components/ExternalLinks';
 import Team from 'src/components/Team';
 import AlertView from 'src/components/AlertView';
+import Profil from 'src/components/Profil';
 
 
 
@@ -39,7 +40,14 @@ class App extends React.Component {
   .catch((error) => {
     console.error(error);
   });
-}
+  }
+
+  componentDidUpdate(){
+    axios.get('/api/user/isConnected').then(result => {this.setState({userConnected: result.data[0].userConnected })} ) 
+    .catch((error) => {
+      console.error(error);
+    });
+  }
 
   render(){
     return(
@@ -50,6 +58,7 @@ class App extends React.Component {
           {/* <Route path='/inscription' exact render= {() => <Inscription />} /> */}
           {/* <Route path='' exact render= {() => <Connexion />} /> */}
           <Route path='/fiche-alerte-vue' exact render= {(alertData) => <AlertView data={this.props.alertData} />} />
+          <Route path='/profil' exact render= {() => <Profil />} />
           <Route path='/comment-ca-marche' exact render= {() => <HowItWorks />} />
           <Route path='/mentions-legales' exact render= {() => <Legal />} />
           <Route path='/liens-externes' exact render= {() => <ExternalLinks />} />
