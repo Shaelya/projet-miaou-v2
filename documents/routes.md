@@ -8,6 +8,7 @@
 | `/fiche-alerte-creation` | fiche-alerte | ajouter une fiche alerte | POST | FicheAlerteController |  W5 |
 | `/fiche-alerte-vue` | annonces | voir une fiche alerte | GET | FicheAlerteController | vue | W6 W7 |
 | `/fiche-alerte-modification` | annonces | modifier une fiche alerte | POST | FicheAlerteController | modification | W6 W7 |
+| `/fiche-alerte-suppression` | annonces | supprimer une fiche alerte | POST | FicheAlerteController | suppression | W6 W7 |
 | `/profil` | profil | consulter infos utilisateur | GET | ProfilController | profil vue | W8 |
 | `/profil-modification` | modification profil | changer les informations | POST | ProfilController | profilChanges | W8 |
 | `/equipe` | L'équipe | L'équipe creative du site | GET | FooterController | staff | footer |

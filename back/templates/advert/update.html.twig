@@ -3,43 +3,27 @@
 {% block title %}Fiche Alerte{% endblock %}
 
 {% block body %}
-<main class="container">
 
-
-{% if app.user %}
+    {% if app.user %}
         <div class="mb-3">
             Bienvenue {{ app.user.firstName }}, <a href="{{ path('logout') }}">Déconnexion</a>
         </div>
-{% else %}
-        <div class="mb-3">
-            Bienvenue, vous pouvez vous connecter<a href="{{ path('login') }}">Connexion</a>
-        </div>
-        <div class="mb-3">
-            Bienvenue, vous pouvez vous inscrire<a href="{{ path('register') }}">S'identifier</a>
-        </div>
-{% endif %}
+    {% endif %}
 
-<nav class="navbar navbar-light bg-light">
-    <p>ACCUEIL</p>
-    <p>Comment ça marche?</p>
-    <p>Profil</p>
-
-</nav>
+<main class="container">
 
     <h2>Fiche Alerte</h2>
     <!--ici je mettrais l'affichage de coordonnée de l'utilisateur fait par helene via le formulaire d'inscription-->
 
+  
 <h2>Informations Propriétaire/ Utilisateur</h2>
-<div class="jumbotron">
 
 <h2>Informations Animal</h2>
-
 {{ form_start(form) }}
 
 {{form_row(form.picture)}}
 {{ form_end(form)}}
 
-</div>
 
 </main>
 

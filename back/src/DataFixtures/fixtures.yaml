@@ -29,4 +29,3 @@ App\Entity\Comment:
     title : ' <word(2)> '
     text : ' <sentence(10)> '
     createdAt : '<date_create()>'
-
