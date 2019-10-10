@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Comment;
 use App\Picture;
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -48,6 +49,7 @@ class Advert
     /**
      * @ORM\Column(type="datetime")
      */
+
     private $createdAt;
 
     /**
@@ -95,6 +97,11 @@ class Advert
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $picture;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $visibility;
 
     public function __construct()
     {
@@ -317,6 +324,20 @@ class Advert
     public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
+
+        return $this;
+    }
+    /**
+     * @Groups("apiStatus")
+     */
+    public function getVisibility(): ?string
+    {
+        return $this->visibility;
+    }
+
+    public function setVisibility(?string $visibility): self
+    {
+        $this->visibility = $visibility;
 
         return $this;
     }

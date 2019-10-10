@@ -20,6 +20,7 @@ App\Entity\Advert:
     type : ' <word()> ' 
     status : ' <word()> '
     lieu : ' <word()> '
+    visibility : ' <word()> '
   
 
 App\Entity\Comment:
