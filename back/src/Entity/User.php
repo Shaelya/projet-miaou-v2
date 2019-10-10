@@ -18,7 +18,7 @@ class User implements UserInterface
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer")git stat
      */
     private $id;
 
@@ -70,6 +70,7 @@ class User implements UserInterface
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiProfils")
      */
     public function getId(): ?int
     {
@@ -77,6 +78,7 @@ class User implements UserInterface
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiProfils")
      */
     public function getEmail(): ?string
     {
@@ -152,6 +154,7 @@ class User implements UserInterface
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiProfils")
      */
     public function getLastName(): ?string
     {
@@ -166,6 +169,7 @@ class User implements UserInterface
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiProfils")
      */
     public function getFirstName(): ?string
     {
@@ -178,7 +182,10 @@ class User implements UserInterface
 
         return $this;
     }
-
+    /**
+     * @Groups("apiStatus")
+     * @Groups("apiProfils")
+     */
     public function getPhone(): ?string
     {
         return $this->phone;
