@@ -45,6 +45,7 @@ class Home extends React.Component {
             <AlertButton alertButton={this.props.alertButton} handleClick={this.props.handleClick} />
             <div>
               <div className="btn-group-vertical">
+                <button onClick={this.handleFilter} type="button" id="all" className="btn btn-light btn-lg mb-4">Tous</button>
                 <button onClick={this.handleFilter} type="button" id="lost" className="btn btn-danger btn-lg mb-4">Animaux Perdus</button>
                 <button onClick={this.handleFilter} type="button" id="seen" className="btn btn-warning btn-lg mb-4">Animaux Vus</button>
                 <button onClick={this.handleFilter} type="button" id="found" className="btn btn-info btn-lg">Animaux Trouvés</button>
