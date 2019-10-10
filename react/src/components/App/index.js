@@ -42,12 +42,17 @@ class App extends React.Component {
   });
   }
 
-  componentDidUpdate(){
-    axios.get('/api/user/isConnected').then(result => {this.setState({userConnected: result.data[0].userConnected })} ) 
-    .catch((error) => {
-      console.error(error);
-    });
-  }
+  // componentDidUpdate(prevProps,prevState){
+  //   console.log('didupdate');
+  //   axios.get('/api/user/isConnected').then(result => {
+  //     if(prevState !== result.data[0]){
+  //       this.setState({userConnected: result.data[0].userConnected })
+  //     }
+  //   } ) 
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
+  // }
 
   render(){
     return(
