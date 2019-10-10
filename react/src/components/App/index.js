@@ -5,6 +5,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 // import PropTypes from 'prop-types';
+import axios from 'axios';
+
 
 /**
  * Local import
@@ -26,23 +28,39 @@ import AlertView from 'src/components/AlertView';
 // Styles et assets
 import './app.sass';
 
-const App = ({alertButton, data, handleClick, getData, isUserConnected, userConnected}) => (
+class App extends React.Component {
 
-  <div className="App">
-    {/* Todo : Si l'utilisateur est connecté afficher de HeaderConnected, sinon afficher le HeaderDisconnected */}
-    <Header  isUserConnected={isUserConnected} userConnected={userConnected} />
-    <Route path='/' exact render= {() => <Home alertButton={alertButton} data={data} handleClick={handleClick} getData={getData} />} />
-    {/* <Route path='/inscription' exact render= {() => <Inscription />} /> */}
-    {/* <Route path='' exact render= {() => <Connexion />} /> */}
-    <Route path='/fiche-alerte-vue' exact render= {(alertData) => <AlertView data={alertData} />} />
-    <Route path='/comment-ca-marche' exact render= {() => <HowItWorks />} />
-    <Route path='/mentions-legales' exact render= {() => <Legal />} />
-    <Route path='/liens-externes' exact render= {() => <ExternalLinks />} />
-    <Route path='/equipe' exact render= {() => <Team />} />
-    {/* Todo : Faire une route profil + navLink dans le HeaderConnected */}
-    <Footer />
-  </div>
-  );
+  state = {
+    userConnected: false
+  }
+
+  componentDidMount(){
+  axios.get('/api/user/isConnected').then(result => {this.setState({userConnected: result.data[0].userConnected })} ) 
+  .catch((error) => {
+    console.error(error);
+  });
+}
+
+  render(){
+    return(
+      <div className="App">
+          {/* Todo : Si l'utilisateur est connecté afficher de HeaderConnected, sinon afficher le HeaderDisconnected */}
+          <Header userConnected={this.state.userConnected} />
+          <Route path='/' exact render= {() => <Home alertButton={this.props.alertButton} data={this.props.data} handleClick={this.props.handleClick} getData={this.props.getData} />} />
+          {/* <Route path='/inscription' exact render= {() => <Inscription />} /> */}
+          {/* <Route path='' exact render= {() => <Connexion />} /> */}
+          <Route path='/fiche-alerte-vue' exact render= {(alertData) => <AlertView data={this.props.alertData} />} />
+          <Route path='/comment-ca-marche' exact render= {() => <HowItWorks />} />
+          <Route path='/mentions-legales' exact render= {() => <Legal />} />
+          <Route path='/liens-externes' exact render= {() => <ExternalLinks />} />
+          <Route path='/equipe' exact render= {() => <Team />} />
+          {/* Todo : Faire une route profil + navLink dans le HeaderConnected */}
+          <Footer />
+        </div>
+    );
+  }
+}
+
 
 // App.propTypes = {
 //   /** Titre de l'application React */
@@ -59,8 +77,7 @@ const connectionStrategies = connect(
   (state) => {
     return {
       alertButton: state.alertButton,
-      data: state.data,
-      userConnected: state.userConnected
+      data: state.data
     };
   },
 
@@ -73,9 +90,6 @@ const connectionStrategies = connect(
       },
       getData: () => {
         dispatch({type: 'APP_LOAD'});
-      },
-      isUserConnected: () => {
-        dispatch({type: 'IS_USER_CONNECTED'});
       }
     };
   },

@@ -3,8 +3,7 @@ export const SIDE_EFFECT = 'SIDE_EFFECT';
 
 const initialState = {
   alertButton: false,
-  data:[],
-  userConnected: false
+  data:[]
 };
 
 const defaultAction = {};
@@ -26,9 +25,6 @@ const reducer = (state = initialState, action = defaultAction) => {
     }
     case 'GET_ALL_ALERTS': {
       return { ...state, data: action.data }
-    }
-    case 'IS_USER_CONNECTED': {
-      return { ...state, userConnected: action.data[0].userConnected }
     }
     default: {
       console.log(state);
