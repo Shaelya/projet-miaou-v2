@@ -5,6 +5,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 // import PropTypes from 'prop-types';
+import axios from 'axios';
+
 
 /**
  * Local import
@@ -13,34 +15,66 @@ import { Route } from 'react-router-dom';
 
 // Composants enfants éventuels
 import Home from 'src/components/Home';
-import HeaderDisconnected from 'src/components/HeaderDisconnected';
+import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import HowItWorks from 'src/components/HowItWorks';
 import Legal from 'src/components/Legal';
 import ExternalLinks from 'src/components/ExternalLinks';
 import Team from 'src/components/Team';
 import AlertView from 'src/components/AlertView';
+import Profil from 'src/components/Profil';
+
 
 
 // Styles et assets
 import './app.sass';
 
-const App = ({alertButton, data, handleClick, getData}) => (
-  <div className="App">
-    {/* Todo : Si l'utilisateur est connecté afficher de HeaderConnected, sinon afficher le HeaderDisconnected */}
-    <HeaderDisconnected />
-    <Route path='/' exact render= {() => <Home alertButton={alertButton} data={data} handleClick={handleClick} getData={getData} />} />
-    {/* <Route path='/inscription' exact render= {() => <Inscription />} /> */}
-    {/* <Route path='' exact render= {() => <Connexion />} /> */}
-    <Route path='/fiche-alerte-vue' exact render= {(alertData) => <AlertView data={alertData} />} />
-    <Route path='/comment-ca-marche' exact render= {() => <HowItWorks />} />
-    <Route path='/mentions-legales' exact render= {() => <Legal />} />
-    <Route path='/liens-externes' exact render= {() => <ExternalLinks />} />
-    <Route path='/equipe' exact render= {() => <Team />} />
-    {/* Todo : Faire une route profil + navLink dans le HeaderConnected */}
-    <Footer />
-  </div>
-);
+class App extends React.Component {
+
+  state = {
+    userConnected: false
+  }
+
+  componentDidMount(){
+  axios.get('/api/user/isConnected').then(result => {this.setState({userConnected: result.data[0].userConnected })} ) 
+  .catch((error) => {
+    console.error(error);
+  });
+  }
+
+  // componentDidUpdate(prevProps,prevState){
+  //   console.log('didupdate');
+  //   axios.get('/api/user/isConnected').then(result => {
+  //     if(prevState !== result.data[0]){
+  //       this.setState({userConnected: result.data[0].userConnected })
+  //     }
+  //   } ) 
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
+  // }
+
+  render(){
+    return(
+      <div className="App">
+          {/* Todo : Si l'utilisateur est connecté afficher de HeaderConnected, sinon afficher le HeaderDisconnected */}
+          <Header userConnected={this.state.userConnected} />
+          <Route path='/' exact render= {() => <Home alertButton={this.props.alertButton} data={this.props.data} handleClick={this.props.handleClick} getData={this.props.getData} />} />
+          {/* <Route path='/inscription' exact render= {() => <Inscription />} /> */}
+          {/* <Route path='' exact render= {() => <Connexion />} /> */}
+          <Route path='/fiche-alerte-vue' exact render= {(alertData) => <AlertView data={this.props.alertData} />} />
+          <Route path='/profil' exact render= {() => <Profil />} />
+          <Route path='/comment-ca-marche' exact render= {() => <HowItWorks />} />
+          <Route path='/mentions-legales' exact render= {() => <Legal />} />
+          <Route path='/liens-externes' exact render= {() => <ExternalLinks />} />
+          <Route path='/equipe' exact render= {() => <Team />} />
+          {/* Todo : Faire une route profil + navLink dans le HeaderConnected */}
+          <Footer />
+        </div>
+    );
+  }
+}
+
 
 // App.propTypes = {
 //   /** Titre de l'application React */
