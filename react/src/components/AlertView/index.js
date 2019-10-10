@@ -38,7 +38,7 @@ const AlertView = ({data}) => {
         {alertData.comments.map((comment) => (
           <tr key={comment.id}>
           <th>{comment.user.firstName}</th>
-            <td>date</td>
+            <td>{comment.createdAtJson}</td>
             <td>{comment.text}</td>
         </tr>
         ))}
