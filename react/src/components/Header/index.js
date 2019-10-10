@@ -4,7 +4,14 @@ import { NavLink } from 'react-router-dom';
 
 class Header extends React.Component {
 
+  state = { userConnected: false}
+  componentDidUpdate() {
+    this.props.isUserConnected();
+    this.setState({ userConnected: this.props.userConnected });
+  }
+
   render() {
+    if(this.state.userConnected){
       return (
         <div className="header-connected">
             <nav className="navbar">
