@@ -62,7 +62,7 @@ class App extends React.Component {
           <Route path='/' exact render= {() => <Home alertButton={this.props.alertButton} data={this.props.data} handleClick={this.props.handleClick} getData={this.props.getData} userConnected={this.state.userConnected} />} />
           {/* <Route path='/inscription' exact render= {() => <Inscription />} /> */}
           {/* <Route path='' exact render= {() => <Connexion />} /> */}
-          <Route path='/fiche-alerte-vue' exact render= {(alertData) => <AlertView data={this.props.alertData} />} />
+          <Route path='/fiche-alerte-vue' exact render= {(alertData) => <AlertView data={alertData} />} />
           <Route path='/profil' exact render= {() => <Profil userConnected={this.state.userConnected} />} />
           <Route path='/comment-ca-marche' exact render= {() => <HowItWorks />} />
           <Route path='/mentions-legales' exact render= {() => <Legal />} />
