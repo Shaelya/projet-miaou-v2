@@ -35,5 +35,14 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        #- { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY } 
+         - { path: ^/advert/new, roles: ROLE_USER }
+         - { path: ^/profile, roles: ROLE_USER }
+         
+         - { path: ^/login, roles: ROLE_USER }
+         - { path: ^/register, roles: ROLE_USER }
+         - { path: ^/deconnexion, roles: ROLE_USER }
+         - { path: ^/api/user, roles: ROLE_USER }
+         
+        #ici cest pour que luser est connecte pour arrive sur la page de fiche alerte

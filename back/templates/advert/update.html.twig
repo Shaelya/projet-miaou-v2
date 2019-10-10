@@ -12,15 +12,18 @@
 
 <main class="container">
 
-    <h2>Fiche Alerte</h2>
+    <h2>Veuillez modifier votre fiche Alerte</h2>
     <!--ici je mettrais l'affichage de coordonnée de l'utilisateur fait par helene via le formulaire d'inscription-->
+    {{ form_start(form) }}
 
+    
+    {{ form_end(form)}}
+    
   
 <h2>Informations Propriétaire/ Utilisateur</h2>
-
+<!--ici il faut integrer les infos users-->
 <h2>Informations Animal</h2>
 {{ form_start(form) }}
-
 {{form_row(form.picture)}}
 {{ form_end(form)}}
 

@@ -1,12 +1,16 @@
 <?php
+//ici j'ai toutes mes fonctions advert
+//CRUD : create, read (liste des alertes, une seule alerte), update, delete
 
 namespace App\Controller;
 //ce sont mes entites que je vais chercher dans le use
-use App\Entity\Advert;
+
+use App\Entity\Advert;;
 use App\Controller\User;
 use App\Form\AdvertType;
 use Symfony\Flex\Response;
 use App\Controller\AdvertController;
+//use Symfony\Component\Form\FormView;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,31 +25,37 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdvertController extends AbstractController
 {
-    //je peux creer la fiche alerte => jai le new
+    //je peux creer la fiche alerte => jai le /new
     /**
      * @Route("/advert/new", name="advert_new")
      */
-    //ici on met la route /nex car il sagit dune creation on le mettrapas pr delete et update
-    public function Advert(Request $request)
-    {
+    //ici on met la route /new car il sagit dune creation on le mettrapas pr delete et update
+    public function Advert(Request $request, FileUploadManager $fileUploadManager)
+    {   //$latitude = $request->request->get('latitude');
+        //$longitude =$request->request->get('longitude');
+        
         //pour pusher $advert il me fallait l"instancier
         $advert = new Advert();
-        
+       
         //creer un nouveau formulaire dans le controller que je vais envoyer a ma view /twig
         $form = $this->createForm(AdvertType::class, $advert);
 
         // Je récupére mes données
         $form->handleRequest($request);
+        
+        //dump($fileUploadManager->upload());exit; // pour tester
 
         // Je vérifie mes données
         if ($form->isSubmitted() && $form->isValid()) {
-
+        // je recupere ses donnees mais l'img je lai jamais mise dans mon dossier public
             $advert = $form->getData();
             //pour que le user puisse poster une alerte qd il est connecté uniquement 
-            if($this->getUser() != null){
+            //enlever
+            //if($this->getUser() != null){
                 $user = $this->getUser();
-            }
-
+            
+                //$advert->setLongitude($longitude);
+                //$advert->setLatitude($latitude);
             $advert->setUser($user);
 
             $em = $this->getDoctrine()->getManager();
@@ -72,7 +82,8 @@ class AdvertController extends AbstractController
         $em->remove($advert);
         $em->flush();
         //voir ou je le renvoie !!!
-        return $this->redirectToRoute('index');
+        // return $this->redirectToRoute('index');
+        return new JsonResponse($advert);
     }
 //exemple 
     //|champ titre|
@@ -89,6 +100,8 @@ class AdvertController extends AbstractController
    //Advert => cest ma class
    //ici je me sers du param converteur=> dans la methode je lui met juste le param qui lui correspond et ca se fait tt seul// request est un objet (qui me fournit des methodes deja codé par symphony) et Advert cest une classe (dans lequel jai des getter setter id...)
      public function updateAdvert(Request $request, Advert $advert): Response
+
+     // me faire une api!!!! 
     {
         //recuperer l'id qui indique ce que le front m'envoie
         //$advertId = $request->request->get('id');
@@ -106,13 +119,14 @@ class AdvertController extends AbstractController
             $em->persist($advert);
             $em->flush();
             //je ne sais pas ou rediriger donc on verra
-            return $this->redirectToRoute('index'); 
+            //return $this->redirectToRoute('index'); 
+            return new JsonResponse($form);
         }
         return $this->render('advert/update.html.twig', [
             'formAdvert' => $form->createView()
         ]); 
     }
-
+//ici on va créer une API pour recuperer et renvoyer au react toutes les listes de fiches
     /**
      * @Route("/list/advert", name="list_advert")
      */
@@ -138,6 +152,8 @@ class AdvertController extends AbstractController
                'type' => $advert->getType(),
                'status' => $advert->getStatus(),
                'user' => $advert->getUser()->getLastName(),
+               'picture'=>$advert->getPicture(),
+               //'picture' => $request->getUri().'/images/ads/'.$adverts->getPicture(),
             ];
 
            // 1er tour de boucle : [advert1]
@@ -173,14 +189,13 @@ class AdvertController extends AbstractController
                'type' => $single->getType(),
                'status' => $single->getStatus(),
                'user' => $single->getUser()->getLastName(),
+               'picture' => $request->getUri().'/images/ads/'.$single->getPicture(),
             ];
 
-           //et ca va mafficher la liste de mes annonces comme ci dessus
+           //et ca va m'afficher la liste de mes annonces comme ci dessus
         
         return new JsonResponse($formatted);
     }
 
 }
 
-//ici j'ai toutes mes fonctions advert
-//CRUD : create, read (liste des alertes, une seule alerte), update, delete

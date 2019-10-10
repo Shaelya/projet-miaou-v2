@@ -54,11 +54,11 @@ class AdvertType extends AbstractType
             ->add('submit', SubmitType::class, [
                 'label' => 'Ajouter une alerte'
             ])
-            ->add('picture', FileType::class, array(
-                'label'     => 'Image :',
-                'required'  => false,
-            ));
-        ;
+             ->add('picture', FileType::class, array(
+                 'label'     => 'Image :',
+                 'required'  => false,
+             ));
+        
     }
 
     public function configureOptions(OptionsResolver $resolver)
