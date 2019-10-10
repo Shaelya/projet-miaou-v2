@@ -8,9 +8,9 @@
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    {% if app.user %}
+    {% if app.user %} {#ici on crée une methode si le user est connecté et on lui renverra en fonction#}
         <div class="mb-3">
-            Bienvenue {{ app.user.firstName }}, <a href="{{ path('logout') }}">Déconnexion</a>
+            Bienvenue {{ app.user.firstName }}, <a href="{{ path('logout') }}">Déconnexion</a> {#ici on va chercher le nom du user pour lui dire bienvenue {{ app.user.firstName }} et on permet aussi de se deconnecter grace à la route {{ path('logout') }} #}
         </div>
     {% endif %}
 
@@ -38,9 +38,9 @@
     <button class="btn btn-lg btn-primary" type="submit">
         connexion
     </button>
-    <a href="{{ path('register') }}">S'inscrire</a>
+    <a href="{{ path('register') }}">S'inscrire</a> {#ici encore une direction de route vers le formulaire d'inscripion#}
     </br>
-    <a href="{{ path('index') }}">Accueil
+    <a href="{{ path('index') }}">Accueil {#ici une direction de route vers l'accueil #}
 
     
 </form>

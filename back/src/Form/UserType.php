@@ -20,7 +20,7 @@ use PhpParser\Node\Name;
 
 class UserType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options) // ici c'est le formulaire qui sera appellé dans le UserController 
     {
         $builder
             ->add('lastName',TextType::class ,array ('label'=>'Nom :') )

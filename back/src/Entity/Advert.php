@@ -108,15 +108,16 @@ class Advert
         $this->createdAt = new \DateTime(); // quand je crée une annonce le createdAt se crée automatiquement 
         $this->comments = new ArrayCollection();
     }
+    
     /**
-     * @Groups("apiStatus")
+     * @Groups("apiStatus") // je veux récuperer l'id 
      */
     public function getId(): ?int
     {
         return $this->id;
     }
     /**
-     * @Groups("apiStatus")
+     * @Groups("apiStatus") // je veux récupérer le name 
      */
     public function getName(): ?string
     {
@@ -171,13 +172,20 @@ class Advert
 
         return $this;
     }
-    /**
-     * @Groups("apiStatus")
-     */
+    
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
+
+    /**
+     * @Groups("apiStatus")
+     */
+    public function getCreatedAtJson(): string // ici on a eu un soucis au niveau du serialze donc on crée une fonction qui nous permet de renvoyer une string plutot que une datetime 
+    {
+        //return ici une forme en string à partir de la date
+        return $this->createdAt->format('Y-m-d');
+    } 
 
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
@@ -214,7 +222,7 @@ class Advert
 
     /**
      * @return Collection|Comment[]
-     * @Groups("apiStatus")
+     * @Groups("apiStatus") // mettre le goupe ici me permet de récupérer tous les commentaires , maintenant que j'ai un tableau qui contient des commentaire il faut le remplir ; je vais dans donc sur entité comment.php
      */
     public function getComments(): Collection
     {
