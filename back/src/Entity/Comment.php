@@ -89,13 +89,20 @@ class Comment
 
         return $this;
     }
-    /**
-     * @Groups("apiStatus")
-     */
+
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
+
+    /**
+     * @Groups("apiStatus")
+     */
+    public function getCreatedAtJson(): string
+    {
+        //return ici une forme en string à partir de la date
+        return $this->createdAt->format('Y-m-d');
+    } 
 
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {

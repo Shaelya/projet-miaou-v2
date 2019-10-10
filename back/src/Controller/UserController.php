@@ -17,27 +17,28 @@ use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 // /**
 // * @Route("/app", name="app_")
 // */
-class UserController extends AbstractController
+class UserController extends AbstractController // ce controlleur va nous permettre de gérer plusieurs fonction concernant l'uilisateur
 {
     /**
      * @Route("/connexion", name="login")
      */
-    public function login(AuthenticationUtils $authenticationUtils): Response 
+    public function login(AuthenticationUtils $authenticationUtils): Response // cette fonction est reliée à une twig . il permet d'acceder au phpmyadmin afin de pouvoir connecter un utilisateur déjà inscrit dans phpmyadmin . 
     {
+        // ici nous avons utilisé bin/console make:auth qui génère un UserLoginAitenticator.php qui met en place le système de connexion . il va falloir dans userloginauthenticator parametrer la direction de la route de redirection si user connecté voir : ligne 89
         // if ($this->getUser()) {
         //    $this->redirectToRoute('target_path');
         // }
 
         // get the login error if there is one
-        $error = $authenticationUtils->getLastAuthenticationError();
+        $error = $authenticationUtils->getLastAuthenticationError(); // si le user n'est pas inscrit = message d'erreur 
         // last username entered by the user
-        $lastUsername = $authenticationUtils->getLastUsername();
+        $lastUsername = $authenticationUtils->getLastUsername(); // 
 
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]); // ici on retourne sur la twig security/login pour l'affichage de la connexion
     }
 
     /**
-     * @Route("/deconnexion", name="logout")
+     * @Route("/deconnexion", name="logout") // permet a l'user de se deconnecter . meme chose que pour login pour la bin/console make:auth
      */
     public function logout()
     {
@@ -47,9 +48,9 @@ class UserController extends AbstractController
     /**
      * @Route("/inscription", name="register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $encoder)
+    public function register(Request $request, UserPasswordEncoderInterface $encoder) // cette fonction nous permet d'accéder au formulaire d'inscription
     {
-        $form = $this->createForm(UserType::class);
+        $form = $this->createForm(UserType::class); // ici on va chercher le formulaire qui se trouve dans Form/UserType
 
         // handleRequest permet de relier les informations de la requête avec le formulaire
         // Il prérempli les champs, ce qui permet de renvoyer le formulaire à la vue avec les données préremplies dedans en cas d'erreur
@@ -80,9 +81,10 @@ class UserController extends AbstractController
             return $this->redirectToRoute('login');
         }
 
-        return $this->render('security/register.html.twig', [
+        return $this->render('security/register.html.twig', [ // ici on renvoi vers la twig d'inscritpion
             'registerForm' => $form->createView()
         ]);
+        //pour ce controller nous avons = UserLogin.php + login.html.twig + UserLoginAutenticator + UserType 
     }
 
 
