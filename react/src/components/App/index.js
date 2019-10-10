@@ -59,11 +59,11 @@ class App extends React.Component {
       <div className="App">
           {/* Todo : Si l'utilisateur est connecté afficher de HeaderConnected, sinon afficher le HeaderDisconnected */}
           <Header userConnected={this.state.userConnected} />
-          <Route path='/' exact render= {() => <Home alertButton={this.props.alertButton} data={this.props.data} handleClick={this.props.handleClick} getData={this.props.getData} />} />
+          <Route path='/' exact render= {() => <Home alertButton={this.props.alertButton} data={this.props.data} handleClick={this.props.handleClick} getData={this.props.getData} userConnected={this.state.userConnected} />} />
           {/* <Route path='/inscription' exact render= {() => <Inscription />} /> */}
           {/* <Route path='' exact render= {() => <Connexion />} /> */}
           <Route path='/fiche-alerte-vue' exact render= {(alertData) => <AlertView data={this.props.alertData} />} />
-          <Route path='/profil' exact render= {() => <Profil />} />
+          <Route path='/profil' exact render= {() => <Profil userConnected={this.state.userConnected} />} />
           <Route path='/comment-ca-marche' exact render= {() => <HowItWorks />} />
           <Route path='/mentions-legales' exact render= {() => <Legal />} />
           <Route path='/liens-externes' exact render= {() => <ExternalLinks />} />
@@ -98,9 +98,12 @@ const connectionStrategies = connect(
   // 2d argument : stratégie d'écriture (dans le state privé global)
   (dispatch, ownProps) => {
     return {
-      handleClick: () => {
-        dispatch({ type: 'TOGGLE_ALERT_BUTTON_VALUE'});
-        
+      handleClick: (userConnected) => {
+        if(userConnected){
+          dispatch({ type: 'TOGGLE_ALERT_BUTTON_VALUE'});
+        } else {
+          window.location.href = "/connexion"
+        }
       },
       getData: () => {
         dispatch({type: 'APP_LOAD'});

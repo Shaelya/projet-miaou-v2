@@ -38,11 +38,11 @@ class Home extends React.Component {
       <div className="container-fluid">
           <div className="row">
             <div className="col">
-              <Map alertButton={this.props.alertButton} data={(this.state.data) ? this.state.data : this.props.data } handleClickMap={this.props.handleClick} getData={this.props.getData} />
+              <Map alertButton={this.props.alertButton} data={(this.state.data) ? this.state.data : this.props.data } handleClickMap={this.props.handleClick} getData={this.props.getData} userConnected={this.props.userConnected}  />
             </div>
             <div className="col text-center">
 
-            <AlertButton alertButton={this.props.alertButton} handleClick={this.props.handleClick} />
+            <AlertButton alertButton={this.props.alertButton} handleClick={this.props.handleClick}  userConnected={this.props.userConnected} />
             <div>
               <div className="btn-group-vertical">
                 <button onClick={this.handleFilter} type="button" id="all" className="btn btn-light btn-lg mb-4">Tous</button>

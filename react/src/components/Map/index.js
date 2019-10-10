@@ -45,7 +45,7 @@ class MiaouMap extends Component {
         if(result.value) {
           const markers = this.state.markers;
           markers.push(e.latlng);
-          this.props.handleClickMap();
+          this.props.handleClickMap(this.props.userConnected);
           this.setState({
             markers: markers
           })
@@ -57,7 +57,7 @@ class MiaouMap extends Component {
             window.location.href = "/advert/new?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng;
           })
         } else {
-            this.props.handleClickMap();
+            this.props.handleClickMap(this.props.userConnected);
         }
       })
       
