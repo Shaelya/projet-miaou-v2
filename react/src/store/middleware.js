@@ -28,6 +28,13 @@ const middleware = (store) => (next) => (action) => {
       });
       break;
     }
+    case 'IS_USER_CONNECTED': {
+      axios.get('/api/user/isConnected').then(result => store.dispatch({ type: 'IS_USER_CONNECTED' , data: result.data }) )
+      .catch((error) => {
+        console.error(error);
+      });
+      break;
+    }
 
     default: {
       console.log('middleware/default');

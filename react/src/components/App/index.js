@@ -13,7 +13,7 @@ import { Route } from 'react-router-dom';
 
 // Composants enfants éventuels
 import Home from 'src/components/Home';
-import HeaderDisconnected from 'src/components/HeaderDisconnected';
+import Header from 'src/components/Header';
 import Footer from 'src/components/Footer';
 import HowItWorks from 'src/components/HowItWorks';
 import Legal from 'src/components/Legal';
@@ -22,13 +22,15 @@ import Team from 'src/components/Team';
 import AlertView from 'src/components/AlertView';
 
 
+
 // Styles et assets
 import './app.sass';
 
-const App = ({alertButton, data, handleClick, getData}) => (
+const App = ({alertButton, data, handleClick, getData, isUserConnected, userConnected}) => (
+
   <div className="App">
     {/* Todo : Si l'utilisateur est connecté afficher de HeaderConnected, sinon afficher le HeaderDisconnected */}
-    <HeaderDisconnected />
+    <Header  isUserConnected={isUserConnected} userConnected={userConnected} />
     <Route path='/' exact render= {() => <Home alertButton={alertButton} data={data} handleClick={handleClick} getData={getData} />} />
     {/* <Route path='/inscription' exact render= {() => <Inscription />} /> */}
     {/* <Route path='' exact render= {() => <Connexion />} /> */}
@@ -40,7 +42,7 @@ const App = ({alertButton, data, handleClick, getData}) => (
     {/* Todo : Faire une route profil + navLink dans le HeaderConnected */}
     <Footer />
   </div>
-);
+  );
 
 // App.propTypes = {
 //   /** Titre de l'application React */
@@ -57,7 +59,8 @@ const connectionStrategies = connect(
   (state) => {
     return {
       alertButton: state.alertButton,
-      data: state.data
+      data: state.data,
+      userConnected: state.userConnected
     };
   },
 
@@ -70,6 +73,9 @@ const connectionStrategies = connect(
       },
       getData: () => {
         dispatch({type: 'APP_LOAD'});
+      },
+      isUserConnected: () => {
+        dispatch({type: 'IS_USER_CONNECTED'});
       }
     };
   },
