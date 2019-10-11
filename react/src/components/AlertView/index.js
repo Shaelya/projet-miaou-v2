@@ -85,7 +85,7 @@ class AlertView extends React.Component {
             </div>
           </div>
           <div className="col-md-5">
-            <img className="alerte-image card-img" src={alertData.picture} />
+            <div className="text-center"><img className="alerte-image card-img" src={alertData.picture} /></div>
           </div>
         </div>
         </div>
