@@ -37,6 +37,14 @@
 {{ form_start(form) }}
 
 {{form_row(form.picture)}}
+<input type="hidden" id="longitude" name="longitude">
+<input type="hidden" id="latitude" name="latitude">
+
+{# selectionner les input puis remplir la 'value' par la valeur souhaiter (en front) 
+tout sera receptionner coté back
+ici input caché car luser na pas besoin de voir quil a rempli la long et latt mai la valeur est bien prise 
+
+#}
 {{ form_end(form)}}
 
 </div>
