@@ -74,7 +74,7 @@ class AlertView extends React.Component {
                   <button onClick={this.handleClickInfo} className="btn btn-info ml-4 mt-5 mr-5" type="button" data-toggle="collapse" data-target="#collapseInfos" aria-expanded="false" aria-controls="collapseInfos">Infos proprietaire</button>
                   <button className="btn btn-dark ml-5 mt-5">Poster un commentaire</button>
                   <div className="collapse" id="collapseInfos">
-                  <div className="card card-body">
+                  <div className="card card-body mt-2 card-infos">
                     <div>Prénom : {alertData.user.firstName}</div>
                     <div>Nom : {alertData.user.lastName}</div>
                     <div>Téléphone : {alertData.user.phone}</div>
