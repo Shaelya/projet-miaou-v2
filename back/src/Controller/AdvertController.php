@@ -56,16 +56,17 @@ class AdvertController extends AbstractController
             
                 //$advert->setLongitude($longitude);
                 //$advert->setLatitude($latitude);
+                //ici on flush 2 fois une fois pr limage et une fois pr le nom.pdf
             $advert->setUser($user);
             $em = $this->getDoctrine()->getManager();
             $em->persist($advert);
             $em->flush();
-//on va recuperer mes donnes de mon champ picture de mon formulaire  quon stocke dans la $imagePath
-//ensuite on fait $advert->setPicture pour recuperer mon image (le chemin de limage )
+            //on va recuperer mes donnes de mon champ picture de mon formulaire  quon stocke dans la $imagePath
+            //ensuite on fait $advert->setPicture pour recuperer mon image (le chemin de limage )
             $imagePath = $fileUploadManager->upload($form['picture'], $advert->getId());
     
             $advert->setPicture($imagePath);
-//je persit et je flush 
+            //je persit et je flush 
             //$em = $this->getDoctrine()->getManager();
             $em->persist($advert);
             $em->flush();
