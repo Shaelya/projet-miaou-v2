@@ -18,10 +18,20 @@ class UserController extends AbstractController
             header('Access-Control-Allow-Origin: *'); 
             header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS'); 
             header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+
+            $user= $this->getUser();
+
+            $userId = $user->getId();
+            $userFirstName = $user->getFirstName();
+            $userLastName = $user->getLastName();
+
             $formatted = [];
             
             $formatted [] = [
             'userConnected' => true,
+            'userId' => $userId,
+            'userFirstName' => $userFirstName,
+            'userLastName' => $userLastName,
             ];
         }
         else {
