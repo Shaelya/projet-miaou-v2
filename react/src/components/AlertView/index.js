@@ -23,18 +23,17 @@ class AlertView extends React.Component {
     }
   }
 
-  handleCloseInfo = (e) => {
-    this.setState({visibility: false})
-  }
-
   render() {
     let alertData = this.props.data.location.state.alertData;
 
     if(this.state.visibility){
       return(
-        <div>
-        <h1 className="h1">{alertData.name} ref : {alertData.id} </h1>
-              <table className="table">
+        <div className="card mb-3">
+        <div className="row no-gutters">
+          <div className="col-md-7">
+            <div className="card-body">
+              <h1 className="h1">{alertData.name} ref : {alertData.id} </h1>
+                <table className="table">
                 <tbody>
                   <tr>
                     <th>Nom</th>
@@ -57,84 +56,96 @@ class AlertView extends React.Component {
                       <td>{alertData.description}</td>
                   </tr>
                 </tbody>
-              </table>
+                </table>
 
-              <h2 className="h2">Commentaires</h2>
-              <table className="table">
-                <tbody>
-                  {alertData.comments.map((comment) => (
-                    <tr key={comment.id}>
-                    <th>{comment.user.firstName}</th>
-                      <td>{comment.createdAtJson}</td>
-                      <td>{comment.text}</td>
-                  </tr>
-                  ))}
-                </tbody>
-              </table>
+                <h2 className="h2">Commentaires</h2>
+                  <table className="table">
+                    <tbody>
+                      {alertData.comments.map((comment) => (
+                        <tr key={comment.id}>
+                        <th>{comment.user.firstName}</th>
+                          <td>{comment.createdAtJson}</td>
+                          <td>{comment.text}</td>
+                      </tr>
+                      ))}
+                    </tbody>
+                  </table>
+
+                  <button onClick={this.handleClickInfo} className="btn btn-info ml-4 mt-5 mr-5" type="button" data-toggle="collapse" data-target="#collapseInfos" aria-expanded="false" aria-controls="collapseInfos">Infos proprietaire</button>
+                  <button className="btn btn-dark ml-5 mt-5">Poster un commentaire</button>
+                  <div className="collapse" id="collapseInfos">
+                  <div className="card card-body mt-2 card-infos">
+                    <div>Prénom : {alertData.user.firstName}</div>
+                    <div>Nom : {alertData.user.lastName}</div>
+                    <div>Téléphone : {alertData.user.phone}</div>
+                    <div>E-mail : {alertData.user.email}</div>
+                  </div>
+                </div>
               
-              <button onClick={this.handleClickInfo}>Infos proprietaire</button>
-              <button>Poster un commentaire</button>
-              <div className="alert alert-warning alert-dismissible fade show" role="alert">
-                <div>Prénom : {alertData.user.firstName}</div>
-                <div>Nom : {alertData.user.lastName}</div>
-                <div>Téléphone : {alertData.user.phone}</div>
-                <div>E-mail : {alertData.user.email}</div>
-                <button onClick={this.handleCloseInfo} type="button" className="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-
-
-                <img className="alerte-image" src={alertData.picture} />
             </div>
+          </div>
+          <div className="col-md-5">
+            <img className="alerte-image card-img" src={alertData.picture} />
+          </div>
+        </div>
+        </div>
 
       )
     } else {
       return(
-        <div>
-        <h1 className="h1">{alertData.name} ref : {alertData.id} </h1>
-              <table className="table">
-                <tbody>
-                  <tr>
-                    <th>Nom</th>
-                      <td>{alertData.name}</td>
-                  </tr>
-                  <tr>
-                    <th>Type</th>
-                      <td>{alertData.type}</td>
-                  </tr>
-                  <tr>
-                    <th>Lieu</th>
-                      <td>{alertData.lieu}</td>
-                  </tr>
-                  <tr>
-                    <th>Sexe</th>
-                      <td>{alertData.sex}</td>
-                  </tr>
-                  <tr>
-                    <th>Description</th>
-                      <td>{alertData.description}</td>
-                  </tr>
-                </tbody>
-              </table>
+        <div className="card mb-3">
+          <div className="row no-gutters">
+            <div className="col-md-7">
+              <div className="card-body">
+              <h1 className="h1">{alertData.name} ref : {alertData.id} </h1>
+                  <table className="table">
+                  <tbody>
+                    <tr>
+                      <th>Nom</th>
+                        <td>{alertData.name}</td>
+                    </tr>
+                    <tr>
+                      <th>Type</th>
+                        <td>{alertData.type}</td>
+                    </tr>
+                    <tr>
+                      <th>Lieu</th>
+                        <td>{alertData.lieu}</td>
+                    </tr>
+                    <tr>
+                      <th>Sexe</th>
+                        <td>{alertData.sex}</td>
+                    </tr>
+                    <tr>
+                      <th>Description</th>
+                        <td>{alertData.description}</td>
+                    </tr>
+                  </tbody>
+                  </table>
 
-              <h2 className="h2">Commentaires</h2>
-              <table className="table">
-                <tbody>
-                  {alertData.comments.map((comment) => (
-                    <tr key={comment.id}>
-                    <th>{comment.user.firstName}</th>
-                      <td>{comment.createdAtJson}</td>
-                      <td>{comment.text}</td>
-                  </tr>
-                  ))}
-                </tbody>
-              </table>
-              
-              <button onClick={this.handleClickInfo}>Infos proprietaire</button>
-              <button>Poster un commentaire</button>
-                <img className="alerte-image" src={alertData.picture} />
+                   <h2 className="h2">Commentaires</h2>
+                    <table className="table">
+                      <tbody>
+                        {alertData.comments.map((comment) => (
+                          <tr key={comment.id}>
+                          <th>{comment.user.firstName}</th>
+                            <td>{comment.createdAtJson}</td>
+                            <td>{comment.text}</td>
+                        </tr>
+                        ))}
+                      </tbody>
+                    </table>
+
+                    <button onClick={this.handleClickInfo} className="btn btn-info ml-4 mt-5 mr-5">Infos proprietaire</button>
+                    <button className="btn btn-dark ml-5 mt-5">Poster un commentaire</button>
+                
+              </div>
             </div>
+            <div className="col-md-5">
+              <div className="text-center"><img className="alerte-image card-img" src={alertData.picture} /></div>
+            </div>
+          </div>
+        </div>
       )
     }
   }
