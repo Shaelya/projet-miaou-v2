@@ -39,10 +39,9 @@ security:
          - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY } 
          - { path: ^/advert/new, roles: ROLE_USER }
          - { path: ^/profile, roles: ROLE_USER }
-         
-         - { path: ^/login, roles: ROLE_USER }
-         - { path: ^/register, roles: ROLE_USER }
+         - { path: ^/connexion, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+         - { path: ^/inscription, roles: IS_AUTHENTICATED_ANONYMOUSLY}
          - { path: ^/deconnexion, roles: ROLE_USER }
-         - { path: ^/api/user, roles: ROLE_USER }
+        
          
         #ici cest pour que luser est connecte pour arrive sur la page de fiche alerte
