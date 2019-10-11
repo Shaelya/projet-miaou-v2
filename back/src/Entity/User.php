@@ -71,6 +71,8 @@ class User implements UserInterface
     /**
      * @Groups("apiStatus")
      * @Groups("apiProfils")
+     * @Groups("apiComments")
+     * @Groups("apiAdverts")
      */
     public function getId(): ?int
     {
@@ -79,6 +81,7 @@ class User implements UserInterface
     /**
      * @Groups("apiStatus")
      * @Groups("apiProfils")
+     * @Groups("apiAdverts")
      */
     public function getEmail(): ?string
     {
@@ -155,6 +158,8 @@ class User implements UserInterface
     /**
      * @Groups("apiStatus")
      * @Groups("apiProfils")
+     * @Groups("apiComments")
+     * @Groups("apiAdverts")
      */
     public function getLastName(): ?string
     {
@@ -170,6 +175,8 @@ class User implements UserInterface
     /**
      * @Groups("apiStatus")
      * @Groups("apiProfils")
+     * @Groups("apiComments")
+     * @Groups("apiAdverts")
      */
     public function getFirstName(): ?string
     {
@@ -185,6 +192,7 @@ class User implements UserInterface
     /**
      * @Groups("apiStatus")
      * @Groups("apiProfils")
+     * @Groups("apiAdverts")
      */
     public function getPhone(): ?string
     {
