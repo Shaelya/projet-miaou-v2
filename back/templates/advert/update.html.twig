@@ -1,5 +1,14 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %} {#ligne ajoutee#}
+    {{ parent() }}
+
+    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
+    
+{% endblock %}
+
+
+
 {% block title %}Fiche Alerte{% endblock %}
 
 {% block body %}
