@@ -2,13 +2,13 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 
-const Header = ({userConnected}) => {
+const Header = ({userData}) => {
 
-  if(userConnected){
+  if(userData.userConnected){
     return(
       <div className="header-connected">
                   <nav className="navbar">
-                      <i className="fa fa-user"></i><p className="ml-2">connecté</p>
+                      <i className="fa fa-user"></i><p className="ml-2">Bonjour {userData.userFirstName}</p>
                       <NavLink to="/" exact className="navbar-brand mx-auto">
                         <h1>MIA'Où</h1>
                       </NavLink>

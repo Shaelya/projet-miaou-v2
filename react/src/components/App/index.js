@@ -36,7 +36,16 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-  axios.get('/api/user/isConnected').then(result => {this.setState({userConnected: result.data[0].userConnected })} ) 
+  axios.get('/api/user/isConnected').then(result => {
+    if(result.data[0].userConnected){
+    this.setState({
+    userConnected: result.data[0].userConnected,
+    userId: result.data[0].userId,
+    userFirstName: result.data[0].userFirstName,
+    userLastName: result.data[0].userLastName,
+  
+  })}
+ } ) 
   .catch((error) => {
     console.error(error);
   });
@@ -58,7 +67,7 @@ class App extends React.Component {
     return(
       <div className="App">
           {/* Todo : Si l'utilisateur est connecté afficher de HeaderConnected, sinon afficher le HeaderDisconnected */}
-          <Header userConnected={this.state.userConnected} />
+          <Header userData={this.state} />
           <Route path='/' exact render= {() => <Home alertButton={this.props.alertButton} data={this.props.data} handleClick={this.props.handleClick} getData={this.props.getData} userConnected={this.state.userConnected} />} />
           {/* <Route path='/inscription' exact render= {() => <Inscription />} /> */}
           {/* <Route path='' exact render= {() => <Connexion />} /> */}
