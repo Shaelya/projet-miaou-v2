@@ -51,7 +51,7 @@ const Profil = ({userData, data}) => {
               <tr key={comment.id}>
               <th>{comment.createdAtJson}</th>
                 <td>{comment.advert.name} Ref : {comment.advert.id}</td>
-                <td><button type="button" class="btn btn-light"><Link  style={{ textDecoration: 'none', color: 'black' }} to={ {
+                <td><button type="button" className="btn btn-light"><Link  style={{ textDecoration: 'none', color: 'black' }} to={ {
               pathname: '/fiche-alerte-vue',
               state: { alertData: commentAdvert[0]  }
             } }> consulter</Link></button></td>
@@ -65,12 +65,11 @@ const Profil = ({userData, data}) => {
         <table className="table">
           <tbody>
             {advertData.map((advert) => {
-              console.log(advert);
               return(
               <tr key={advert.id}>
               <th>{advert.createdAtJson}</th>
                 <td>{advert.name} Ref : {advert.id}</td>
-                <td><button type="button" class="btn btn-light"><Link   style={{ textDecoration: 'none', color: 'black' }} to={ {
+                <td><button type="button" className="btn btn-light"><Link   style={{ textDecoration: 'none', color: 'black' }} to={ {
               pathname: '/fiche-alerte-vue',
               state: { alertData: advert  }
             } }> consulter</Link></button></td>
