@@ -37,12 +37,12 @@ const Profil = ({userData}) => {
           </tbody>
         </table>
 
-        <h2 className="h2 mt-5">Mes commentaires</h2>
+        <h2 className="h2 mt-5 text-center">Mes commentaires</h2>
         <table className="table">
           <tbody>
             {comments.map((comment) => (
               <tr key={comment.id}>
-              <th>{comment.user.createdAtJson}</th>
+              <th>{comment.createdAtJson}</th>
                 <td>{comment.advert.name} Ref : {comment.advert.id}</td>
                 <td>consulter</td>
             </tr>
