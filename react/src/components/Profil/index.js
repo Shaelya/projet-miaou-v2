@@ -1,11 +1,35 @@
 import React from 'react';
 
-const Profil = ({userConnected}) => {
+const Profil = ({userData}) => {
 
-  if(userConnected){
+  if(userData.userConnected){
+    let user = "";
+    if(userData.users){
+      user = userData.users.filter((currentUser) => userData.userId == currentUser.id );
+    }
+
     return(
       <div className="profil-page">
-        <p>Todo : page Profil</p>
+        <table className="table">
+                <tbody>
+                  <tr>
+                    <th>Nom</th>
+                      <td>{user[0].lastName}</td>
+                  </tr>
+                  <tr>
+                    <th>Prénom</th>
+                      <td>{user[0].firstName}</td>
+                  </tr>
+                  <tr>
+                    <th>E-mail</th>
+                      <td>{user[0].email}</td>
+                  </tr>
+                  <tr>
+                    <th>Téléphone</th>
+                      <td>{user[0].phone}</td>
+                  </tr>
+                </tbody>
+                </table>
       </div>
     )
   } else {
