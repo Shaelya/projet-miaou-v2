@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Comment;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -110,6 +109,7 @@ class Advert
     
     /**
      * @Groups("apiStatus") // je veux récuperer l'id 
+     * @Groups("apiComments")
      */
     public function getId(): ?int
     {
@@ -117,6 +117,7 @@ class Advert
     }
     /**
      * @Groups("apiStatus") // je veux récupérer le name 
+     * @Groups("apiComments")
      */
     public function getName(): ?string
     {
@@ -131,6 +132,7 @@ class Advert
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiComments")
      */
     public function getDescription(): ?string
     {
@@ -179,6 +181,7 @@ class Advert
 
     /**
      * @Groups("apiStatus")
+     * @Groups("apiComments")
      */
     public function getCreatedAtJson(): string // ici on a eu un soucis au niveau du serialze donc on crée une fonction qui nous permet de renvoyer une string plutot que une datetime 
     {

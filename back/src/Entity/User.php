@@ -71,6 +71,7 @@ class User implements UserInterface
     /**
      * @Groups("apiStatus")
      * @Groups("apiProfils")
+     * @Groups("apiComments")
      */
     public function getId(): ?int
     {
@@ -155,6 +156,7 @@ class User implements UserInterface
     /**
      * @Groups("apiStatus")
      * @Groups("apiProfils")
+     * @Groups("apiComments")
      */
     public function getLastName(): ?string
     {
@@ -170,6 +172,7 @@ class User implements UserInterface
     /**
      * @Groups("apiStatus")
      * @Groups("apiProfils")
+     * @Groups("apiComments")
      */
     public function getFirstName(): ?string
     {

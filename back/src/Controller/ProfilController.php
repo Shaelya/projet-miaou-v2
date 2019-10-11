@@ -44,5 +44,20 @@ class ProfilController extends AbstractController
         return $this->json($data);
     }
 
+    /**
+     * @Route("/api/profil/comment", name="comment")
+     */
+    public function profilCommentApi()
+    {
+        $infosComments = $this->getDoctrine()->getRepository(Comment::class)->findAll(); // on récupere les données de l'entité User, on recupere les coordonnées des utilisateurs, leurs annonces , et leurs commentaires
 
+
+        $classMetadataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));  // on prepare la methode de serialize         
+        $normalizer = new ObjectNormalizer($classMetadataFactory);
+        $serializer = new Serializer([$normalizer]);
+
+        $data = $serializer->normalize($infosComments, null, ['groups' => 'apiComments']); // on indique qu'on va renvoyer les données en json qui auront l'annotion du goupe api/profil
+        
+        return $this->json($data);
+    }
 }
