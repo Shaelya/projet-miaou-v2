@@ -25,3 +25,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Service\FileUploadManager:
+        #on met le namespace=> ou se trouve le fileuploadmanage r
+        arguments: 
+            # on stocke le chemin de la picture dans la variable $targetFolderPath 
+            #Il faudra modifier le .gitignore pour que le dossier ignoré corresponde au chemin précisé ici
+            $targetFolderPath: '%env(resolve:PICTURE_TARGET_FOLDER_PATH)%'
