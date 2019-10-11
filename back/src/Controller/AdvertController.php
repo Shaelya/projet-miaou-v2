@@ -23,7 +23,7 @@ class AdvertController extends AbstractController
 {
     //je peux creer la fiche alerte => jai le new
     /**
-     * @Route("/advert/new", name="advert_new" , methods={"POST"} )
+     * @Route("/advert/new", name="advert_new" , methods={"GET"} )
      */
     //ici on met la route /nex car il sagit dune creation on le mettrapas pr delete et update
     public function Advert(Request $request)
@@ -40,8 +40,12 @@ class AdvertController extends AbstractController
         // Je vérifie mes données
         if ($form->isSubmitted() && $form->isValid()) {
 //ici on recupere la valeur en post sinon ca serait query si cetait en get!!  $longitude = $request->query->get('longitude') ;
-            $longitude = $request->request->get('longitude') ;
-            $latitude = $request->request->get('latitude') ;
+            // $longitude = $request->query->get('lng') ;
+            // $latitude = $request->query->get('lat') ;
+            
+            // dump($longitude);
+            $longitude = $request->request->get('lng') ;
+            $latitude = $request->request->get('lat') ;
 
             $advert = $form->getData();
             //pour que le user puisse poster une alerte qd il est connecté uniquement 
@@ -50,7 +54,7 @@ class AdvertController extends AbstractController
             }
 
             $advert->setUser($user);
-//ici on attribue la valeur de la long et lat!!
+            //ici on attribue la valeur de la long et lat!!
             $advert->setLatitude($latitude) ;
             $advert->setLongitude($longitude) ;
 
