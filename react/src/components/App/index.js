@@ -36,34 +36,41 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-  axios.get('/api/user/isConnected').then(result => {this.setState({userConnected: result.data[0].userConnected })} ) 
+  axios.get('/api/user/isConnected').then(result => {
+    if(result.data[0].userConnected){
+    this.setState({
+    userConnected: result.data[0].userConnected,
+    userId: result.data[0].userId,
+    userFirstName: result.data[0].userFirstName,
+    userLastName: result.data[0].userLastName,
+  
+  })}
+ } ) 
+  .catch((error) => {
+    console.error(error);
+  });
+
+  axios.get('/api/profil/user').then(result => this.setState({users: result.data}))
+  .catch((error) => {
+    console.error(error);
+  });
+
+  axios.get('/api/profil/comment').then(result => this.setState({comments: result.data}))
   .catch((error) => {
     console.error(error);
   });
   }
 
-  // componentDidUpdate(prevProps,prevState){
-  //   console.log('didupdate');
-  //   axios.get('/api/user/isConnected').then(result => {
-  //     if(prevState !== result.data[0]){
-  //       this.setState({userConnected: result.data[0].userConnected })
-  //     }
-  //   } ) 
-  //   .catch((error) => {
-  //     console.error(error);
-  //   });
-  // }
-
   render(){
     return(
       <div className="App">
           {/* Todo : Si l'utilisateur est connecté afficher de HeaderConnected, sinon afficher le HeaderDisconnected */}
-          <Header userConnected={this.state.userConnected} />
+          <Header userData={this.state} />
           <Route path='/' exact render= {() => <Home alertButton={this.props.alertButton} data={this.props.data} handleClick={this.props.handleClick} getData={this.props.getData} userConnected={this.state.userConnected} />} />
           {/* <Route path='/inscription' exact render= {() => <Inscription />} /> */}
           {/* <Route path='' exact render= {() => <Connexion />} /> */}
           <Route path='/fiche-alerte-vue' exact render= {(alertData) => <AlertView data={alertData} />} />
-          <Route path='/profil' exact render= {() => <Profil userConnected={this.state.userConnected} />} />
+          <Route path='/profil' exact render= {() => <Profil userData={this.state} data={this.props.data} />} />
           <Route path='/comment-ca-marche' exact render= {() => <HowItWorks />} />
           <Route path='/mentions-legales' exact render= {() => <Legal />} />
           <Route path='/liens-externes' exact render= {() => <ExternalLinks />} />
