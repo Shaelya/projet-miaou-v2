@@ -45,13 +45,17 @@ class App extends React.Component {
     userLastName: result.data[0].userLastName,
   
   })}
-  
+ } ) 
+  .catch((error) => {
+    console.error(error);
+  });
+
   axios.get('/api/profil/user').then(result => this.setState({users: result.data}))
   .catch((error) => {
     console.error(error);
   });
 
- } ) 
+  axios.get('/api/profil/comment').then(result => this.setState({comments: result.data}))
   .catch((error) => {
     console.error(error);
   });
