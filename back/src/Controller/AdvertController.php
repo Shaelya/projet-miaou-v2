@@ -6,6 +6,7 @@ use App\Entity\Advert;
 use App\Controller\User;
 use App\Form\AdvertType;
 use Symfony\Flex\Response;
+use App\Service\FileUploadManager;
 use App\Controller\AdvertController;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Form\FormTypeInterface;
@@ -23,10 +24,10 @@ class AdvertController extends AbstractController
 {
     //je peux creer la fiche alerte => jai le new
     /**
-     * @Route("/advert/new", name="advert_new" , methods={"GET"} )
+     * @Route("/advert/new", name="advert_new" )
      */
     //ici on met la route /nex car il sagit dune creation on le mettrapas pr delete et update
-    public function Advert(Request $request)
+    public function Advert(Request $request, FileUploadManager $fileUploadManager)
     {
         //pour pusher $advert il me fallait l"instancier
         $advert = new Advert();
@@ -34,18 +35,20 @@ class AdvertController extends AbstractController
         //creer un nouveau formulaire dans le controller que je vais envoyer a ma view /twig
         $form = $this->createForm(AdvertType::class, $advert);
 
+        $longitude = $request->query->get('lng') ;
+        $latitude = $request->query->get('lat') ;
+
         // Je récupére mes données
         $form->handleRequest($request);
 
         // Je vérifie mes données
         if ($form->isSubmitted() && $form->isValid()) {
 //ici on recupere la valeur en post sinon ca serait query si cetait en get!!  $longitude = $request->query->get('longitude') ;
-            // $longitude = $request->query->get('lng') ;
-            // $latitude = $request->query->get('lat') ;
+
             
             // dump($longitude);
-            $longitude = $request->request->get('lng') ;
-            $latitude = $request->request->get('lat') ;
+            // $longitude = $request->request->get('lng') ;
+            // $latitude = $request->request->get('lat') ;
 
             $advert = $form->getData();
             //pour que le user puisse poster une alerte qd il est connecté uniquement 
@@ -60,6 +63,15 @@ class AdvertController extends AbstractController
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($advert);
+            $em->flush();
+
+
+            $imagePath = $fileUploadManager->upload($form['picture'], $advert->getId());
+    
+            $advert->setPicture($imagePath);
+            //je persit et je flush 
+            //$em = $this->getDoctrine()->getManager();
+            //$em->persist($advert);
             $em->flush();
 
             return $this->redirectToRoute('index');
