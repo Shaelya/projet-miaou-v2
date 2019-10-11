@@ -70,7 +70,7 @@ class App extends React.Component {
           {/* <Route path='/inscription' exact render= {() => <Inscription />} /> */}
           {/* <Route path='' exact render= {() => <Connexion />} /> */}
           <Route path='/fiche-alerte-vue' exact render= {(alertData) => <AlertView data={alertData} />} />
-          <Route path='/profil' exact render= {() => <Profil userData={this.state} />} />
+          <Route path='/profil' exact render= {() => <Profil userData={this.state} data={this.props.data} />} />
           <Route path='/comment-ca-marche' exact render= {() => <HowItWorks />} />
           <Route path='/mentions-legales' exact render= {() => <Legal />} />
           <Route path='/liens-externes' exact render= {() => <ExternalLinks />} />
