@@ -118,6 +118,7 @@ class Advert
     /**
      * @Groups("apiStatus") // je veux récupérer le name 
      * @Groups("apiComments")
+     * @Groups("apiAdverts")
      */
     public function getName(): ?string
     {
@@ -133,6 +134,7 @@ class Advert
     /**
      * @Groups("apiStatus")
      * @Groups("apiComments")
+     * @Groups("apiAdverts")
      */
     public function getDescription(): ?string
     {
@@ -147,6 +149,7 @@ class Advert
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiAdverts")
      */
     public function getLatitude(): ?string
     {
@@ -161,6 +164,7 @@ class Advert
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiAdverts")
      */
     public function getLongitude(): ?string
     {
@@ -182,6 +186,7 @@ class Advert
     /**
      * @Groups("apiStatus")
      * @Groups("apiComments")
+     * @Groups("apiAdverts")
      */
     public function getCreatedAtJson(): string // ici on a eu un soucis au niveau du serialze donc on crée une fonction qui nous permet de renvoyer une string plutot que une datetime 
     {
@@ -209,6 +214,7 @@ class Advert
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiAdverts")
      */
     public function getUser(): ?User
     {
@@ -225,6 +231,7 @@ class Advert
     /**
      * @return Collection|Comment[]
      * @Groups("apiStatus") // mettre le goupe ici me permet de récupérer tous les commentaires , maintenant que j'ai un tableau qui contient des commentaire il faut le remplir ; je vais dans donc sur entité comment.php
+     * @Groups("apiAdverts")
      */
     public function getComments(): Collection
     {
@@ -255,6 +262,7 @@ class Advert
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiAdverts")
      */
     public function getAge(): ?string
     {
@@ -269,6 +277,7 @@ class Advert
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiAdverts")
      */
     public function getSex(): ?string
     {
@@ -283,6 +292,7 @@ class Advert
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiAdverts")
      */
     public function getType(): ?string
     {
@@ -297,6 +307,7 @@ class Advert
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiAdverts")
      */
     public function getStatus(): ?string
     {
@@ -311,6 +322,7 @@ class Advert
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiAdverts")
      */
     public function getLieu(): ?string
     {
@@ -325,6 +337,7 @@ class Advert
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiAdverts")
      */
     public function getPicture(): ?string
     {
@@ -339,6 +352,7 @@ class Advert
     }
     /**
      * @Groups("apiStatus")
+     * @Groups("apiAdverts")
      */
     public function getVisibility(): ?string
     {

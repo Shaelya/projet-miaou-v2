@@ -57,6 +57,7 @@ class Comment
     /**
      * @Groups("apiStatus")
      * @Groups("apiComments")
+     * @Groups("apiAdverts")
      */
     public function getId(): ?int
     {
@@ -65,6 +66,7 @@ class Comment
     /**
      * @Groups("apiStatus")
      * @Groups("apiComments")
+     * @Groups("apiAdverts")
      */
     public function getTitle(): ?string
     {
@@ -80,6 +82,7 @@ class Comment
     /**
      * @Groups("apiStatus")
      * @Groups("apiComments")
+     * @Groups("apiAdverts")
      */
     public function getText(): ?string
     {
@@ -101,6 +104,7 @@ class Comment
     /**
      * @Groups("apiStatus")
      * @Groups("apiComments")
+     * @Groups("apiAdverts")
      */
     public function getCreatedAtJson(): string
     {
@@ -143,6 +147,7 @@ class Comment
     /**
      * @Groups("apiStatus")
      * @Groups("apiComments")
+     * @Groups("apiAdverts")
      */
     public function getUser(): ?User
     {
