@@ -9,33 +9,31 @@ const Team = () => (
 
 
   <div className="container">
-    <h1 className="text-center text-muted">La team Mia'Où</h1>
+    <h1 className="text-center text-muted">La Team</h1>
       <div className="row">
         <div className="col-xs-6 col-sm-3 hover-zoomin">
           <a href="#" title="">
-            <img src={photo2} alt="Marie"/>
+            <img src={photo2} className="img-thumbnail img-responsive" alt="Marie"/>
           </a>
-          <h4 className="text-center">Marie GitMaster</h4>
+          <h4 className="text-center font-weight-bold">Marie - Scrum Master/Git Master</h4>
         </div>
-        <div className="col-xs-6 col-sm-3 hover-fade">
+        <div className="col-xs-6 col-sm-3 hover-zoomin">
           <a href="#" title="">
-            <img src={photo3} alt="Helene"/>
+            <img src={photo3} className="img-thumbnail img-responsive" alt="Helene"/>
           </a>
-          <h4 className="text-center">Helene Product Owner</h4>
+          <h4 className="text-center font-weight-bold">Helene - Product Owner</h4>
         </div>
-        <div class="col-xs-6 col-sm-3 hover-blur">
+        <div class="col-xs-6 col-sm-3 hover-zoomin">
           <a href="#" title="">
-            <img src={photo1} alt="Geraldine"/>
-            <h2><span class="text-white">Geraldine Lead Back end</span></h2>
+            <img src={photo1} className="img-thumbnail img-responsive" alt="Geraldine"/>
           </a>
-          <h4 class="text-center">Geraldine Lead Back end</h4>
+          <h4 class="text-center font-weight-bold">Geraldine - Lead Dev Back end</h4>
         </div>
-        <div class="col-xs-6 col-sm-3 hover-mask">
+        <div class="col-xs-6 col-sm-3 hover-zoomin">
           <a href="#" title="">
-            <img src={photo4} alt="Vanessa"/>
-            <h2><span class="glyphicon glyphicon-search"></span></h2>
+            <img src={photo4} className="img-thumbnail img-responsive" alt="Vanessa"/>
           </a>
-          <h4 class="text-center">Vanessa Lead Front end</h4>
+          <h4 class="text-center font-weight-bold">Vanessa - Lead Dev Front end</h4>
         </div>
       </div>
        
