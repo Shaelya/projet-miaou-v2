@@ -32,7 +32,6 @@ import './app.sass';
 class App extends React.Component {
 
   state = {
-    userConnected: false
   }
 
   componentDidMount(){
