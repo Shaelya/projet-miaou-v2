@@ -188,6 +188,50 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 
 /***/ }),
 
+/***/ "./src/assets/images/Helene.png":
+/*!**************************************!*\
+  !*** ./src/assets/images/Helene.png ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/1a3a6ec1619a317ee0142612ab62800b.png\";\n\n//# sourceURL=webpack:///./src/assets/images/Helene.png?");
+
+/***/ }),
+
+/***/ "./src/assets/images/Marie.png":
+/*!*************************************!*\
+  !*** ./src/assets/images/Marie.png ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/bb917c1230dea6c0795cf5b945acb183.png\";\n\n//# sourceURL=webpack:///./src/assets/images/Marie.png?");
+
+/***/ }),
+
+/***/ "./src/assets/images/gege.png":
+/*!************************************!*\
+  !*** ./src/assets/images/gege.png ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/6f90588009d15067f11d4a3e2ef0324d.png\";\n\n//# sourceURL=webpack:///./src/assets/images/gege.png?");
+
+/***/ }),
+
+/***/ "./src/assets/images/vaness.png":
+/*!**************************************!*\
+  !*** ./src/assets/images/vaness.png ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/8fe922bcd0956f3e71973be5b504bf80.png\";\n\n//# sourceURL=webpack:///./src/assets/images/vaness.png?");
+
+/***/ }),
+
 /***/ "./src/components/AlertButton/index.js":
 /*!*********************************************!*\
   !*** ./src/components/AlertButton/index.js ***!
@@ -350,7 +394,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _emo
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _emotion_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/core */ \"./node_modules/@emotion/core/dist/core.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nvar Team = function Team() {\n  return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"team-page\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"p\", null, \"Todo : page Equipe\"));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Team);\n\n//# sourceURL=webpack:///./src/components/Team/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _emotion_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/core */ \"./node_modules/@emotion/core/dist/core.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var src_assets_images_gege_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/assets/images/gege.png */ \"./src/assets/images/gege.png\");\n/* harmony import */ var src_assets_images_gege_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(src_assets_images_gege_png__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var src_assets_images_Marie_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/assets/images/Marie.png */ \"./src/assets/images/Marie.png\");\n/* harmony import */ var src_assets_images_Marie_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(src_assets_images_Marie_png__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var src_assets_images_Helene_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/assets/images/Helene.png */ \"./src/assets/images/Helene.png\");\n/* harmony import */ var src_assets_images_Helene_png__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(src_assets_images_Helene_png__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var src_assets_images_vaness_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/assets/images/vaness.png */ \"./src/assets/images/vaness.png\");\n/* harmony import */ var src_assets_images_vaness_png__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(src_assets_images_vaness_png__WEBPACK_IMPORTED_MODULE_5__);\n\n\n\n\n\n\n\nvar Team = function Team() {\n  return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"team-page\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"container\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"h1\", {\n    className: \"text-center text-muted\"\n  }, \"La team Mia'O\\xF9\"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"row\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"col-xs-6 col-sm-3 hover-zoomin\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"a\", {\n    href: \"#\",\n    title: \"\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"img\", {\n    src: src_assets_images_Marie_png__WEBPACK_IMPORTED_MODULE_3___default.a,\n    alt: \"Marie\"\n  })), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"h4\", {\n    className: \"text-center\"\n  }, \"Marie GitMaster\")), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"col-xs-6 col-sm-3 hover-fade\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"a\", {\n    href: \"#\",\n    title: \"\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"img\", {\n    src: src_assets_images_Helene_png__WEBPACK_IMPORTED_MODULE_4___default.a,\n    alt: \"Helene\"\n  })), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"h4\", {\n    className: \"text-center\"\n  }, \"Helene Product Owner\")), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    \"class\": \"col-xs-6 col-sm-3 hover-blur\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"a\", {\n    href: \"#\",\n    title: \"\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"img\", {\n    src: src_assets_images_gege_png__WEBPACK_IMPORTED_MODULE_2___default.a,\n    alt: \"Geraldine\"\n  }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"h2\", null, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"span\", {\n    \"class\": \"text-white\"\n  }, \"Geraldine Lead Back end\"))), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"h4\", {\n    \"class\": \"text-center\"\n  }, \"Geraldine Lead Back end\")), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    \"class\": \"col-xs-6 col-sm-3 hover-mask\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"a\", {\n    href: \"#\",\n    title: \"\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"img\", {\n    src: src_assets_images_vaness_png__WEBPACK_IMPORTED_MODULE_5___default.a,\n    alt: \"Vanessa\"\n  }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"h2\", null, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"span\", {\n    \"class\": \"glyphicon glyphicon-search\"\n  }))), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"h4\", {\n    \"class\": \"text-center\"\n  }, \"Vanessa Lead Front end\")))));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Team);\n\n//# sourceURL=webpack:///./src/components/Team/index.js?");
 
 /***/ }),
 
