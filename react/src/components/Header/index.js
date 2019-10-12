@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Logo from 'src/assets/images/logo-blanc.png';
+import './header.sass';
 
 
 const Header = ({userData}) => {
@@ -7,10 +9,10 @@ const Header = ({userData}) => {
   if(userData.userConnected){
     return(
       <div className="header-connected">
-                  <nav className="navbar">
+                  <nav className="navbar logo-navbar">
                       <i className="fa fa-user"></i><p className="ml-2">Bonjour {userData.userFirstName}</p>
                       <NavLink to="/" exact className="navbar-brand mx-auto">
-                        <h1>MIA'Où</h1>
+                        <img src={Logo} alt="logo miaou" className="logo-miaou d-inline-block align-top"/>
                       </NavLink>
                       <form className="form-inline">
                         <NavLink to="/profil" exact><button className="btn btn-info mr-2" type="button">Profil</button></NavLink>
@@ -27,7 +29,7 @@ const Header = ({userData}) => {
       <nav className="navbar">
           <i className="fa fa-user-times"></i><p className="ml-2">non connecté</p>
           <NavLink to="/" exact className="navbar-brand mx-auto">
-            <h1>MIA'Où</h1>
+            <img src={Logo} alt="logo miaou" className="logo-miaou d-inline-block align-top"/>
           </NavLink>
           <form className="form-inline">
             {/* <NavLink to="/app/login" exact><button className="btn btn-info mr-2" type="button">Se connecter</button></NavLink> */}
