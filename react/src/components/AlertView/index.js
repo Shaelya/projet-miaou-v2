@@ -154,7 +154,7 @@ class AlertView extends React.Component {
                         <tr key={comment.id}>
                         <th>{comment.user.firstName}</th>
                           <td>{comment.createdAtJson}</td>
-                          <td>{comment.text}</td>
+                          <td>{comment.title}</td>
                           <td>{comment.text}</td>
                       </tr>
                       ))}

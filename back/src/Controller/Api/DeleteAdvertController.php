@@ -24,27 +24,21 @@ class DeleteAdvertController extends AbstractController
      */
     public function index(Request $request)
     {
-
+        // les 3 lignes suivantes permettent de communiquer avec l'Api
         header('Access-Control-Allow-Origin: *'); 
         header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS'); 
         header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 
-        //$user = $this->getUser();
-
-        // $data = $request->getContent();
-
-        // $data = json_decode($request->getContent(), true);
-
-        // $advertId = $data['id'];
-
+        // permet de récupérer les données data envoyée dans l'API
         $data = $request->getContent();
 
         // cette métode trouvée sur https://medium.com/@peter.lafferty/converting-a-json-post-in-symfony-13a24c98fc0e
         $data = json_decode($request->getContent(), true);
 
-        // on replace dans des variables le data qui permettent de renvoyer du texte
+        // on va récupérer dans le data l'id 
          $id = $data['id'];
 
+        // je récupère toutes les données de class Advert et on trouve l'id de l'advert
         $advert = $this->getDoctrine()->getRepository(Advert::class)->find($id);
 
         // ensuite je fais le traitement de suppression pr supprimer l'annonce dans la bdd
