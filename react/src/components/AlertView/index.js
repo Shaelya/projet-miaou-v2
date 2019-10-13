@@ -7,6 +7,8 @@ import axios from 'axios';
 class AlertView extends React.Component {
 
   state = {
+    titleValue: "",
+    commentValue: ""
   }
 
   componentDidMount(){
@@ -69,9 +71,30 @@ class AlertView extends React.Component {
 
   }
 
+  handleChangeTitle = (e) => {
+
+    this.setState({ titleValue: e.target.value })
+
+  }
+
+  handleChangeText = (e) => {
+
+    this.setState({ commentValue: e.target.value })
+
+  }
+
   handleComment = (e) => {
     e.preventDefault();
-    console.log('text');
+    let alertData = this.props.data.location.state.alertData;
+    const promise = axios.post(
+      '/api/comment/new',
+      { 
+        title: this.state.titleValue,
+        text: this.state.commentValue,
+        advert_id: alertData.id
+      }
+      // { headers: { 'Content-Type': 'application/json' } }
+    )
 
   }
 
@@ -138,10 +161,10 @@ class AlertView extends React.Component {
                     </tbody>
                   </table>
                   <form onSubmit={this.handleComment}>
-                    <input type="text" id="title" name="title" placeholder="Titre de votre commentaire"/>
+                    <input type="text" id="title" name="title" placeholder="Titre de votre commentaire" value={this.state.titleValue} onChange={this.handleChangeTitle} />
                     <br/>
 
-                    <textarea  name="text" rows="10" cols="30" placeholder="Votre commentaire"/>
+                    <textarea  name="text" rows="10" cols="30" placeholder="Votre commentaire" value={this.state.commentValue} onChange={this.handleChangeText} />
                     <br/>
                     <input type="submit"  className="btn btn-dark ml-3 mt-5 mr-5" value="Poster un commentaire"></input>
                   </form>
