@@ -58,6 +58,7 @@ class Comment
      * @Groups("apiStatus")
      * @Groups("apiComments")
      * @Groups("apiAdverts")
+     * 
      */
     public function getId(): ?int
     {
@@ -72,7 +73,9 @@ class Comment
     {
         return $this->title;
     }
-
+    /**
+     * @Groups("apicomment")
+     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
@@ -88,7 +91,9 @@ class Comment
     {
         return $this->text;
     }
-
+    /**
+     * @Groups("apicomment")
+     */
     public function setText(string $text): self
     {
         $this->text = $text;
@@ -132,7 +137,9 @@ class Comment
     }
     /**
      * @Groups("apiComments")
+     * @Groups("apicomment")
      */
+    
     public function getAdvert(): ?Advert
     {
         return $this->advert;
@@ -153,7 +160,9 @@ class Comment
     {
         return $this->user;
     }
-
+    /**
+     * @Groups("apicomment")
+     */
     public function setUser(?User $user): self
     {
         $this->user = $user;

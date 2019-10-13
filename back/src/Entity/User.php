@@ -63,11 +63,6 @@ class User implements UserInterface
      */
     private $comments;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $picture;
-
     public function __construct()
     {
         $this->adverts = new ArrayCollection();
@@ -78,7 +73,9 @@ class User implements UserInterface
      * @Groups("apiProfils")
      * @Groups("apiComments")
      * @Groups("apiAdverts")
+     * @Groups("apicomment")
      */
+
     public function getId(): ?int
     {
         return $this->id;
@@ -271,18 +268,6 @@ class User implements UserInterface
                 $comment->setUser(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(?string $picture): self
-    {
-        $this->picture = $picture;
 
         return $this;
     }
