@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class AdvertType extends AbstractType
 {
@@ -19,19 +20,39 @@ class AdvertType extends AbstractType
     {
     
         $builder 
-            ->add('name', TextType::class, array ('label'=>'Nom :'))
-            ->add('description', TextType::class, array ('label'=>'Description :'))
-            ->add('age', IntegerType::class, array ('label'=>'Age :'))
             ->add('sex', ChoiceType::class, [
                 'label'=>'Sexe :',
+                'attr'=>[
+                    'class' => 'form-control'
+                ],
                 'choices' => [
                     
                     'Mâle' => 'Mâle',
                     'Femelle' => 'Femelle',
                 ],
+                
             ])
+            ->add('name', TextType::class, array (
+                'label'=>'Nom :',
+                'attr'=>[
+                    'placeholder' =>'Son nom',
+                    'class' => 'form-control'
+                ]))
+                
+            
+           
+            ->add('age', IntegerType::class, array (
+                'label'=>'Age :',
+                'attr'=>[
+                    'placeholder' =>'Son age',
+                    'class' => 'form-control'
+                ]))
+            
             ->add('type', ChoiceType::class, [
                 'label'=>'Type :',
+                'attr'=>[
+                    'class' => 'form-control'
+                ],
                 'choices' => [
 
                     'chat' => 'chat',
@@ -43,6 +64,9 @@ class AdvertType extends AbstractType
             ])
             ->add('Status', ChoiceType::class, [
                 'label'=>'Statut :',
+                'attr'=>[
+                    'class' => 'form-control'
+                ],
                 'choices' => [
                 
                         'Vu'   => 'vu',
@@ -50,13 +74,33 @@ class AdvertType extends AbstractType
                         'Trouvé' => 'trouvé',
                     ],
                 ])
-            ->add('lieu')
+            ->add('lieu', TextType::class, array (
+                'label'=>'Lieu :',
+                'attr'=>[
+                    'placeholder' =>'Indiquez le lieu',
+                    'class' => 'form-control'
+                ]))
+
+            ->add('description', TextareaType::class, array (
+            'label'=>'Description :',
+            'attr'=>[
+                'class' =>'w-100',
+                'placeholder' =>'Description',
+                'class' => 'form-control'
+            ]))
             ->add('submit', SubmitType::class, [
+                'attr'=>[
+                    'class' =>'btn btn-primary mt-3 btn-lg btn-block',
+                ],
                 'label' => 'Ajouter une alerte'
             ])
              ->add('picture', FileType::class, array(
                  'label'     => 'Image :',
                  'required'  => false,
+                 'attr'=>[
+                    'class' =>' btn btn-outline-primary',
+                ],
+                
              ));
         
     }
