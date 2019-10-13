@@ -86,15 +86,16 @@ class AlertView extends React.Component {
   handleComment = (e) => {
     e.preventDefault();
     let alertData = this.props.data.location.state.alertData;
-    const promise = axios.post(
-      '/api/comment/new',
-      { 
+
+      axios.post('/api/comment/new', { 
         title: this.state.titleValue,
         text: this.state.commentValue,
-        advert_id: alertData.id
-      }
-      // { headers: { 'Content-Type': 'application/json' } }
-    )
+        advertId: alertData.id
+       }).then(response => {
+          console.log('Commentaire ajouté !')
+        }).catch(error => {
+            console.log('ERROR : ', error);
+        });
 
   }
 
