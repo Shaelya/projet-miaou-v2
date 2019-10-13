@@ -41,6 +41,8 @@ class CommentController extends AbstractController
         header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS'); 
         header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 
+        $user = $this->getUser();
+        dump($user);
         $data = $request->getContent();
         $comment = $this->get('serializer')->deserialize($data, Comment::Class, 'json');
 
