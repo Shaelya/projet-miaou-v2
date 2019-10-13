@@ -42,7 +42,7 @@ class CommentController extends AbstractController
         header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
 
         $data = $request->getContent();
-        $comment = $this->get('serializer')->deserialize($data, 'AppBundle\Entity\Comment', 'json');
+        $comment = $this->get('serializer')->deserialize($data, Comment::Class, 'json');
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($comment);
