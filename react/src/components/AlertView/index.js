@@ -41,32 +41,27 @@ class AlertView extends React.Component {
 }
 
   handleDelete = () => {
-  //   const MySwal = withReactContent(Swal);
-  //   let alertData = this.props.data.location.state.alertData;
-  //   MySwal.fire({
-  //     text: 'Voulez-vous vraiment supprimer cette fiche alerte ?',
-  //     type: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonText: 'Oui',
-  //     cancelButtonText: 'Non'
-  // }).then((result) =>{
-  //   if(result.value){
-
-  //     axios.delete(`advert/delete/${alertData.id}`)
-  //     .then(res => {
-  //       Swal.fire({
-  //         text: 'L\'alerte a été supprimée',
-  //         type: 'success'
-  //       })
-
-  //     }).catch(err => {
-  //       console.log(err);
-  //     });
+    const MySwal = withReactContent(Swal);
+    let alertData = this.props.data.location.state.alertData;
+    MySwal.fire({
+      text: 'Voulez-vous vraiment supprimer cette fiche alerte ?',
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonText: 'Oui',
+      cancelButtonText: 'Non'
+  }).then((result) =>{
+    if(result.value){
+      axios.post('/api/delete/advert', { 
+        id: alertData.id
+       }).then(response => {
+        }).catch(error => {
+            console.log('ERROR : ', error);
+        });
 
       
-  // }
+  }
    
-  // })
+  })
     
 
   }
@@ -92,7 +87,10 @@ class AlertView extends React.Component {
         text: this.state.commentValue,
         advertId: alertData.id
        }).then(response => {
-          console.log('Commentaire ajouté !')
+          // axios.get('/api/profil/comment').then(result => this.setState({comments: result.data}))
+          // .catch((error) => {
+          //   console.error(error);
+          // });
         }).catch(error => {
             console.log('ERROR : ', error);
         });
@@ -157,17 +155,18 @@ class AlertView extends React.Component {
                         <th>{comment.user.firstName}</th>
                           <td>{comment.createdAtJson}</td>
                           <td>{comment.text}</td>
+                          <td>{comment.text}</td>
                       </tr>
                       ))}
                     </tbody>
                   </table>
                   <form onSubmit={this.handleComment}>
-                    <input type="text" id="title" name="title" placeholder="Titre de votre commentaire" value={this.state.titleValue} onChange={this.handleChangeTitle} />
+                    <input className="mb-2" type="text" id="title" name="title" placeholder="Titre de votre commentaire" value={this.state.titleValue} onChange={this.handleChangeTitle} />
                     <br/>
 
                     <textarea  name="text" rows="10" cols="30" placeholder="Votre commentaire" value={this.state.commentValue} onChange={this.handleChangeText} />
                     <br/>
-                    <input type="submit"  className="btn btn-dark ml-3 mt-5 mr-5" value="Poster un commentaire"></input>
+                    <input type="submit"  className="btn btn-dark mt-2 mr-5" value="Poster un commentaire"></input>
                   </form>
                   {infoButton}
                   

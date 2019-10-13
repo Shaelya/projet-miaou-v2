@@ -55,76 +55,29 @@ class CommentController extends AbstractController
         // on récupère les éléments qui composent la fiche alerte 
         $advert = $this->getDoctrine()->getRepository(Advert::class)->find($advertId);
 
-        // on place le 
+        // on place le user dans le comment 
         $comment->setUser($user) ;
+
+        // on place le advert dans commentaire
         $comment->setAdvert($advert);
+
+        // on place le title dans advert
         $comment->setTitle($title);
+
+        // on place le texte dans comment
         $comment->setText($text);
 
         //dump($comment);exit;
 
+        // je balance la totale dans ma bdd 
         $em = $this->getDoctrine()->getManager();
         $em->persist($comment);
         $em->flush();
 
+        // on peut informer que le commentaire est bien envoyé !
         return new Response('commentaire envoyé', Response::HTTP_CREATED);
-        
-        // header('Access-Control-Allow-Origin: *'); 
-        // header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS'); 
-        // header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
-        
-        // //Récupèration du user connecté
-        // $user = $this->getUser();
-        // //Récupération de l'id du user connecté
-        // $userId = $user->getId();
-
-        // //Récupération des données envoyées du front : title,text, advert_id
-        // //$title= $request->request->get('title');
-        // //$text= $request->request->get('text');
-        // //$advertId= $request->request->get('advertId');
-
-        // $data = $request->request->get('data');
-
-        // dump($data);exit;
-
-        // $title = $data['title'];
-        // $text = $data['text'];
-        // $advertId = $data['avertId'];
-
-
-        // //Pour le test debug
-        // // $title = "test";
-        // // $text = "coucou ceci est un test";
-        // // $advertId = "13";
-
-        // //On récupère l'avert à l'id correspondant
-        // $advert = $this->getDoctrine()->getRepository(Advert::class)->find($advertId);
-
-        // //On instancie l'entité Comment
-        // $comment = new Comment ();
-
-        // //On set les donné
-        // $comment->setTitle($title);
-        // $comment->setText($text);
-        // $comment->setUser($user);
-        // $comment->setAdvert($advert);
-
-
-        // $entityManager = $this->getDoctrine()->getManager();
-        // $entityManager->persist($comment);
-        // $entityManager->flush();
-
-        // return new Response ('success');
-        
-        // // $data = $request->getContent();
-        // // $comment = $this->get('serializer')->deserialize($data, Comment::class, 'json');
-        // // //$comment->setUser($user);
-        // // $comment->setUser($user) ;
-        // // //$comment->setAdvert($id);
-        // // $em = $this->getDoctrine()->getManager();
-        // // $em->persist($comment);
-        // // $em->flush();
-        // // return new Response('commentaire envoyé', Response::HTTP_CREATED);
 
     }
+
+
 }
