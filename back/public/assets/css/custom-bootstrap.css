@@ -1,0 +1,31 @@
+*{
+    font-family: 'Khula', sans-serif !important;
+}
+
+.btn-primary{
+background-color:#ff6b6b !important;
+border-style:none;
+}
+
+.btn-primary:hover{
+    background-color:#cc5858 !important;
+    }
+.text-primary{
+    color:#ff6b6b !important;
+}
+
+.jumbotron {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+.menu-connexion a {
+    color: #ffff;
+}
+.btn-outline-primary{
+    border-color:#ff6b6b;
+    color:#ff6b6b;
+}
+.btn-outline-primary:hover {
+    background-color:#cc5858;
+    border-color:#cc5858;
+}
