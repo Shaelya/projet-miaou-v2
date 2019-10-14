@@ -29,7 +29,7 @@ const middleware = (store) => (next) => (action) => {
       break;
     }
     default: {
-      console.log('middleware/default');
+      // console.log('middleware/default');
       next(action);
     }
   }

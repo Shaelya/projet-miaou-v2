@@ -8,7 +8,8 @@ class AlertView extends React.Component {
 
   state = {
     titleValue: "",
-    commentValue: ""
+    commentValue: "",
+    alertData: this.props.data.location.state.alertData
   }
 
   componentDidMount(){
@@ -29,8 +30,7 @@ class AlertView extends React.Component {
 
   handleClickInfo = () => {
     const MySwal = withReactContent(Swal);
-    let alertData = this.props.data.location.state.alertData;
-    if(alertData.visibility === 'oui' ){
+    if(this.state.alertData.visibility === 'oui' ){
     } else{
       MySwal.fire({
         text: 'Le propriétaire a choisi de ne pas divulguer ses informations, si vous souhaitez le contacter vous pouvez lui laisser un commentaire',
@@ -42,7 +42,6 @@ class AlertView extends React.Component {
 
   handleDelete = () => {
     const MySwal = withReactContent(Swal);
-    let alertData = this.props.data.location.state.alertData;
     MySwal.fire({
       text: 'Voulez-vous vraiment supprimer cette fiche alerte ?',
       type: "warning",
@@ -52,7 +51,7 @@ class AlertView extends React.Component {
   }).then((result) =>{
     if(result.value){
       axios.post('/api/delete/advert', { 
-        id: alertData.id
+        id: this.state.alertData.id
        }).then(response => {
         }).catch(error => {
             console.log('ERROR : ', error);
@@ -80,12 +79,13 @@ class AlertView extends React.Component {
 
   handleComment = (e) => {
     e.preventDefault();
-    let alertData = this.props.data.location.state.alertData;
+    const MySwal = withReactContent(Swal);
 
+    if(this.state.userConnected){
       axios.post('/api/comment/new', { 
         title: this.state.titleValue,
         text: this.state.commentValue,
-        advertId: alertData.id
+        advertId: this.state.alertData.id
        }).then(response => {
           // axios.get('/api/profil/comment').then(result => this.setState({comments: result.data}))
           // .catch((error) => {
@@ -94,11 +94,20 @@ class AlertView extends React.Component {
         }).catch(error => {
             console.log('ERROR : ', error);
         });
+    }else {
+      MySwal.fire({
+        text: 'Vous devez être connecté.e pour poster un commentaire',
+        type: "error",
+        confirmButtonText: 'Ok'
+    }).then((result) =>{
+      window.location.href = "/connexion";
+    })
+    }
 
   }
 
   render() {
-    let alertData = this.props.data.location.state.alertData;
+    let alertData = this.state.alertData;
 
     let infoButton = (this.state.userId == alertData.user.id) ? <button onClick={this.handleDelete} className="btn btn-danger ml-4 mt-5 mr-5">Supprimer l'alerte</button> : <button onClick={this.handleClickInfo} className="btn btn-info ml-4 mt-5 mr-5">Infos proprietaire</button>;
 
