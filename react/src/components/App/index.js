@@ -49,15 +49,6 @@ class App extends React.Component {
     console.error(error);
   });
 
-  axios.get('/api/profil/user').then(result => this.setState({users: result.data}))
-  .catch((error) => {
-    console.error(error);
-  });
-
-  axios.get('/api/profil/comment').then(result => this.setState({comments: result.data}))
-  .catch((error) => {
-    console.error(error);
-  });
   }
 
   render(){
@@ -69,7 +60,7 @@ class App extends React.Component {
           {/* <Route path='/inscription' exact render= {() => <Inscription />} /> */}
           {/* <Route path='' exact render= {() => <Connexion />} /> */}
           <Route path='/fiche-alerte-vue' exact render= {(alertData) => <AlertView data={alertData} />} />
-          <Route path='/profil' exact render= {() => <Profil userData={this.state} data={this.props.data} />} />
+          <Route path='/profil' exact render= {() => <Profil />} />
           <Route path='/comment-ca-marche' exact render= {() => <HowItWorks />} />
           <Route path='/mentions-legales' exact render= {() => <Legal />} />
           <Route path='/liens-externes' exact render= {() => <ExternalLinks />} />

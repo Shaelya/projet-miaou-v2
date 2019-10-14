@@ -1,23 +1,62 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import'./profil.sass';
+import axios from 'axios';
 
-const Profil = ({userData, data}) => {
 
-  if(userData.userConnected){
-    let user = "";
-    let comments = "";
-    let advertData = "";
-    if(userData.users){
-      user = userData.users.filter((currentUser) => userData.userId == currentUser.id );
-    }
-    if(userData.comments){
-      comments = userData.comments.filter((comment) => userData.userId == comment.user.id);
-    }
-    if(data){
-      advertData = data.filter((advert) => userData.userId == advert.user.id);
-    }
+class Profil extends React.Component {
 
+  state = {}
+
+  componentDidMount() {
+    // let currentUser = "";
+    // let currentComments = "";
+    // let currentAdvert = "";
+    axios.get('/api/user/isConnected').then(result => {
+      if(result.data[0].userConnected){
+
+        axios.get('/api/profil/user').then(result2 => {
+          let currentUser = result2.data.filter((user) => result.data[0].userId == user.id );
+          axios.get('/api/profil/comment').then(result3 => {
+            let currentComments = result3.data.filter((comment) => result.data[0].userId == comment.user.id);
+            axios.get('/api/status').then(result4 => {
+              let adverts = result4.data;
+              let currentAdvert = result4.data.filter((advert) => result.data[0].userId == advert.user.id);
+              return this.setState({
+                userConnected: result.data[0].userConnected,
+                userId: result.data[0].userId,
+                userFirstName: result.data[0].userFirstName,
+                userLastName: result.data[0].userLastName,
+                user: currentUser,
+                comments: currentComments,
+                advert: currentAdvert,
+                adverts: adverts
+              })
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+          })
+        .catch((error) => {
+          console.error(error);
+        });
+     
+      }else {
+        return this.setState({userConnected: result.data[0].userConnected})
+    }
+    } ) 
+    .catch((error) => {
+      console.error(error);
+    });
+  }
+
+  render() {
+    console.log(this.state.userConnected);
+  if(this.state.userConnected){
     return(
       <div className="profil-page">
         <h1 className="h1 mb-4">Mes Infos</h1>
@@ -25,19 +64,19 @@ const Profil = ({userData, data}) => {
           <tbody>
             <tr>
               <th>Nom</th>
-                <td>{user[0].lastName}</td>
+                <td>{this.state.user[0].lastName}</td>
             </tr>
             <tr>
               <th>Prénom</th>
-                <td>{user[0].firstName}</td>
+                <td>{this.state.user[0].firstName}</td>
             </tr>
             <tr>
               <th>E-mail</th>
-                <td>{user[0].email}</td>
+                <td>{this.state.user[0].email}</td>
             </tr>
             <tr>
               <th>Téléphone</th>
-                <td>{user[0].phone}</td>
+                <td>{this.state.user[0].phone}</td>
             </tr>
           </tbody>
         </table>
@@ -45,8 +84,8 @@ const Profil = ({userData, data}) => {
         <h2 className="h2 mt-5 text-center mb-4">Mes commentaires</h2>
         <table className="table">
           <tbody>
-            {comments.map((comment) => {
-              let commentAdvert = data.filter((advert) => comment.advert.id == advert.id);
+            {this.state.comments.map((comment) => {
+              let commentAdvert = this.state.adverts.filter((advert) => comment.advert.id == advert.id);
               return(
               <tr key={comment.id}>
               <th>{comment.createdAtJson}</th>
@@ -64,7 +103,7 @@ const Profil = ({userData, data}) => {
         <h2 className="h2 mt-5 text-center mb-4">Mes annonces</h2>
         <table className="table">
           <tbody>
-            {advertData.map((advert) => {
+            {this.state.advert.map((advert) => {
               return(
               <tr key={advert.id}>
               <th>{advert.createdAtJson}</th>
@@ -80,11 +119,21 @@ const Profil = ({userData, data}) => {
         </table>
       </div>
     )
+  } else if(this.state.userConnected == undefined) {
+    return(
+      <div className="spinner spinner-border text-info" role="status">
+      <span className="sr-only text-center">Loading...</span>
+    </div>
+  )
+
+    
   } else {
     window.location.href = "/connexion";
   }
 
 }
+}
+
 
 
 export default Profil;

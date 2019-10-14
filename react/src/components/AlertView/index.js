@@ -9,7 +9,8 @@ class AlertView extends React.Component {
   state = {
     titleValue: "",
     commentValue: "",
-    alertData: this.props.data.location.state.alertData
+    alertData: this.props.data.location.state.alertData,
+    comments: this.props.data.location.state.alertData.comments
   }
 
   componentDidMount(){
@@ -53,6 +54,14 @@ class AlertView extends React.Component {
       axios.post('/api/delete/advert', { 
         id: this.state.alertData.id
        }).then(response => {
+        MySwal.fire({
+          text: 'Fiche alerte supprimée',
+          type: "success",
+          confirmButtonText: 'Ok'
+        }).then((result) =>{
+          window.location.href = "/profil";
+        })
+
         }).catch(error => {
             console.log('ERROR : ', error);
         });
@@ -87,10 +96,17 @@ class AlertView extends React.Component {
         text: this.state.commentValue,
         advertId: this.state.alertData.id
        }).then(response => {
-          // axios.get('/api/profil/comment').then(result => this.setState({comments: result.data}))
-          // .catch((error) => {
-          //   console.error(error);
-          // });
+          axios.get('/api/profil/comment').then(result => { 
+            const commentsRefreshed = result.data.filter((comment) => comment.advert.id == this.state.alertData.id)
+            return this.setState({
+              titleValue: "",
+              commentValue: "",
+              comments: commentsRefreshed
+            }) 
+          }) 
+          .catch((error) => {
+            console.error(error);
+          });
         }).catch(error => {
             console.log('ERROR : ', error);
         });
@@ -108,6 +124,7 @@ class AlertView extends React.Component {
 
   render() {
     let alertData = this.state.alertData;
+    let comments = this.state.comments;
 
     let infoButton = (this.state.userId == alertData.user.id) ? <button onClick={this.handleDelete} className="btn btn-danger ml-4 mt-5 mr-5">Supprimer l'alerte</button> : <button onClick={this.handleClickInfo} className="btn btn-info ml-4 mt-5 mr-5">Infos proprietaire</button>;
 
@@ -159,7 +176,7 @@ class AlertView extends React.Component {
                 <h2 className="h2">Commentaires</h2>
                   <table className="table">
                     <tbody>
-                      {alertData.comments.map((comment) => (
+                      {comments.map((comment) => (
                         <tr key={comment.id}>
                         <th>{comment.user.firstName}</th>
                           <td>{comment.createdAtJson}</td>
