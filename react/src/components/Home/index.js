@@ -61,7 +61,7 @@ class Home extends React.Component {
 
     return(
       <div className="container-fluid">
-        <Joyride run={this.state.run} steps={this.state.steps} continuous={true} />
+        <Joyride run={this.state.run} steps={this.state.steps} continuous={true} showProgress={true} showSkipButton={true} />
           <div className="text-center"><button onClick={this.handleGuidedTour} className="btn btn-light btn-lg mb-4">Montre-moi comment ça marche !</button></div>
           <div className="row">
             <div className="col">
