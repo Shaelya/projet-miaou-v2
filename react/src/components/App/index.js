@@ -31,8 +31,7 @@ import './app.sass';
 
 class App extends React.Component {
 
-  state = {
-  }
+  state = {}
 
   componentDidMount(){
   axios.get('/api/user/isConnected').then(result => {
