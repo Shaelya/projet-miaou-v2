@@ -81,20 +81,50 @@ class AdvertController extends AbstractController
        ]);
       }
     /**
-     * @Route("/advert/delete", name="advert_delete")
+     * @Route("api/user/advert/delete", name="advert-is-delete")
      */
     public function delete(Request $request)
-    { //en faisant un request get géré par le front, je vais recupere l'id que le front me renvoie de la fiche alerte
-        $advertId = $request->request->get('id');
-    //je vais ensuite recuperer mon annonce en faisant  
-        $advert = $this->getDoctrine()->getRepository(Advert::class)->find($advertId);        
-    
+    { 
+        header('Access-Control-Allow-Origin: *'); 
+        header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS'); 
+        header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+
+        //$user = $this->getUser();
+
+        // $data = $request->getContent();
+
+        // $data = json_decode($request->getContent(), true);
+
+        // $advertId = $data['id'];
+
+        $id = $request->request->get('id');
+
+        dump($id);exit;
+
+        $advert = $this->getDoctrine()->getRepository(Advert::class)->find($advertId);
+
         // ensuite je fais le traitement de suppression pr supprimer l'annonce dans la bdd
         $em = $this->getDoctrine()->getManager();
         $em->remove($advert);
         $em->flush();
-        //voir ou je le renvoie !!!
+
+        
+        // voir ou je le renvoie !!!
         return $this->redirectToRoute('index');
+
+        
+
+    //     //en faisant un request get géré par le front, je vais recupere l'id que le front me renvoie de la fiche alerte
+    //     $advertId = $request->request->get('id');
+    // //je vais ensuite recuperer mon annonce en faisant  
+    //     $advert = $this->getDoctrine()->getRepository(Advert::class)->find($advertId);        
+    
+    //     // ensuite je fais le traitement de suppression pr supprimer l'annonce dans la bdd
+    //     $em = $this->getDoctrine()->getManager();
+    //     $em->remove($advert);
+    //     $em->flush();
+    //     //voir ou je le renvoie !!!
+    //     return $this->redirectToRoute('index');
     }
 //exemple 
     //|champ titre|
@@ -200,6 +230,14 @@ class AdvertController extends AbstractController
            //et ca va mafficher la liste de mes annonces comme ci dessus
         
         return new JsonResponse($formatted); //on pourrait aussi faire ca $this->json($formatted)
+    }
+
+    /**
+     * @Route("/api/advert/action/delete", name="api_action_delete")
+     */
+    public function index()
+    {
+        return $this->json($data);
     }
 
 }

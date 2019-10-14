@@ -27,7 +27,7 @@ const reducer = (state = initialState, action = defaultAction) => {
       return { ...state, data: action.data }
     }
     default: {
-      console.log(state);
+      // console.log(state);
       // return state;
       // Dans le cas où on ne comprend pas quelle est l'action à
       // effecture (action.type n'est pas reconnu), on retourne

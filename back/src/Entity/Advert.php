@@ -110,6 +110,7 @@ class Advert
     /**
      * @Groups("apiStatus") // je veux récuperer l'id 
      * @Groups("apiComments")
+     * @Groups("apicomment")
      */
     public function getId(): ?int
     {
