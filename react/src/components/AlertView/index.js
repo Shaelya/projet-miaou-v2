@@ -14,19 +14,31 @@ class AlertView extends React.Component {
   }
 
   componentDidMount(){
-  axios.get('/api/user/isConnected').then(result => {
-    if(result.data[0].userConnected){
-    this.setState({
-    userConnected: result.data[0].userConnected,
-    userId: result.data[0].userId,
-    userFirstName: result.data[0].userFirstName,
-    userLastName: result.data[0].userLastName,
-  
-  })}
- } ) 
-  .catch((error) => {
-    console.error(error);
-  });
+    axios.get('/api/profil/comment').then(resultComment => { 
+      const comments = resultComment.data.filter((comment) => comment.advert.id == this.state.alertData.id);
+      axios.get('/api/user/isConnected').then(result => {
+        if(result.data[0].userConnected){
+        this.setState({
+        userConnected: result.data[0].userConnected,
+        userId: result.data[0].userId,
+        userFirstName: result.data[0].userFirstName,
+        userLastName: result.data[0].userLastName,
+        comments: comments
+      
+      })}else {
+        return this.setState({
+          comments: comments
+        }) 
+      }
+     } ) 
+      .catch((error) => {
+        console.error(error);
+      });
+    }) 
+    .catch((error) => {
+      console.error(error);
+    });
+ 
 }
 
   handleClickInfo = () => {
