@@ -23,17 +23,17 @@ const Team = () => (
           </a>
           <h4 className="text-center font-weight-bold">Helene - Product Owner</h4>
         </div>
-        <div class="col-xs-6 col-sm-3 hover-zoomin">
+        <div className="col-xs-6 col-sm-3 hover-zoomin">
           <a href="#" title="">
             <img src={photo1} className="img-thumbnail img-responsive" alt="Geraldine"/>
           </a>
-          <h4 class="text-center font-weight-bold">Geraldine - Lead Dev Back end</h4>
+          <h4 className="text-center font-weight-bold">Geraldine - Lead Dev Back end</h4>
         </div>
-        <div class="col-xs-6 col-sm-3 hover-zoomin">
+        <div className="col-xs-6 col-sm-3 hover-zoomin">
           <a href="#" title="">
             <img src={photo4} className="img-thumbnail img-responsive" alt="Vanessa"/>
           </a>
-          <h4 class="text-center font-weight-bold">Vanessa - Lead Dev Front end</h4>
+          <h4 className="text-center font-weight-bold">Vanessa - Lead Dev Front end</h4>
         </div>
       </div>
        
