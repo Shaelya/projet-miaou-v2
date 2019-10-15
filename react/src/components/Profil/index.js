@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import'./profil.sass';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 
 class Profil extends React.Component {
@@ -9,9 +11,6 @@ class Profil extends React.Component {
   state = {}
 
   componentDidMount() {
-    // let currentUser = "";
-    // let currentComments = "";
-    // let currentAdvert = "";
     axios.get('/api/user/isConnected').then(result => {
       if(result.data[0].userConnected){
 
@@ -54,8 +53,44 @@ class Profil extends React.Component {
     });
   }
 
+  handleDeleteComment = (commentId) => {
+    const MySwal = withReactContent(Swal);
+    MySwal.fire({
+      text: 'Voulez-vous vraiment supprimer ce commentaire ?',
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonText: 'Oui',
+      cancelButtonText: 'Non'
+  }).then((result) =>{
+    if(result.value){
+      axios.post('/api/delete/comment', { 
+        id: commentId
+       }).then(response => {
+        MySwal.fire({
+          text: 'Commentaire supprimé',
+          type: "success",
+          confirmButtonText: 'Ok'
+        }).then((result) =>{
+          // window.location.href = "/profil";
+          axios.get('/api/profil/comment').then(result => {
+            let refreshedComments = result.data.filter((comment) => result.data[0].userId == comment.user.id);
+            this.setState({comments: refreshedComments})
+            
+          })
+          .catch(error => {
+            console.log('ERROR : ', error);
+          });
+
+        }).catch(error => {
+            console.log('ERROR : ', error);
+        });
+    })
+   
+    }
+  })
+  }
+
   render() {
-    console.log(this.state.userConnected);
   if(this.state.userConnected){
     return(
       <div className="profil-page">
@@ -90,10 +125,11 @@ class Profil extends React.Component {
               <tr key={comment.id}>
               <th>{comment.createdAtJson}</th>
                 <td>{comment.advert.name} Ref : {comment.advert.id}</td>
+                <td>{comment.title}</td>
                 <td><button type="button" className="btn btn-light"><Link  style={{ textDecoration: 'none', color: 'black' }} to={ {
               pathname: '/fiche-alerte-vue',
               state: { alertData: commentAdvert[0]  }
-            } }> consulter</Link></button></td>
+            } }> consulter</Link></button><button onClick={() => this.handleDeleteComment(comment.id)} type="button" className="btn btn-light ml-5" aria-label="Supprimer ce commentaire"><i className="fa fa-trash"></i></button></td>
             </tr>
             )
             })

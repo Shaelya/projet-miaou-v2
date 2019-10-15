@@ -77,13 +77,9 @@ class AlertView extends React.Component {
         }).catch(error => {
             console.log('ERROR : ', error);
         });
-
-      
-  }
+    }
    
-  })
-    
-
+    })
   }
 
   handleChangeTitle = (e) => {
