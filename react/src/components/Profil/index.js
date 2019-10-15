@@ -56,8 +56,36 @@ class Profil extends React.Component {
     });
   }
 
+  handleDeleteComment = (commentId) => {
+    const MySwal = withReactContent(Swal);
+    MySwal.fire({
+      text: 'Voulez-vous vraiment supprimer ce commentaire ?',
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonText: 'Oui',
+      cancelButtonText: 'Non'
+  }).then((result) =>{
+    if(result.value){
+      axios.post('/api/delete/comment', { 
+        id: commentId
+       }).then(response => {
+        MySwal.fire({
+          text: 'Commentaire supprimé',
+          type: "success",
+          confirmButtonText: 'Ok'
+        }).then((result) =>{
+          window.location.href = "/profil";
+        })
+
+        }).catch(error => {
+            console.log('ERROR : ', error);
+        });
+    }
+   
+    })
+  }
+
   render() {
-    console.log(this.state.userConnected);
   if(this.state.userConnected){
     return(
       <div className="profil-page">
@@ -95,7 +123,7 @@ class Profil extends React.Component {
                 <td><button type="button" className="btn btn-light"><Link  style={{ textDecoration: 'none', color: 'black' }} to={ {
               pathname: '/fiche-alerte-vue',
               state: { alertData: commentAdvert[0]  }
-            } }> consulter</Link></button><button type="button" className="btn btn-light ml-5" aria-label="Supprimer ce commentaire"><i className="fa fa-trash"></i></button></td>
+            } }> consulter</Link></button><button onClick={() => this.handleDeleteComment(comment.id)} type="button" className="btn btn-light ml-5" aria-label="Supprimer ce commentaire"><i className="fa fa-trash"></i></button></td>
             </tr>
             )
             })
