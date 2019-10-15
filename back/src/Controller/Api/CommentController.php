@@ -79,5 +79,37 @@ class CommentController extends AbstractController
 
     }
 
+    /**
+     * @Route("/api/delete/comment", name="api_delete_comment")
+     */
+    public function DeleteComment(Request $request)
+    {
+        // les 3 lignes suivantes permettent de communiquer avec l'Api
+        header('Access-Control-Allow-Origin: *'); 
+        header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS'); 
+        header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+
+        // permet de récupérer les données data envoyée dans l'API
+        $data = $request->getContent();
+
+        // cette métode trouvée sur https://medium.com/@peter.lafferty/converting-a-json-post-in-symfony-13a24c98fc0e
+        $data = json_decode($request->getContent(), true);
+
+        // on va récupérer dans le data l'id 
+         $id = $data['id'];
+
+        // je récupère toutes les données de class Advert et on trouve l'id de comment
+        $comment = $this->getDoctrine()->getRepository(Comment::class)->find($id);
+
+        // ensuite je fais le traitement de suppression pr supprimer le commentaire dans la bdd
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($comment);
+        $em->flush();
+
+        
+        // voir ou je le renvoie !!!
+        return $this->redirectToRoute('profil');
+    }
+
 
 }

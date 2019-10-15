@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import'./profil.sass';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 
 class Profil extends React.Component {
@@ -93,7 +95,7 @@ class Profil extends React.Component {
                 <td><button type="button" className="btn btn-light"><Link  style={{ textDecoration: 'none', color: 'black' }} to={ {
               pathname: '/fiche-alerte-vue',
               state: { alertData: commentAdvert[0]  }
-            } }> consulter</Link></button></td>
+            } }> consulter</Link></button><button type="button" className="btn btn-light ml-5" aria-label="Supprimer ce commentaire"><i className="fa fa-trash"></i></button></td>
             </tr>
             )
             })
