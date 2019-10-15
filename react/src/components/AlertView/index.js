@@ -155,7 +155,7 @@ class AlertView extends React.Component {
         <div className="row no-gutters">
           <div className="col-md-7">
             <div className="card-body">
-              <h1 className="h1">{alertData.name} ref : {alertData.id} </h1>
+              <h1 className="h1 h1-alertview">{alertData.name} ref : {alertData.id} </h1>
                 <table className="table">
                 <tbody>
                   <tr>
@@ -181,7 +181,7 @@ class AlertView extends React.Component {
                 </tbody>
                 </table>
 
-                <h2 className="h2">Commentaires</h2>
+                <h2 className="h2 h2-alertview">Commentaires</h2>
                   <table className="table">
                     <tbody>
                       {comments.map((comment) => (
