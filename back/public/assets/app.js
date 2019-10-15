@@ -173,7 +173,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"/**\\n * Import\\n */\\n/* Colors */\\n/**\\n * Styles\\n */\\n.navbar {\\n  padding: 1rem; }\\n\\n.fa-user-times {\\n  color: #bdccb8;\\n  font-size: 1.5rem; }\\n\\n.subtitle {\\n  margin-left: 43%;\\n  margin-bottom: 5%; }\\n\\nh1 {\\n  font-size: 3.5rem;\\n  font-weight: bold; }\\n\\n.button-alert {\\n  margin-bottom: 20%;\\n  font-weight: bold; }\\n\\n.fa-bullhorn {\\n  font-size: 2rem; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/App/app.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"/**\\n * Import\\n */\\n/* Colors */\\n/**\\n * Styles\\n */\\n.navbar {\\n  padding: 1rem; }\\n\\n.fa-user-times {\\n  color: #bdccb8;\\n  font-size: 1.5rem; }\\n\\n.subtitle {\\n  margin-left: 43%;\\n  margin-bottom: 5%; }\\n\\nh1 {\\n  font-size: 3.5rem;\\n  font-weight: bold; }\\n\\n.button-alert {\\n  margin-bottom: 20%;\\n  font-weight: bold; }\\n\\n.fa-bullhorn {\\n  font-size: 2rem; }\\n\\n.hover-zoomin a {\\n  display: block;\\n  position: relative;\\n  overflow: hidden; }\\n\\n.hover-zoomin {\\n  width: 100%;\\n  height: auto;\\n  transition: all 0.5s ease-in-out; }\\n\\n.hover-zoomin:hover {\\n  transform: scale(1.2); }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/App/app.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -251,6 +251,50 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("module.exports = __webpack_require__.p + \"assets/02fa02e4332750b514bd470bb0674fc7.png\";\n\n//# sourceURL=webpack:///./src/assets/images/logo-blanc.png?");
+
+/***/ }),
+
+/***/ "./src/assets/images/Helene.png":
+/*!**************************************!*\
+  !*** ./src/assets/images/Helene.png ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/f10a19bc7f0556d1144f201fcf61a99a.png\";\n\n//# sourceURL=webpack:///./src/assets/images/Helene.png?");
+
+/***/ }),
+
+/***/ "./src/assets/images/Marie.png":
+/*!*************************************!*\
+  !*** ./src/assets/images/Marie.png ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/ce5b894fac4aea7648f1099dfd8973cb.png\";\n\n//# sourceURL=webpack:///./src/assets/images/Marie.png?");
+
+/***/ }),
+
+/***/ "./src/assets/images/gege.png":
+/*!************************************!*\
+  !*** ./src/assets/images/gege.png ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/37da9bb7be49bfa9c027624212e5fa47.png\";\n\n//# sourceURL=webpack:///./src/assets/images/gege.png?");
+
+/***/ }),
+
+/***/ "./src/assets/images/vaness.png":
+/*!**************************************!*\
+  !*** ./src/assets/images/vaness.png ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/b10d779485457097a7aeceba63eeaa4e.png\";\n\n//# sourceURL=webpack:///./src/assets/images/vaness.png?");
 
 /***/ }),
 
@@ -471,7 +515,7 @@ eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/di
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _emotion_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/core */ \"./node_modules/@emotion/core/dist/core.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nvar Team = function Team() {\n  return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"team-page\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"p\", null, \"Todo : page Equipe\"));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Team);\n\n//# sourceURL=webpack:///./src/components/Team/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _emotion_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/core */ \"./node_modules/@emotion/core/dist/core.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var src_assets_images_gege_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/assets/images/gege.png */ \"./src/assets/images/gege.png\");\n/* harmony import */ var src_assets_images_gege_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(src_assets_images_gege_png__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var src_assets_images_Marie_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/assets/images/Marie.png */ \"./src/assets/images/Marie.png\");\n/* harmony import */ var src_assets_images_Marie_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(src_assets_images_Marie_png__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var src_assets_images_Helene_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/assets/images/Helene.png */ \"./src/assets/images/Helene.png\");\n/* harmony import */ var src_assets_images_Helene_png__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(src_assets_images_Helene_png__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var src_assets_images_vaness_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/assets/images/vaness.png */ \"./src/assets/images/vaness.png\");\n/* harmony import */ var src_assets_images_vaness_png__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(src_assets_images_vaness_png__WEBPACK_IMPORTED_MODULE_5__);\n\n\n\n\n\n\n\nvar Team = function Team() {\n  return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"team-page\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"container\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"h1\", {\n    className: \"text-center text-muted\"\n  }, \"La Team\"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"row\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"col-xs-6 col-sm-3 hover-zoomin\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"a\", {\n    href: \"#\",\n    title: \"\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"img\", {\n    src: src_assets_images_Marie_png__WEBPACK_IMPORTED_MODULE_3___default.a,\n    className: \"img-thumbnail img-responsive\",\n    alt: \"Marie\"\n  })), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"h4\", {\n    className: \"text-center font-weight-bold\"\n  }, \"Marie - Scrum Master/Git Master\")), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"col-xs-6 col-sm-3 hover-zoomin\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"a\", {\n    href: \"#\",\n    title: \"\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"img\", {\n    src: src_assets_images_Helene_png__WEBPACK_IMPORTED_MODULE_4___default.a,\n    className: \"img-thumbnail img-responsive\",\n    alt: \"Helene\"\n  })), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"h4\", {\n    className: \"text-center font-weight-bold\"\n  }, \"Helene - Product Owner\")), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    \"class\": \"col-xs-6 col-sm-3 hover-zoomin\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"a\", {\n    href: \"#\",\n    title: \"\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"img\", {\n    src: src_assets_images_gege_png__WEBPACK_IMPORTED_MODULE_2___default.a,\n    className: \"img-thumbnail img-responsive\",\n    alt: \"Geraldine\"\n  })), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"h4\", {\n    \"class\": \"text-center font-weight-bold\"\n  }, \"Geraldine - Lead Dev Back end\")), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    \"class\": \"col-xs-6 col-sm-3 hover-zoomin\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"a\", {\n    href: \"#\",\n    title: \"\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"img\", {\n    src: src_assets_images_vaness_png__WEBPACK_IMPORTED_MODULE_5___default.a,\n    className: \"img-thumbnail img-responsive\",\n    alt: \"Vanessa\"\n  })), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"h4\", {\n    \"class\": \"text-center font-weight-bold\"\n  }, \"Vanessa - Lead Dev Front end\")))));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Team);\n\n//# sourceURL=webpack:///./src/components/Team/index.js?");
 
 /***/ }),
 
