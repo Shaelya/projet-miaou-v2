@@ -9,7 +9,7 @@ const Team = () => (
 
 
   <div className="container">
-    <h1 className="text-center text-muted">La Team</h1>
+    <h1 className="text-center text-muted mb-5">La Team</h1>
       <div className="row">
         <div className="col-xs-6 col-sm-3 hover-zoomin">
           <a href="#" title="">
