@@ -74,15 +74,22 @@ class Profil extends React.Component {
           type: "success",
           confirmButtonText: 'Ok'
         }).then((result) =>{
-          window.location.href = "/profil";
-        })
+          // window.location.href = "/profil";
+          axios.get('/api/profil/comment').then(result => {
+            let refreshedComments = result.data.filter((comment) => result.data[0].userId == comment.user.id);
+            return this.setState({comments: refreshedComments})
+          })
+          .catch(error => {
+            console.log('ERROR : ', error);
+          });
 
         }).catch(error => {
             console.log('ERROR : ', error);
         });
-    }
-   
     })
+   
+    }
+  })
   }
 
   render() {
@@ -120,6 +127,7 @@ class Profil extends React.Component {
               <tr key={comment.id}>
               <th>{comment.createdAtJson}</th>
                 <td>{comment.advert.name} Ref : {comment.advert.id}</td>
+                <td>{comment.title}</td>
                 <td><button type="button" className="btn btn-light"><Link  style={{ textDecoration: 'none', color: 'black' }} to={ {
               pathname: '/fiche-alerte-vue',
               state: { alertData: commentAdvert[0]  }
