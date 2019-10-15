@@ -81,6 +81,34 @@ class MiaouMap extends Component {
     const center = [46.227638, 2.213749];
     const data = this.props.data;
     let markers = this.state.markers;
+
+    let myIconRed = L.icon({
+      iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-red.png',
+      shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+      iconSize: [38, 95],
+      shadowSize: [50, 64],
+      iconAnchor: [22, 94],
+      shadowAnchor: [4, 62],
+      popupAnchor: [-3, -76]
+    });
+    let myIconGreen = L.icon({
+      iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
+      shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+      iconSize: [38, 95],
+      shadowSize: [50, 64],
+      iconAnchor: [22, 94],
+      shadowAnchor: [4, 62],
+      popupAnchor: [-3, -76]
+    });
+    let myIconOrange = L.icon({
+      iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-orange.png',
+      shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+      iconSize: [38, 95],
+      shadowSize: [50, 64],
+      iconAnchor: [22, 94],
+      shadowAnchor: [4, 62],
+      popupAnchor: [-3, -76]
+    });
     
     return (
       <Map
@@ -96,9 +124,33 @@ class MiaouMap extends Component {
           url={"http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}
         />
         {data.map((alerte) => {
+          let markerIconProp = {};
+          let iconCustomized = ""
+          switch(alerte.status){
+            case 'vu': {
+              iconCustomized = myIconOrange;
+              break;
+            }
+            case 'trouvé': {
+              iconCustomized = myIconGreen;
+              break;
+            }
+            case 'perdu': {
+              iconCustomized = myIconRed;
+              break;
+            }
+            default: {
+              iconCustomized = false;
+            }
+          }
+          if(iconCustomized == false){
+            markerIconProp.disabled = true;
+          } else {
+            markerIconProp = {icon: iconCustomized}
+          }
           const position = [alerte.latitude, alerte.longitude];
           return (
-          <Marker key={alerte.id} position={position}>
+          <Marker {...markerIconProp} key={alerte.id} position={position} >
             <Popup><img className="popup-image" src={alerte.picture} /><br />Nom : {alerte.name}<br />Espèce : {alerte.type} <br />Details : <Link to={ {
               pathname: '/fiche-alerte-vue',
               state: { alertData: alerte  }
