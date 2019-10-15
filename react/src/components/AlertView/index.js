@@ -134,11 +134,11 @@ class AlertView extends React.Component {
     let alertData = this.state.alertData;
     let comments = this.state.comments;
 
-    let infoButton = (this.state.userId == alertData.user.id) ? <button onClick={this.handleDelete} className="btn btn-danger ml-4 mt-5 mr-5">Supprimer l'alerte</button> : <button onClick={this.handleClickInfo} className="btn btn-info ml-4 mt-5 mr-5">Infos proprietaire</button>;
+    let infoButton = (this.state.userId == alertData.user.id) ? <button onClick={this.handleDelete} className="btn btn-danger mt-3 mr-5">Supprimer l'alerte</button> : <button onClick={this.handleClickInfo} className="btn btn-info mt-3 mr-5">Infos proprietaire</button>;
 
     if(alertData.visibility === 'oui'){
       infoButton = (<div className="d-inline">
-      <button onClick={this.handleClickInfo} className="btn btn-info ml-4 mt-5 mr-5" type="button" data-toggle="collapse" data-target="#collapseInfos" aria-expanded="false" aria-controls="collapseInfos">Infos proprietaire</button>
+      <button onClick={this.handleClickInfo} className="btn btn-info mt-3 mr-5" type="button" data-toggle="collapse" data-target="#collapseInfos" aria-expanded="false" aria-controls="collapseInfos">Infos proprietaire</button>
       <div className="collapse" id="collapseInfos">
       <div className="card card-body mt-2 card-infos">
         <div>Prénom : {alertData.user.firstName}</div>
