@@ -11,9 +11,6 @@ class Profil extends React.Component {
   state = {}
 
   componentDidMount() {
-    // let currentUser = "";
-    // let currentComments = "";
-    // let currentAdvert = "";
     axios.get('/api/user/isConnected').then(result => {
       if(result.data[0].userConnected){
 
@@ -77,7 +74,8 @@ class Profil extends React.Component {
           // window.location.href = "/profil";
           axios.get('/api/profil/comment').then(result => {
             let refreshedComments = result.data.filter((comment) => result.data[0].userId == comment.user.id);
-            return this.setState({comments: refreshedComments})
+            this.setState({comments: refreshedComments})
+            
           })
           .catch(error => {
             console.log('ERROR : ', error);
