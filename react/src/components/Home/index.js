@@ -1,10 +1,31 @@
 import React from 'react';
 import Map from 'src/components/Map';
 import AlertButton from 'src/components/AlertButton';
+import Joyride from 'react-joyride';
+import './home.sass';
 
 class Home extends React.Component {
 
   state = {
+    run: false,
+    steps: [
+      {
+        target: '.button-alert',
+        content: 'Cliquez-ici pour poster une alerte',
+      },
+      {
+        target: '.geocoder-control-input',
+        content: 'Vous pouvez chercher votre adresse ici'
+      },
+      {
+        target: '.leaflet-container',
+        content: 'Cliquez ensuite sur la map pour placer une épingle',
+      },
+      {
+        target: '.btn-group-vertical',
+        content: 'Vous pouvez égalemment filtrer les épingles sur la map',
+      }
+    ]
   }
   handleFilter = () => {
 
@@ -32,10 +53,16 @@ class Home extends React.Component {
     this.setState({data: filteredData});
   }
 
+  handleGuidedTour = () => {
+    this.setState({run: true});
+  }
+
   render () {
 
     return(
       <div className="container-fluid">
+        <Joyride run={this.state.run} steps={this.state.steps} continuous={true} showProgress={true} showSkipButton={true} />
+          <div className="text-center"><button onClick={this.handleGuidedTour} className="btn btn-light btn-lg mb-4">Montre-moi comment ça marche !</button></div>
           <div className="row">
             <div className="col">
               <Map alertButton={this.props.alertButton} data={(this.state.data) ? this.state.data : this.props.data } handleClickMap={this.props.handleClick} getData={this.props.getData} userConnected={this.props.userConnected}  />
