@@ -32,3 +32,69 @@ display: inline-block;
     margin-bottom:10px;
 }
 
+@media screen and (max-width:768px){
+
+
+
+    .mt-5, .my-5 {
+       margin-top: 1rem!important;
+   }
+
+    .logo-blanc {
+       width: 110px;
+       height: 30px;
+   }
+   h2.display-1.text-primary {
+       font-size: 30px;
+   }
+   input#advert_picture {
+       width: 300px;
+   }
+
+    a.nav-link.text-secondary {
+   font-size: 10px;
+   margin-right:0px;
+   }
+   input#advert_picture {
+       width: 300px;
+       margin-right: 0px;
+   }
+
+    .jumbotron.mt-5.bg-light {
+       margin-bottom: 0px;
+       padding-left: 50px;
+   }
+
+
+} 
+
+/*partie en dessous de helene*/
+
+.fond-ln{
+    background-color: #4ecdc4;
+}
+
+ .btn-acceuil-ln{
+    background-color:#ff6b6b;
+    border-style:none;
+
+ }
+
+ .btn-register-ln{
+    background-color:#ffe66d;
+    border-style:none;  
+}
+
+ .btn-connexion-ln{
+    background-color: #1a535c;
+    color: #ffe66d;
+
+ }
+
+ .text-register{
+    color: #1a535c;
+}
+
+ .text-acceuil{
+    color: #1a535c;
+}

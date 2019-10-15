@@ -10,45 +10,66 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <main id="Inscription" class="container">
 
-    {% if app.user %} {#ici on crée une methode si le user est connecté et on lui renverra en fonction#}
-        <div class="mb-3">
-            Bienvenue {{ app.user.firstName }}, <a href="{{ path('logout') }}">Déconnexion</a> {#ici on va chercher le nom du user pour lui dire bienvenue {{ app.user.firstName }} et on permet aussi de se deconnecter grace à la route {{ path('logout') }} #}
+        {#CONTRAINTES DE CONNEXION#}
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+
+        <div class="menu-connexion text-right mt-5 ">           
+            {% if app.user %} {#ici on crée une methode si le user est connecté et on lui renverra en fonction#}
+                <div class="mb-3 mr-0 btn">
+                    <span>   Bienvenue {{ app.user.firstName }}, </span>
+                </div>
+                <div class="mb-3 mr-0 btn btn-light">
+                    <a class="text-secondary" href="{{ path('logout') }}">Déconnexion</a> {#ici on va chercher le nom du user pour lui dire bienvenue {{ app.user.firstName }} et on permet aussi de se deconnecter grace à la route {{ path('logout') }} #}
+                </div>        
+            {% endif %}
         </div>
-    {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">connectez-vous</h1>
-    <label for="inputEmail" class="sr-only">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-    <label for="inputPassword" class="sr-only">Mot de passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="px-4 py-4 rounded fond-ln">
+            {#LOGO ET TITRE#}
+            <div class="logo-blanc"></div>
+            <div class="baseline-logo-blanc text-center mb-5">
+                <p class="font-weight-bold h5 ">Le site des animaux perdus</p>
+            </div>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
+            
+            <form class="form-ln" method="post">
+                <div>
+                    
+                    {#<h2 class="display-1 text-primary ">Fiche Alerte</h2>#}
+                    <h1 class="h3 mb-3 text-center text-primary">Connectez-vous</h1>
+                    <label for="inputEmail" class="sr-only">Email</label>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="text-center mb-3 form-control" placeholder="Email" required autofocus>
+                    <label for="inputPassword" class="sr-only">Mot de passe</label>
+                    <input type="password" name="password" id="inputPassword" class="text-center mb-4 form-control" placeholder="Mot de passe" required>
 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <div class="text-center">
+                    <button class="btn mb-3 btn-connexion-ln" type="submit">
+                    connexion
+                    </button></div>
+                </div>
+
+            </form> 
+             
+                <div class="text-center mt-3">
+
+                    <div class="btn btn-lg btn-register-ln">
+                        <a class="text-register" href="{{ path('register') }}">S'inscrire</a>
+                    </div> 
+                            
+                    <div class="btn btn-lg btn-acceuil-ln">
+                        <a class="text-acceuil" href="{{ path('index') }}">Accueil</a>
+                    </div>
+
+                </div>           
         </div>
-    #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        connexion
-    </button>
-    <a href="{{ path('register') }}">S'inscrire</a> {#ici encore une direction de route vers le formulaire d'inscripion#}
-    </br>
-    <a href="{{ path('index') }}">Accueil {#ici une direction de route vers l'accueil #}
-
+    </main>
     
-</form>
+                 
 {% endblock %}
