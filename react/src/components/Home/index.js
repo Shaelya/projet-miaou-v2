@@ -10,6 +10,14 @@ class Home extends React.Component {
     run: false,
     steps: [
       {
+        target: 'body',
+        content: 'Prêt.e pour un petit tour ?',
+        locale: { 
+          next: <span>C'est parti !</span>
+        },
+        placement: 'center'
+      },
+      {
         target: '.button-alert',
         content: 'Cliquez-ici pour poster une alerte',
       },
@@ -61,7 +69,7 @@ class Home extends React.Component {
 
     return(
       <div className="container-fluid">
-        <Joyride run={this.state.run} steps={this.state.steps} continuous={true} showProgress={true} showSkipButton={true} />
+        <Joyride run={this.state.run} steps={this.state.steps} continuous={true} showProgress={true} showSkipButton={true} styles={{options: {primaryColor: '#ff6b6b' }}} />
           <div className="text-center"><button onClick={this.handleGuidedTour} className="btn btn-light btn-lg mb-4">Montre-moi comment ça marche !</button></div>
           <div className="row">
             <div className="col">
