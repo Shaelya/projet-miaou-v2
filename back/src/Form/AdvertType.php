@@ -20,6 +20,17 @@ class AdvertType extends AbstractType
     {
     
         $builder 
+            ->add('visibility', ChoiceType::class, [
+                'label'=>'Visibilité *',
+                'attr'=>[
+                    'class' =>'form-control'
+                ],
+                'choices' => [
+                    
+                    'oui' => 'oui',
+                    'non' => 'non',
+                ],
+            ])
             ->add('sex', ChoiceType::class, [
                 'label'=>'Sexe :',
                 'attr'=>[
