@@ -30,7 +30,7 @@
 {% endif %}
 </div>
 
-<!--NAV RESPONSIVE-->
+<!--NAV RESPONSIVE--> <!--
 <div class="d-block d-lg-none">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,13 +57,13 @@
               </nav>
 
  </div>
-<!--AFFICHAGE LOGO-->
+AFFICHAGE LOGO
 <div class="logo-blanc"></div>
 <div class="baseline-logo-blanc text-center mb-5"><p class="font-weight-bold h5">Le site des animaux perdus</p></div> 
 
 
 
- <!--NAV GRAND ECRAN-->
+ NAV GRAND ECRAN
 
 <div class="d-none d-lg-block">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -89,7 +89,7 @@
       </ul>
     </div>
   </nav>
-</div>
+</div> -->
 
 
 
@@ -99,11 +99,15 @@
     <!--ici je mettrais l'affichage de coordonnée de l'utilisateur fait par helene via le formulaire d'inscription-->
 
 
-<div class="jumbotron mt-5 bg-light">
-<h2 class="display-1 text-primary ">Fiche Alerte</h2>
-<h3 class="text-uppercase font-weight-bold">Informations Animal</h3>
+<div class=" mt-5">
+<h2 class="display-1 text-center text-primary ">Fiche Alerte</h2>
+<h3 class="text-uppercase text-center font-weight-bold text-fiche-A">Informations Animal</h3>
 
-<div class="formulaire-advert">
+
+
+<div class="px-5 py-5 rounder mb-2 formulaire-advert">
+
+<p class=" text-visibility">  <strong>*</strong> En acceptant de rendre visible vos informations, cela permettra aux autres utilisateurs de pouvoir vous contacter plus rapidememt .</br> Dans le cas où vous decidez de ne pas rendre visibles vos informations, les autres utilisateurs auront la possibilité de vous contacter dans les commentaires de votre fiche alerte . </p>
 {{ form_start(form) }}
 
 
@@ -122,6 +126,7 @@ ici input caché car luser na pas besoin de voir quil a rempli la long et lat ma
 </div>
 
 </main>
+<!--
 <footer>
     <div class="container">
 <ul class="nav justify-content-center bg-light">
@@ -136,5 +141,5 @@ ici input caché car luser na pas besoin de voir quil a rempli la long et lat ma
         </li>
       </ul>
     </div>
-</footer>
+</footer> -->
 {% endblock %}

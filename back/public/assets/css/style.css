@@ -93,3 +93,59 @@ display: inline-block;
  .text-acceuil{
     color: #1a535c;
 }
+
+/*pour formulaire inscription*/
+
+.text-inscription-ln{
+    color: #1a535c;
+}
+
+ .fond-register-ln{
+    background-color: #4ecdc4;
+}
+
+ .registerForm-ln{
+    color: #1a535c;
+
+ }
+
+ .btn-outline-primary:hover {
+    background-color:#cc5858;
+    border-color:#cc5858;
+}
+
+ .btn-register-connexion-ln{
+    background-color: #1a535c;
+
+ }
+
+ .text-register{
+
+     color: #ffe66d;
+}
+
+ .btn-register-accueil-ln{
+    background-color: #ffe66d;
+    border-style:none;
+}
+
+ .text-register-acceuil{
+    color: #1a535c;
+}
+
+/*ajout pour gégé*/
+
+.formulaire-advert{
+    background-color: #4ecdc4;
+    border-radius: 5px;
+    box-shadow:5px 5px lightgrey;
+
+ }
+
+ .text-visibility{
+    color: #1a535c;
+}
+
+ .text-fiche-A{
+    color: #1a535c;
+}
