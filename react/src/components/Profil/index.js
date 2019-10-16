@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import'./profil.sass';
+import'./profil.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -93,31 +94,33 @@ class Profil extends React.Component {
   render() {
   if(this.state.userConnected){
     return(
-      <div className="profil-page">
-        <h1 className="h1 mb-4">Mes Infos</h1>
-        <table className="table">
+      <div className="container">
+        <div className="profil-page jumbotron ml-5 mr-5 bg-light">
+        <h1 className="h1 display-1 text-center text-primary">Mon profil</h1>
+          <h1 className="h3 text-uppercase text-center font-weight-bold">Mes Infos</h1>
+          <table className="table jumbotron bg-dark-gray">
           <tbody>
             <tr>
-              <th>Nom</th>
+              <th className="text-uppercase">Nom</th>
                 <td>{this.state.user[0].lastName}</td>
             </tr>
             <tr>
-              <th>Prénom</th>
+              <th className="text-uppercase">Prenom</th>
                 <td>{this.state.user[0].firstName}</td>
             </tr>
             <tr>
-              <th>E-mail</th>
+              <th className="text-uppercase">E-mail</th>
                 <td>{this.state.user[0].email}</td>
             </tr>
             <tr>
-              <th>Téléphone</th>
+              <th className="text-uppercase">Telephone</th>
                 <td>{this.state.user[0].phone}</td>
             </tr>
           </tbody>
         </table>
 
-        <h2 className="h2 mt-5 text-center mb-4">Mes commentaires</h2>
-        <table className="table">
+        <h2 className="h3 text-uppercase font-weight-bold mt-5 text-center mb-4">Mes commentaires</h2>
+        <table className="table jumbotron bg-dark-gray">
           <tbody>
             {this.state.comments.map((comment) => {
               let commentAdvert = this.state.adverts.filter((advert) => comment.advert.id == advert.id);
@@ -136,7 +139,7 @@ class Profil extends React.Component {
           }
           </tbody>
         </table>
-        <h2 className="h2 mt-5 text-center mb-4">Mes annonces</h2>
+        <h2 className="h2 mt-5 text-center text-center mb-4">Mes annonces</h2>
         <table className="table">
           <tbody>
             {this.state.advert.map((advert) => {
@@ -154,6 +157,7 @@ class Profil extends React.Component {
           </tbody>
         </table>
       </div>
+    </div>
     )
   } else if(this.state.userConnected == undefined) {
     return(
