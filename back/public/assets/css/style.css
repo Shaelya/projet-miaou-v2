@@ -1,6 +1,3 @@
-#Advert{
-
-}
 #Advert .formulaire-advert form > div{
 margin:10px 5px;
 }
@@ -67,8 +64,6 @@ display: inline-block;
 
 
 } 
-
-/*partie en dessous de helene*/
 
 .fond-ln{
     background-color: #4ecdc4;
