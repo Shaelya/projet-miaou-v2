@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 class Profil extends React.Component {
 
-  state = {}
+  state = { deletedComment: false}
 
   componentDidMount() {
     axios.get('/api/user/isConnected').then(result => {
@@ -58,12 +58,13 @@ class Profil extends React.Component {
     let url = new URLSearchParams(location.search);
     let paramsUrl = url.get('deleted_advert');
     if( paramsUrl == "true"){
-      this.notify();
+      this.notifyDeletedAdvert();
     window.history.replaceState(null, null, window.location.pathname);
     }
   }
 
-  notify = () => toast.success("Fiche alerte supprimée !",{className: 'added-advert-toast'} );
+  notifyDeletedAdvert = () => toast.success("Fiche alerte supprimée !",{className: 'added-advert-toast'} );
+  notifyDeletedComment = () => toast.success("Commentaire supprimé !",{className: 'added-advert-toast'} );
 
   handleDeleteComment = (commentId) => {
     const MySwal = withReactContent(Swal);
@@ -77,16 +78,14 @@ class Profil extends React.Component {
     if(result.value){
       axios.post('/api/delete/comment', { 
         id: commentId
-       }).then(response => {
-        MySwal.fire({
-          text: 'Commentaire supprimé',
-          type: "success",
-          confirmButtonText: 'Ok'
-        }).then((result) =>{
+       }).then((result) =>{
           // window.location.href = "/profil";
           axios.get('/api/profil/comment').then(result => {
             let refreshedComments = result.data.filter((comment) => result.data[0].userId == comment.user.id);
-            this.setState({comments: refreshedComments})
+            this.setState({
+              comments: refreshedComments,
+              deletedComment: true
+            })
             
           })
           .catch(error => {
@@ -96,13 +95,16 @@ class Profil extends React.Component {
         }).catch(error => {
             console.log('ERROR : ', error);
         });
-    })
-   
     }
-  })
+   
+    })
   }
 
+
   render() {
+    if(this.state.deletedComment){
+      this.notifyDeletedComment();
+    }
   if(this.state.userConnected){
     return(
       <div className="container">
