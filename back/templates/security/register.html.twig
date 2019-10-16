@@ -4,15 +4,41 @@
     {{ parent() }}
 
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" />
+
     
 {% endblock %}
-
+{% form_theme registerForm 'bootstrap_4_layout.html.twig' %}
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-    {{ form(registerForm) }}
-    {# Lien de connexion #}
-    <a href="{{ path('login') }}">Se connecter</a>
-    <br>
-    <a href="{{ path('index') }}">Accueil</a>
+
+    <main id="register-ln" class="container-ln">
+        <div  class="px-4 py-4 mx-4 my-4 rounded fond-register-ln">
+
+            {#LOGO ET TITRES#}
+            <div class="logo-blanc"></div>
+            <div class="baseline-logo-blanc text-center mb-5">
+                <p class="font-weight-bold h5">Le site des animaux perdus</p>
+            </div> 
+
+            
+            <h2 class="font-weight-bold text-center text-inscription-ln ">Inscrivez-vous</h2>
+            <p class= "text-center text-inscription-ln">Remplissez tous les champs ci dessous afin d'optimiser votre navigation . Nous ne communiquerons pas vos données . </p>
+                        
+             
+            {{ form(registerForm, {'attr': {'class': 'text-center font-weight-bold my-4 h4 text-secondary registerForm-ln'}}) }}
+            
+
+            <div class="text-center">
+                    {# Lien de connexion #}
+                <div class="btn btn-lg mx-3 my-2  btn-register-connexion-ln">
+                    <a class="text-register" href="{{ path('login') }}">Se connecter</a>
+                </div>
+                <div class="btn btn-lg btn-register-accueil-ln">
+                    <a class="text-register-acceuil" href="{{ path('index') }}">Accueil</a>
+                </div>
+            </div>
+
+        </div>    
+    </main>
 {% endblock %}
