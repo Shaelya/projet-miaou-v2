@@ -5,6 +5,8 @@ import'./profil.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 class Profil extends React.Component {
@@ -52,7 +54,16 @@ class Profil extends React.Component {
     .catch((error) => {
       console.error(error);
     });
+
+    let url = new URLSearchParams(location.search);
+    let paramsUrl = url.get('deleted_advert');
+    if( paramsUrl == "true"){
+      this.notify();
+    window.history.replaceState(null, null, window.location.pathname);
+    }
   }
+
+  notify = () => toast.success("Fiche alerte supprimée !",{className: 'added-advert-toast'} );
 
   handleDeleteComment = (commentId) => {
     const MySwal = withReactContent(Swal);

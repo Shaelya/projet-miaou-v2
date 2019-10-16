@@ -66,13 +66,7 @@ class AlertView extends React.Component {
       axios.post('/api/delete/advert', { 
         id: this.state.alertData.id
        }).then(response => {
-        MySwal.fire({
-          text: 'Fiche alerte supprimée',
-          type: "success",
-          confirmButtonText: 'Ok'
-        }).then((result) =>{
-          window.location.href = "/profil";
-        })
+        window.location.href = "/profil?deleted_advert=true";
 
         }).catch(error => {
             console.log('ERROR : ', error);
@@ -136,7 +130,7 @@ class AlertView extends React.Component {
 
     let infoButton = (this.state.userId == alertData.user.id) ? <button onClick={this.handleDelete} className="btn btn-danger mt-3 mr-5">Supprimer l'alerte</button> : <button onClick={this.handleClickInfo} className="btn btn-info mt-3 mr-5">Infos proprietaire</button>;
 
-    if(alertData.visibility === 'oui'){
+    if( (this.state.userId != alertData.user.id) && (alertData.visibility === 'oui')){
       infoButton = (<div className="d-inline">
       <button onClick={this.handleClickInfo} className="btn btn-info mt-3 mr-5" type="button" data-toggle="collapse" data-target="#collapseInfos" aria-expanded="false" aria-controls="collapseInfos">Infos proprietaire</button>
       <div className="collapse" id="collapseInfos">
