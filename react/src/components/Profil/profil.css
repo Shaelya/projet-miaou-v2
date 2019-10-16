@@ -1,0 +1,19 @@
+@media screen and (max-width:768px){
+
+    .h1.h1.display-1.text-primary{
+    font-size: 50px;
+   }
+   .profil-page.jumbotron.ml-5.mr-5.bg-light{
+    width: 130%;
+    margin: 0px !important;
+   }
+   h1.h3.text-uppercase.font-weight-bold{
+    font-size: 20px;
+   }
+   h2.h3.text-uppercase.font-weight-bold.mt-5.text-center.mb-4{
+   font-size:20px;
+   }
+   h2.h3.text-uppercase.font-weight-bold.mt-5.text-center.mb-4{
+   font-size:20px;
+   }
+} 
