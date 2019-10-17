@@ -66,7 +66,8 @@ display: inline-block;
 } 
 
 .fond-ln{
-    background-color: #4ecdc4;
+    background-color: #4ecdc4;;
+    box-shadow:5px 5px lightgrey;
 }
 
  .btn-acceuil-ln{
@@ -147,5 +148,11 @@ display: inline-block;
 }
 
  .text-fiche-A{
+    color: #1a535c;
+}
+
+/*modifs*/
+
+.text-login-ln{
     color: #1a535c;
 }
