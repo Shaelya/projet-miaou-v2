@@ -1,4 +1,5 @@
 import React from 'react';
+import './legal.sass';
 
 const Legal = () => (
   <div className="container">

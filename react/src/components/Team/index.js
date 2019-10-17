@@ -3,6 +3,7 @@ import photo1 from 'src/assets/images/gege.png';
 import photo2 from 'src/assets/images/Marie.png';
 import photo3 from 'src/assets/images/Helene.png';
 import photo4 from 'src/assets/images/vaness.png';
+import'./team.sass';
 
 const Team = () => (
   <div className="team-page">
@@ -10,7 +11,8 @@ const Team = () => (
 
   <div className="container">
     <h1 className="text-center text-muted mb-5">La Team</h1>
-      <div className="row">
+    <div className="fond-vaness">
+      <div className="row team-picutre">
         <div className="col-xs-6 col-sm-3 hover-zoomin">
           <a href="#" title="">
             <img src={photo2} className="img-thumbnail img-responsive" alt="Marie"/>
@@ -38,7 +40,7 @@ const Team = () => (
       </div>
        
                 
-        
+      </div>
       </div>
     </div>
 

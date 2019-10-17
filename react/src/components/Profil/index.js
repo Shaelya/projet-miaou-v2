@@ -104,8 +104,6 @@ class Profil extends React.Component {
 
   render() {
 
-    console.log(this.state.comments)
-
   if(this.state.userConnected){
     return(
       <div className="container">
