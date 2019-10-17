@@ -3,6 +3,8 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import './alertview.sass';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class AlertView extends React.Component {
 
@@ -40,6 +42,8 @@ class AlertView extends React.Component {
     });
  
 }
+
+  notifyAddedComment = () => toast.success("Commentaire posté !",{className: 'added-advert-toast'} );
 
   handleClickInfo = () => {
     const MySwal = withReactContent(Swal);
@@ -100,11 +104,11 @@ class AlertView extends React.Component {
        }).then(response => {
           axios.get('/api/profil/comment').then(result => { 
             const commentsRefreshed = result.data.filter((comment) => comment.advert.id == this.state.alertData.id)
-            return this.setState({
+            this.setState({
               titleValue: "",
               commentValue: "",
               comments: commentsRefreshed
-            }) 
+            }, () => { this.notifyAddedComment()}) 
           }) 
           .catch((error) => {
             console.error(error);
