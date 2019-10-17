@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 class Profil extends React.Component {
 
-  state = { deletedComment: false}
+  state = {}
 
   componentDidMount() {
     axios.get('/api/user/isConnected').then(result => {
@@ -82,9 +82,9 @@ class Profil extends React.Component {
           // window.location.href = "/profil";
           axios.get('/api/profil/comment').then(result => {
             let refreshedComments = result.data.filter((comment) => result.data[0].userId == comment.user.id);
+            console.log(refreshedComments);
             this.setState({
-              comments: refreshedComments,
-              deletedComment: true
+              comments: refreshedComments
             })
             
           })
@@ -95,6 +95,7 @@ class Profil extends React.Component {
         }).catch(error => {
             console.log('ERROR : ', error);
         });
+      
     }
    
     })
@@ -102,9 +103,9 @@ class Profil extends React.Component {
 
 
   render() {
-    if(this.state.deletedComment){
-      this.notifyDeletedComment();
-    }
+
+    console.log(this.state.comments)
+
   if(this.state.userConnected){
     return(
       <div className="container">
@@ -183,8 +184,8 @@ class Profil extends React.Component {
   } else {
     window.location.href = "/connexion";
   }
-
 }
+
 }
 
 
