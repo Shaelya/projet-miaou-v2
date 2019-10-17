@@ -188,6 +188,17 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js!./src/components/Footer/footer.css":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js!./src/components/Footer/footer.css ***!
+  \*******************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/Footer/footer.css?./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js!./src/components/Footer/footer.sass":
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js!./src/components/Footer/footer.sass ***!
@@ -412,6 +423,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _emo
 
 /***/ }),
 
+/***/ "./src/components/Footer/footer.css":
+/*!******************************************!*\
+  !*** ./src/components/Footer/footer.css ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/sass-loader/dist/cjs.js!./footer.css */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js!./src/components/Footer/footer.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/components/Footer/footer.css?");
+
+/***/ }),
+
 /***/ "./src/components/Footer/footer.sass":
 /*!*******************************************!*\
   !*** ./src/components/Footer/footer.sass ***!
@@ -431,7 +453,7 @@ eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/di
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _emotion_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/core */ \"./node_modules/@emotion/core/dist/core.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var _footer_sass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./footer.sass */ \"./src/components/Footer/footer.sass\");\n/* harmony import */ var _footer_sass__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_footer_sass__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n\n\nvar Footer = function Footer() {\n  return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"nav\", {\n    className: \"navbar fixed-bottom navbar-dark bg-dark\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"NavLink\"], {\n    to: \"/comment-ca-marche\",\n    exact: true,\n    className: \"text-danger\"\n  }, \"Comment \\xE7a marche ?\"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"NavLink\"], {\n    to: \"/equipe\",\n    exact: true,\n    className: \"text-white\"\n  }, \"L'\\xE9quipe\"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"NavLink\"], {\n    to: \"/mentions-legales\",\n    exact: true,\n    className: \"text-white\"\n  }, \"Mentions L\\xE9gales\"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"NavLink\"], {\n    to: \"/liens-externes\",\n    exact: true,\n    className: \"text-white\"\n  }, \"Liens Externes\"));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Footer);\n\n//# sourceURL=webpack:///./src/components/Footer/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _emotion_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/core */ \"./node_modules/@emotion/core/dist/core.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var _footer_sass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./footer.sass */ \"./src/components/Footer/footer.sass\");\n/* harmony import */ var _footer_sass__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_footer_sass__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _footer_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./footer.css */ \"./src/components/Footer/footer.css\");\n/* harmony import */ var _footer_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_footer_css__WEBPACK_IMPORTED_MODULE_4__);\n\n\n\n\n\n\nvar Footer = function Footer() {\n  return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"nav\", {\n    className: \"px-5 navbar mt-4 text-center navbar-dark rounded bg-light border-right border-bottom\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"NavLink\"], {\n    to: \"/comment-ca-marche\",\n    exact: true,\n    className: \"ml-5 h4 text-danger\"\n  }, \"Comment \\xE7a marche ?\"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"NavLink\"], {\n    to: \"/equipe\",\n    exact: true,\n    className: \"h4 text-dark\"\n  }, \"L'\\xE9quipe\"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"NavLink\"], {\n    to: \"/mentions-legales\",\n    exact: true,\n    className: \"h4 text-dark\"\n  }, \"Mentions L\\xE9gales\"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(react_router_dom__WEBPACK_IMPORTED_MODULE_2__[\"NavLink\"], {\n    to: \"/liens-externes\",\n    exact: true,\n    className: \"h4 mr-5 text-dark\"\n  }, \"Liens Externes\"));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Footer);\n\n//# sourceURL=webpack:///./src/components/Footer/index.js?");
 
 /***/ }),
 
