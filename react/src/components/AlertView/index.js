@@ -192,15 +192,19 @@ class AlertView extends React.Component {
                       ))}
                     </tbody>
                   </table>
-                  <form onSubmit={this.handleComment}>
-                    <input className="mt-3 mb-2" type="text" id="title" name="title" placeholder="Titre de votre commentaire" value={this.state.titleValue} onChange={this.handleChangeTitle} />
-                    <br/>
+                  <form onSubmit={this.handleComment} className="text-center">
+                  <div className="form-group center_div">
+                    <input className="mt-3 mb-2 form-control input-zone-commentaire" type="text" id="title" name="title" placeholder="Titre de votre commentaire" value={this.state.titleValue} onChange={this.handleChangeTitle} />
 
-                    <textarea  name="text" rows="10" cols="30" placeholder="Votre commentaire" value={this.state.commentValue} onChange={this.handleChangeText} />
-                    <br/>
+                    <textarea  className="form-control input-zone-commentaire" name="text" rows="3" placeholder="Votre commentaire" value={this.state.commentValue} onChange={this.handleChangeText} />
+
                     <input type="submit"  className="btn btn-dark mt-2 mr-5" value="Poster un commentaire"></input>
+                    </div>
                   </form>
-                  {infoButton}
+                  <div className="text-center mt-3">
+                    {infoButton}
+                  </div>
+                  
                   
             </div>
           </div>
