@@ -66,8 +66,12 @@ display: inline-block;
 } 
 
 .fond-ln{
-    background-color: #4ecdc4;;
+    background-color: rgba(78, 205, 196, 0.5);
     box-shadow:5px 5px lightgrey;
+}
+
+.objet-login{
+    opacity: 1;
 }
 
  .btn-acceuil-ln{

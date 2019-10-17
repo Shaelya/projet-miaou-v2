@@ -154,27 +154,27 @@ class AlertView extends React.Component {
           <div className="col-md-7">
             <div className="card-body">
               <h1 className="h1 h1-alertview">{alertData.name} ref : {alertData.id} </h1>
-                <table className="table">
+                <table className="mt-5 table">
                 <tbody>
                   <tr>
-                    <th>Nom</th>
-                      <td>{alertData.name}</td>
+                    <th className="h4 text-tab-ln">Nom</th>
+                      <td className="text-tab-ln">{alertData.name}</td>
                   </tr>
                   <tr>
-                    <th>Type</th>
-                      <td>{alertData.type}</td>
+                    <th className="h4 text-tab-ln">Type</th>
+                      <td className="text-tab-ln">{alertData.type}</td>
                   </tr>
                   <tr>
-                    <th>Lieu</th>
-                      <td>{alertData.lieu}</td>
+                    <th className="h4 text-tab-ln">Lieu</th>
+                      <td className="text-tab-ln">{alertData.lieu}</td>
                   </tr>
                   <tr>
-                    <th>Sexe</th>
-                      <td>{alertData.sex}</td>
+                    <th className="h4 text-tab-ln">Sexe</th>
+                      <td className="text-tab-ln">{alertData.sex}</td>
                   </tr>
                   <tr>
-                    <th>Description</th>
-                      <td>{alertData.description}</td>
+                    <th className="h4 text-tab-ln">Description</th>
+                      <td className="text-tab-ln">{alertData.description}</td>
                   </tr>
                 </tbody>
                 </table>
@@ -184,16 +184,16 @@ class AlertView extends React.Component {
                     <tbody>
                       {comments.map((comment) => (
                         <tr key={comment.id}>
-                        <th>{comment.user.firstName}</th>
-                          <td>{comment.createdAtJson}</td>
-                          <td>{comment.title}</td>
-                          <td>{comment.text}</td>
+                        <th className="text-tab-ln">{comment.user.firstName}</th>
+                          <td className="text-tab-ln">{comment.createdAtJson}</td>
+                          <td className="text-tab-ln">{comment.title}</td>
+                          <td className="text-tab-ln">{comment.text}</td>
                       </tr>
                       ))}
                     </tbody>
                   </table>
                   <form onSubmit={this.handleComment}>
-                    <input className="mb-2" type="text" id="title" name="title" placeholder="Titre de votre commentaire" value={this.state.titleValue} onChange={this.handleChangeTitle} />
+                    <input className="mt-3 mb-2" type="text" id="title" name="title" placeholder="Titre de votre commentaire" value={this.state.titleValue} onChange={this.handleChangeTitle} />
                     <br/>
 
                     <textarea  name="text" rows="10" cols="30" placeholder="Votre commentaire" value={this.state.commentValue} onChange={this.handleChangeText} />
@@ -205,7 +205,7 @@ class AlertView extends React.Component {
             </div>
           </div>
           <div className="col-md-5">
-            <div className="text-center"><img className="alerte-image card-img" src={alertData.picture} /></div>
+            <div className="pt-5 text-center"><img className="alerte-image card-img" src={alertData.picture} /></div>
           </div>
         </div>
         </div>
