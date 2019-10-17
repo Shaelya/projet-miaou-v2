@@ -49,13 +49,7 @@ class MiaouMap extends Component {
           this.setState({
             markers: markers
           })
-          Swal.fire({
-            text: 'L\'épingle a été placée sur la carte',
-            type: 'success'
-          }
-          ).then((result) => {
-            window.location.href = "/advert/new?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng;
-          })
+          window.location.href = "/advert/new?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng;
         } else {
             this.props.handleClickMap(this.props.userConnected);
         }
