@@ -188,6 +188,17 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js!./src/components/ExternalLinks/externallinks.sass":
+/*!**********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js!./src/components/ExternalLinks/externallinks.sass ***!
+  \**********************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".liens-externes:hover {\\n  color: #ff6b6b;\\n  text-decoration: none; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/ExternalLinks/externallinks.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js!./src/components/Footer/footer.css":
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js!./src/components/Footer/footer.css ***!
@@ -320,6 +331,17 @@ eval("module.exports = __webpack_require__.p + \"assets/37da9bb7be49bfa9c0276242
 
 /***/ }),
 
+/***/ "./src/assets/images/logo-pense-o-betes.png":
+/*!**************************************************!*\
+  !*** ./src/assets/images/logo-pense-o-betes.png ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"assets/c0498b210806bb005781e87eb59c931d.png\";\n\n//# sourceURL=webpack:///./src/assets/images/logo-pense-o-betes.png?");
+
+/***/ }),
+
 /***/ "./src/assets/images/logo-sans-fond.svg":
 /*!**********************************************!*\
   !*** ./src/assets/images/logo-sans-fond.svg ***!
@@ -411,6 +433,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _emo
 
 /***/ }),
 
+/***/ "./src/components/ExternalLinks/externallinks.sass":
+/*!*********************************************************!*\
+  !*** ./src/components/ExternalLinks/externallinks.sass ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/postcss-loader/src??ref--6-2!../../../node_modules/sass-loader/dist/cjs.js!./externallinks.sass */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js!./src/components/ExternalLinks/externallinks.sass\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/components/ExternalLinks/externallinks.sass?");
+
+/***/ }),
+
 /***/ "./src/components/ExternalLinks/index.js":
 /*!***********************************************!*\
   !*** ./src/components/ExternalLinks/index.js ***!
@@ -419,7 +452,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _emo
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _emotion_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/core */ \"./node_modules/@emotion/core/dist/core.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nvar ExternalLinks = function ExternalLinks() {\n  return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"externallinks-page\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"p\", null, \"Todo : page Liens externes\"));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (ExternalLinks);\n\n//# sourceURL=webpack:///./src/components/ExternalLinks/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _emotion_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @emotion/core */ \"./node_modules/@emotion/core/dist/core.browser.esm.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _externallinks_sass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./externallinks.sass */ \"./src/components/ExternalLinks/externallinks.sass\");\n/* harmony import */ var _externallinks_sass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_externallinks_sass__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var src_assets_images_logo_pense_o_betes_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/assets/images/logo-pense-o-betes.png */ \"./src/assets/images/logo-pense-o-betes.png\");\n/* harmony import */ var src_assets_images_logo_pense_o_betes_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(src_assets_images_logo_pense_o_betes_png__WEBPACK_IMPORTED_MODULE_3__);\n\n\n\n // import {logo1} from 'src/assets/images/logoP.png';\n// import {logo2} from 'src/assets/images/logoSea.png';\n// import {logoPeta} from 'src/assets/images/logoPeta.png';\n// import {logo5} from 'src/assets/images/logoWwf.png';\n\nvar ExternalLinks = function ExternalLinks() {\n  return Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"externallinks-page\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"container-fluid\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"col text-center mx-auto\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"jumbotron\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"liens\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"p\", {\n    className: \"text-center font-weight-bold mt-4 h4\"\n  }, \"Nous vous proposons quelques liens qui vous conduirons vers des sites auxquels nous faisons enti\\xE8rement confiance :\", Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"br\", null)), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"img\", {\n    src: src_assets_images_logo_pense_o_betes_png__WEBPACK_IMPORTED_MODULE_3___default.a,\n    alt: \"logo Pense O Betes\"\n  }), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"p\", {\n    className: \"text-center\"\n  }, \"Ce site regroupe toutes les informations n\\xE9c\\xE9ssaires pour les propri\\xE9taires d'animaux. Vous n'oublierez plus les vaccins ou les rappels.\", Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"br\", null), \" Le site est un condens\\xE9 de conseils pour le bien \\xEAtre de vos petites b\\xEAtes.\"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"p\", {\n    className: \"text-center font-weight-bold mt-4 mb-3 h5\"\n  }, \"Les autres sites :\"), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"mb-3\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"a\", {\n    className: \"liens-externes\",\n    href: \"https://www.seashepherd.fr\"\n  }, \"Sea Shepherd\")), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"mb-3\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"a\", {\n    className: \"liens-externes\",\n    href: \"https://www.la-spa.fr/\"\n  }, \" La SPA\")), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"mb-3\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"a\", {\n    className: \"liens-externes\",\n    href: \"https://www.petafrance.com/\"\n  }, \"Peta\")), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"div\", {\n    className: \"mb-3\"\n  }, Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"a\", {\n    className: \"liens-externes\",\n    href: \"https://www.wwf.fr/\"\n  }, \"WWF\")), Object(_emotion_core__WEBPACK_IMPORTED_MODULE_0__[\"jsx\"])(\"span\", {\n    className: \"fa fa-paw fa-3x\"\n  }))))));\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (ExternalLinks);\n\n//# sourceURL=webpack:///./src/components/ExternalLinks/index.js?");
 
 /***/ }),
 
