@@ -63,8 +63,8 @@ class Profil extends React.Component {
     }
   }
 
-  notifyDeletedAdvert = () => toast.success("Fiche alerte supprimée !",{className: 'added-advert-toast'} );
-  notifyDeletedComment = () => toast.success("Commentaire supprimé !",{className: 'added-advert-toast'} );
+  notifyDeletedAdvert = () => toast.success("Fiche alerte supprimée !",{className: 'deleted-toast'} );
+  notifyDeletedComment = () => toast.success("Commentaire supprimé !",{className: 'deleted-toast'} );
 
   handleDeleteComment = (commentId) => {
     const MySwal = withReactContent(Swal);

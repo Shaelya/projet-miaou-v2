@@ -43,7 +43,7 @@ class AlertView extends React.Component {
  
 }
 
-  notifyAddedComment = () => toast.success("Commentaire posté !",{className: 'added-advert-toast'} );
+  notifyAddedComment = () => toast.success("Commentaire posté !",{className: 'added-toast'} );
 
   handleClickInfo = () => {
     const MySwal = withReactContent(Swal);

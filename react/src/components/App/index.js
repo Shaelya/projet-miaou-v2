@@ -59,7 +59,7 @@ class App extends React.Component {
 
   }
 
-  notify = () => toast.success("Fiche alerte ajoutée !",{className: 'added-advert-toast'} );
+  notify = () => toast.success("Fiche alerte ajoutée !",{className: 'added-toast'} );
 
   render(){
     return(
