@@ -72,10 +72,10 @@ class Home extends React.Component {
         <Joyride run={this.state.run} steps={this.state.steps} continuous={true} showProgress={true} showSkipButton={true} styles={{options: {primaryColor: '#ff6b6b' }}} />
           <div className="text-center"><button onClick={this.handleGuidedTour} className="btn btn-light btn-lg mb-4">Montre-moi comment ça marche !</button></div>
           <div className="row">
-            <div className="col-8">
+            <div className="col-md-8 mb-5">
               <Map alertButton={this.props.alertButton} data={(this.state.data) ? this.state.data : this.props.data } handleClickMap={this.props.handleClick} getData={this.props.getData} userConnected={this.props.userConnected}  />
             </div>
-            <div className="col-4 text-center">
+            <div className="col-md-4 text-center">
 
             <AlertButton alertButton={this.props.alertButton} handleClick={this.props.handleClick}  userConnected={this.props.userConnected} />
             <div>

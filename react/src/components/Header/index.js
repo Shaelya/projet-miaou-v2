@@ -9,59 +9,84 @@ const Header = ({userData}) => {
 
   if(userData.userConnected){
     return(
-        <div className="header-connected">
-                    <div className="row">
-                        <div className="col-md-4">
-                          <i className="fa fa-user"></i><p className="ml-2">Bonjour {userData.userFirstName}</p>
-                        </div>
-                        <div className="logo_header col-md-4">
-                          <NavLink to="/" exact className="navbar-brand mx-auto"><img src={Logo} alt="logo miaou" className="logo-miaou d-inline-block align-top"/>
-                          </NavLink>
-                          <p className="subtitle_header font-weight-bold h5">Le site des animaux perdus</p>
-                        </div>
-                        <div className="col-md-4">
-                          <form className="form-inline">
-                            <div className="btn-Accueil">
-                              <NavLink to="/" exact><button className="btn btn-primary mt-3 mx-3 btn-lg btn-block" type="button">Accueil</button>
-                              </NavLink>
-                            </div>
-                            <div className="btn-Profil">
-                              <NavLink to="/profil" exact><button className="btn btn-primary mt-3 mx-3 btn-lg btn-block" type="button">Profil</button>
-                              </NavLink>
-                              </div>
-                              <div className="btn-Accueil">
-                              <a href="/deconnexion"><button className="btn btn-primary mt-3 mx-3 btn-lg btn-block" type="button">Se déconnecter</button></a>
-                              {/* <NavLink to="/inscription" exact><button className="btn btn-info" type="button">S'inscrire</button></NavLink> */}
-                              </div>    
-                          </form>
-                        </div>
-                    </div>
-                      
-        </div>      
+      <div className="header-connected">
+      <div className="row">
+          <div className="bonjour col-md-4">
+            <i className="fa fa-user"></i><p className="ml-2">Bonjour {userData.userFirstName}</p>
+          </div>
+          <div className="logo_header col-md-4">
+            <NavLink to="/" exact className="navbar-brand mx-auto"><img src={Logo} alt="logo miaou" className="logo-miaou d-inline-block align-top"/>
+            </NavLink>
+            <p className="subtitle_header font-weight-bold h5">Le site des animaux perdus</p>
+          </div>
+          <div className="col-md-4">
+            <form className="form-inline">
+                <nav className="navbar navbar-expand-lg navbar-light">
+                  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                  </button>
+                  <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                      <li className="nav-item mt-3 mx-3">
+                      <NavLink to="/" exact className="btn btn-primary btn-lg col">Accueil
+                      </NavLink>
+                      </li> 
+                      <li className="nav-item mt-3 mx-3">
+                      <NavLink to="/profil" exact className="btn btn-primary btn-lg col">Profil
+                      </NavLink>
+                      </li>
+                      <li className="nav-item active mt-3 mx-3">
+                        <a href="/deconnexion" className="btn btn-primary btn-lg col">Se déconnecter</a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </form>
+          </div>
+      </div>
+        
+  </div>      
      
     )
   } else {
     return(
       <div className="header-disconnected">
-      <nav className="navbar">
-          <i className="fa fa-user-times"></i><p className="ml-2">non connecté</p>
-          <NavLink to="/" exact className="navbar-brand mx-auto">
-            <img src={Logo} alt="logo miaou" className="logo-miaou d-inline-block align-top"/>
-          </NavLink>
-          <p className="subtitle">Le site des animaux perdus</p>
-          <form className="form-inline">
-            {/* <NavLink to="/app/login" exact><button className="btn btn-info mr-2" type="button">Se connecter</button></NavLink> */}
-            <NavLink to="/" exact className="navbar-brand mx-auto">
-            <button className="btn btn-info mr-2" type="button">Accueil</button>
+      <div className="row">
+          <div className="bonjour col-md-4">
+            <i className="fa fa-user-times"></i><p className="ml-2">non connecté</p>
+          </div>
+          <div className="logo_header col-md-4">
+            <NavLink to="/" exact className="navbar-brand mx-auto"><img src={Logo} alt="logo miaou" className="logo-miaou d-inline-block align-top"/>
             </NavLink>
-            <a href="/connexion"><button className="btn btn-info mr-2" type="button">Se connecter</button></a>
-            <a href="/inscription"><button className="btn btn-info mr-2" type="button">S'inscrire</button></a>
-            {/* <NavLink to="/inscription" exact><button className="btn btn-info" type="button">S'inscrire</button></NavLink> */}
-          </form>
-          
-        </nav>
+            <p className="subtitle_header font-weight-bold h5">Le site des animaux perdus</p>
+          </div>
+          <div className="col-md-4">
+            <form className="form-inline">
+                <nav className="navbar navbar-expand-lg navbar-light">
+                  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                  </button>
+                  <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav">
+                      <li className="nav-item mt-3  mx-3 ">
+                      <NavLink to="/" exact className="btn btn-primary btn-lg col"> Accueil
+                      </NavLink>
+                      </li> 
+                      <li className="nav-item mt-3 mx-3">
+                      <a href="/connexion" className="btn btn-primary  btn-lg col" >Se connecter</a>
+                      </li>
+                      <li className="nav-item active mt-3 mx-3 ">
+                        <a href="/inscription" className="btn btn-primary btn-lg col"> S'inscrire </a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </form>
+          </div>
+      </div>
+        
+      </div>  
 
-    </div>
     )
   }
 
