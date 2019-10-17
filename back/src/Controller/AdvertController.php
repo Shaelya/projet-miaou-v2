@@ -74,7 +74,7 @@ class AdvertController extends AbstractController
             //$em->persist($advert);
             $em->flush();
 
-            return $this->redirectToRoute('index');
+            return $this->redirect('/?advert_added=true');
         }
         return $this->render('advert/index.html.twig', [
              'form' => $form->createView()

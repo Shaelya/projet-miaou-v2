@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { Route } from 'react-router-dom';
 // import PropTypes from 'prop-types';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 /**
@@ -47,12 +49,22 @@ class App extends React.Component {
   .catch((error) => {
     console.error(error);
   });
+  
+  let url = new URLSearchParams(location.search);
+  let paramsUrl = url.get('advert_added');
+  if( paramsUrl == "true"){
+    this.notify();
+    window.history.replaceState(null, null, window.location.pathname);
+  }
 
   }
+
+  notify = () => toast.success("Fiche alerte ajoutée !",{className: 'added-toast'} );
 
   render(){
     return(
       <div className="App">
+          <ToastContainer />
           {/* Todo : Si l'utilisateur est connecté afficher de HeaderConnected, sinon afficher le HeaderDisconnected */}
           <Header userData={this.state} />
           <Route path='/' exact render= {() => <Home alertButton={this.props.alertButton} data={this.props.data} handleClick={this.props.handleClick} getData={this.props.getData} userConnected={this.state.userConnected} />} />

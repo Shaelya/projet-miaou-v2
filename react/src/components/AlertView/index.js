@@ -3,6 +3,8 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import './alertview.sass';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class AlertView extends React.Component {
 
@@ -41,6 +43,8 @@ class AlertView extends React.Component {
  
 }
 
+  notifyAddedComment = () => toast.success("Commentaire posté !",{className: 'added-toast'} );
+
   handleClickInfo = () => {
     const MySwal = withReactContent(Swal);
     if(this.state.alertData.visibility === 'oui' ){
@@ -66,13 +70,7 @@ class AlertView extends React.Component {
       axios.post('/api/delete/advert', { 
         id: this.state.alertData.id
        }).then(response => {
-        MySwal.fire({
-          text: 'Fiche alerte supprimée',
-          type: "success",
-          confirmButtonText: 'Ok'
-        }).then((result) =>{
-          window.location.href = "/profil";
-        })
+        window.location.href = "/profil?deleted_advert=true";
 
         }).catch(error => {
             console.log('ERROR : ', error);
@@ -106,11 +104,11 @@ class AlertView extends React.Component {
        }).then(response => {
           axios.get('/api/profil/comment').then(result => { 
             const commentsRefreshed = result.data.filter((comment) => comment.advert.id == this.state.alertData.id)
-            return this.setState({
+            this.setState({
               titleValue: "",
               commentValue: "",
               comments: commentsRefreshed
-            }) 
+            }, () => { this.notifyAddedComment()}) 
           }) 
           .catch((error) => {
             console.error(error);
@@ -136,7 +134,7 @@ class AlertView extends React.Component {
 
     let infoButton = (this.state.userId == alertData.user.id) ? <button onClick={this.handleDelete} className="btn btn-danger mt-3 mr-5">Supprimer l'alerte</button> : <button onClick={this.handleClickInfo} className="btn btn-info mt-3 mr-5">Infos proprietaire</button>;
 
-    if(alertData.visibility === 'oui'){
+    if( (this.state.userId != alertData.user.id) && (alertData.visibility === 'oui')){
       infoButton = (<div className="d-inline">
       <button onClick={this.handleClickInfo} className="btn btn-info mt-3 mr-5" type="button" data-toggle="collapse" data-target="#collapseInfos" aria-expanded="false" aria-controls="collapseInfos">Infos proprietaire</button>
       <div className="collapse" id="collapseInfos">

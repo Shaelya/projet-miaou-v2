@@ -5,6 +5,8 @@ import'./profil.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 class Profil extends React.Component {
@@ -52,7 +54,17 @@ class Profil extends React.Component {
     .catch((error) => {
       console.error(error);
     });
+
+    let url = new URLSearchParams(location.search);
+    let paramsUrl = url.get('deleted_advert');
+    if( paramsUrl == "true"){
+      this.notifyDeletedAdvert();
+    window.history.replaceState(null, null, window.location.pathname);
+    }
   }
+
+  notifyDeletedAdvert = () => toast.success("Fiche alerte supprimée !",{className: 'deleted-toast'} );
+  notifyDeletedComment = () => toast.success("Commentaire supprimé !",{className: 'deleted-toast'} );
 
   handleDeleteComment = (commentId) => {
     const MySwal = withReactContent(Swal);
@@ -66,16 +78,14 @@ class Profil extends React.Component {
     if(result.value){
       axios.post('/api/delete/comment', { 
         id: commentId
-       }).then(response => {
-        MySwal.fire({
-          text: 'Commentaire supprimé',
-          type: "success",
-          confirmButtonText: 'Ok'
-        }).then((result) =>{
+       }).then((result) =>{
           // window.location.href = "/profil";
           axios.get('/api/profil/comment').then(result => {
-            let refreshedComments = result.data.filter((comment) => result.data[0].userId == comment.user.id);
-            this.setState({comments: refreshedComments})
+            let refreshedComments = result.data.filter((comment) => this.state.userId == comment.user.id);
+            console.log(refreshedComments);
+            this.setState({
+              comments: refreshedComments
+            }, () => { this.notifyDeletedComment()})
             
           })
           .catch(error => {
@@ -85,13 +95,17 @@ class Profil extends React.Component {
         }).catch(error => {
             console.log('ERROR : ', error);
         });
-    })
-   
+      
     }
-  })
+   
+    })
   }
 
+
   render() {
+
+    console.log(this.state.comments)
+
   if(this.state.userConnected){
     return(
       <div className="container">
@@ -170,8 +184,8 @@ class Profil extends React.Component {
   } else {
     window.location.href = "/connexion";
   }
-
 }
+
 }
 
 
