@@ -180,3 +180,7 @@ display: inline-block;
     color: #212529;
     text-decoration: none;
 }
+
+.text-secondary-register{
+    color: #ff6b6b;
+}
