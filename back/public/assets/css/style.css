@@ -107,6 +107,7 @@ display: inline-block;
 
  .fond-register-ln{
     background-color: #f9f9f9;
+    box-shadow:5px 5px lightgrey;
 }
 
  .registerForm-ln{

@@ -138,7 +138,7 @@ class AlertView extends React.Component {
       infoButton = (<div className="d-inline">
       <button onClick={this.handleClickInfo} className="btn btn-info mt-3 mr-5" type="button" data-toggle="collapse" data-target="#collapseInfos" aria-expanded="false" aria-controls="collapseInfos">Infos proprietaire</button>
       <div className="collapse" id="collapseInfos">
-      <div className="card card-body mt-2 card-infos">
+      <div className="card card-body card-body-toggle mt-2 card-infos">
         <div>Prénom : {alertData.user.firstName}</div>
         <div>Nom : {alertData.user.lastName}</div>
         <div>Téléphone : {alertData.user.phone}</div>
@@ -152,7 +152,7 @@ class AlertView extends React.Component {
         <div className="card mb-3">
         <div className="row no-gutters">
           <div className="col-md-7">
-            <div className="card-body">
+            <div className="card-body card-body-all">
               <h1 className="h1 h1-alertview">{alertData.name} ref : {alertData.id} </h1>
                 <table className="mt-5 table">
                 <tbody>
