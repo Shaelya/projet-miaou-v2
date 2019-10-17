@@ -66,8 +66,12 @@ display: inline-block;
 } 
 
 .fond-ln{
-    background-color: #4ecdc4;;
+    background-color: #f9f9f9;
     box-shadow:5px 5px lightgrey;
+}
+
+.objet-login{
+    opacity: 1;
 }
 
  .btn-acceuil-ln{
@@ -102,7 +106,7 @@ display: inline-block;
 }
 
  .fond-register-ln{
-    background-color: #4ecdc4;
+    background-color: #f9f9f9;
 }
 
  .registerForm-ln{
@@ -137,7 +141,7 @@ display: inline-block;
 /*ajout pour gégé*/
 
 .formulaire-advert{
-    background-color: #4ecdc4;
+    background-color: #f9f9f9;
     border-radius: 5px;
     box-shadow:5px 5px lightgrey;
 
