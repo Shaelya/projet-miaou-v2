@@ -156,3 +156,13 @@ display: inline-block;
 .text-login-ln{
     color: #1a535c;
 }
+
+.text-login-ln:hover{
+    color: #212529;
+    text-decoration: none;
+}
+
+.text-acceuil:hover{
+    color: #212529;
+    text-decoration: none;
+}
