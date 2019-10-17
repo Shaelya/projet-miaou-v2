@@ -294,7 +294,7 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"* {\\n  font-family: 'Khula', sans-serif; }\\n\\n.profil-page .table {\\n  max-width: 50%;\\n  margin: auto; }\\n\\n.spinner {\\n  display: block;\\n  position: fixed;\\n  z-index: 1031;\\n  top: 50%;\\n  right: 50%; }\\n\\n.tablo {\\n  width: 60%; }\\n\\n.background-vert {\\n  background-color: #f9f9f9; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/Profil/profil.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"* {\\n  font-family: 'Khula', sans-serif; }\\n\\n.profil-page .table {\\n  max-width: 50%;\\n  margin: auto; }\\n\\n.spinner {\\n  display: block;\\n  position: fixed;\\n  z-index: 1031;\\n  top: 50%;\\n  right: 50%; }\\n\\n.tablo {\\n  width: 60%; }\\n\\n.background-vert {\\n  background-color: #f9f9f9; }\\n\\nbutton.btn.btn-light.justify-content-start {\\n  margin-left: 5px; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/Profil/profil.sass?./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
