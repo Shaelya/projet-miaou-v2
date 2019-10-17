@@ -109,10 +109,11 @@ class Profil extends React.Component {
   if(this.state.userConnected){
     return(
       <div className="container">
-        <div className="profil-page jumbotron ml-5 mr-5 bg-light">
-        <h1 className="h1 display-1 text-center text-primary">Mon profil</h1>
+        <div className="profil-page ml-5 mr-5 ">
+        <h1 className="h1 display-1 text-center text-primary">Mon Profil</h1>
           <h1 className="h3 text-uppercase text-center font-weight-bold">Mes Infos</h1>
-          <table className="table jumbotron bg-dark-gray">
+          <div className="background-vert jumbotron">
+          <table className="table jumbotron bg-white">
           <tbody>
             <tr>
               <th className="text-uppercase">Nom</th>
@@ -132,9 +133,10 @@ class Profil extends React.Component {
             </tr>
           </tbody>
         </table>
-
+        </div>
         <h2 className="h3 text-uppercase font-weight-bold mt-5 text-center mb-4">Mes commentaires</h2>
-        <table className="table jumbotron bg-dark-gray">
+        <div className="background-vert jumbotron">
+        <table className="table jumbotron bg-white">
           <tbody>
             {this.state.comments.map((comment) => {
               let commentAdvert = this.state.adverts.filter((advert) => comment.advert.id == advert.id);
@@ -143,18 +145,20 @@ class Profil extends React.Component {
               <th>{comment.createdAtJson}</th>
                 <td>{comment.advert.name} Ref : {comment.advert.id}</td>
                 <td>{comment.title}</td>
-                <td><button type="button" className="btn btn-light"><Link  style={{ textDecoration: 'none', color: 'black' }} to={ {
+                <td className="tablo"><button type="button" className="btn btn-light"><Link  style={{ textDecoration: 'none', color: 'black' }} to={ {
               pathname: '/fiche-alerte-vue',
               state: { alertData: commentAdvert[0]  }
-            } }> consulter</Link></button><button onClick={() => this.handleDeleteComment(comment.id)} type="button" className="btn btn-light ml-5" aria-label="Supprimer ce commentaire"><i className="fa fa-trash"></i></button></td>
+            } }> consulter</Link></button><button onClick={() => this.handleDeleteComment(comment.id)} type="button" className="btn btn-light justify-content-start" aria-label="Supprimer"><i className="fa fa-trash"></i></button></td>
             </tr>
             )
             })
           }
           </tbody>
         </table>
-        <h2 className="h2 mt-5 text-center text-center mb-4">Mes annonces</h2>
-        <table className="table">
+        </div>
+        <h2 className="h3 mt-5 text-center text-center mb-4 text-uppercase font-weight-bold">Mes annonces</h2>
+        <div className="background-vert jumbotron">
+        <table className="table jumbotron bg-white">
           <tbody>
             {this.state.advert.map((advert) => {
               return(
@@ -170,6 +174,7 @@ class Profil extends React.Component {
             })}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
     )
