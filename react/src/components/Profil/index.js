@@ -111,7 +111,7 @@ class Profil extends React.Component {
         <h1 className="h1 display-1 text-center text-primary">Mon Profil</h1>
           <h1 className="h3 text-uppercase text-center font-weight-bold">Mes Infos</h1>
           <div className="background-vert jumbotron">
-          <table className="table jumbotron bg-white">
+          <table className="table jumbotron bg-white tableau-profil">
           <tbody>
             <tr>
               <th className="text-uppercase">Nom</th>
@@ -134,16 +134,16 @@ class Profil extends React.Component {
         </div>
         <h2 className="h3 text-uppercase font-weight-bold mt-5 text-center mb-4">Mes commentaires</h2>
         <div className="background-vert jumbotron">
-        <table className="table jumbotron bg-white">
+        <table className="table jumbotron bg-white tableau-profil">
           <tbody>
             {this.state.comments.map((comment) => {
               let commentAdvert = this.state.adverts.filter((advert) => comment.advert.id == advert.id);
               return(
               <tr key={comment.id}>
-              <th>{comment.createdAtJson}</th>
-                <td>{comment.advert.name} Ref : {comment.advert.id}</td>
-                <td>{comment.title}</td>
-                <td className="tablo"><button type="button" className="btn btn-light"><Link  style={{ textDecoration: 'none', color: 'black' }} to={ {
+              <th className="case-tableau-commentaire">{comment.createdAtJson}</th>
+                <td className="case-tableau-commentaire">{comment.advert.name} Ref : {comment.advert.id}</td>
+                <td className="case-tableau-commentaire">{comment.title}</td>
+                <td className="tablo case-tableau-commentaire"><button type="button" className="btn btn-light"><Link  style={{ textDecoration: 'none', color: 'black' }} to={ {
               pathname: '/fiche-alerte-vue',
               state: { alertData: commentAdvert[0]  }
             } }> consulter</Link></button><button onClick={() => this.handleDeleteComment(comment.id)} type="button" className="btn btn-light justify-content-start" aria-label="Supprimer"><i className="fa fa-trash"></i></button></td>
@@ -156,7 +156,7 @@ class Profil extends React.Component {
         </div>
         <h2 className="h3 mt-5 text-center text-center mb-4 text-uppercase font-weight-bold">Mes annonces</h2>
         <div className="background-vert jumbotron">
-        <table className="table jumbotron bg-white">
+        <table className="table jumbotron bg-white tableau-profil">
           <tbody>
             {this.state.advert.map((advert) => {
               return(
