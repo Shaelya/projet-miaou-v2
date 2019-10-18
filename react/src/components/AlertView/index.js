@@ -132,11 +132,11 @@ class AlertView extends React.Component {
     let alertData = this.state.alertData;
     let comments = this.state.comments;
 
-    let infoButton = (this.state.userId == alertData.user.id) ? <button onClick={this.handleDelete} className="btn btn-danger mt-3 mr-5">Supprimer l'alerte</button> : <button onClick={this.handleClickInfo} className="btn btn-info mt-3 mr-5">Infos proprietaire</button>;
+    let infoButton = (this.state.userId == alertData.user.id) ? <button onClick={this.handleDelete} className="btn btn-danger mt-3 mr-5 bouton-supprimer-alerte">Supprimer l'alerte</button> : <button onClick={this.handleClickInfo} className="btn btn-info mt-3 mr-5 bouton-infos-proprietaire">Infos proprietaire</button>;
 
     if( (this.state.userId != alertData.user.id) && (alertData.visibility === 'oui')){
       infoButton = (<div className="d-inline">
-      <button onClick={this.handleClickInfo} className="btn btn-info mt-3 mr-5" type="button" data-toggle="collapse" data-target="#collapseInfos" aria-expanded="false" aria-controls="collapseInfos">Infos proprietaire</button>
+      <button onClick={this.handleClickInfo} className="btn btn-info mt-3 mr-5 bouton-infos-proprietaire" type="button" data-toggle="collapse" data-target="#collapseInfos" aria-expanded="false" aria-controls="collapseInfos">Infos proprietaire</button>
       <div className="collapse" id="collapseInfos">
       <div className="card card-body card-body-toggle mt-2 card-infos">
         <div>Prénom : {alertData.user.firstName}</div>
@@ -152,8 +152,8 @@ class AlertView extends React.Component {
         <div className="card mb-3">
         <div className="row no-gutters">
           <div className="col-md-7">
+          <h1 className="h1 h1-alertview">{alertData.name} ref : {alertData.id} </h1>
             <div className="card-body card-body-all">
-              <h1 className="h1 h1-alertview">{alertData.name} ref : {alertData.id} </h1>
                 <table className="mt-5 table">
                 <tbody>
                   <tr>
@@ -198,7 +198,7 @@ class AlertView extends React.Component {
 
                     <textarea  className="form-control input-zone-commentaire" name="text" rows="3" placeholder="Votre commentaire" value={this.state.commentValue} onChange={this.handleChangeText} />
 
-                    <input type="submit"  className="btn btn-dark mt-2 mr-5" value="Poster un commentaire"></input>
+                    <input type="submit"  className="btn btn-dark mt-2 mr-5 bouton-poster-commentaire" value="Poster un commentaire"></input>
                     </div>
                   </form>
                   <div className="text-center mt-3">
