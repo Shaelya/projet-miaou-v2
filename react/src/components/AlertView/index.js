@@ -152,8 +152,8 @@ class AlertView extends React.Component {
         <div className="card mb-3">
         <div className="row no-gutters">
           <div className="col-md-7">
+          <h1 className="h1 h1-alertview">{alertData.name} ref : {alertData.id} </h1>
             <div className="card-body card-body-all">
-              <h1 className="h1 h1-alertview">{alertData.name} ref : {alertData.id} </h1>
                 <table className="mt-5 table">
                 <tbody>
                   <tr>
