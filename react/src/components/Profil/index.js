@@ -143,10 +143,10 @@ class Profil extends React.Component {
               <th className="case-tableau-commentaire">{comment.createdAtJson}</th>
                 <td className="case-tableau-commentaire">{comment.advert.name} Ref : {comment.advert.id}</td>
                 <td className="case-tableau-commentaire">{comment.title}</td>
-                <td className="tablo case-tableau-commentaire"><button type="button" className="btn btn-light"><Link  style={{ textDecoration: 'none', color: 'black' }} to={ {
+                <td className="tablo case-tableau-commentaire"><button type="button" className="btn btn-light bouton-consulter"><Link  style={{ textDecoration: 'none', color: 'white' }} to={ {
               pathname: '/fiche-alerte-vue',
               state: { alertData: commentAdvert[0]  }
-            } }> consulter</Link></button><button onClick={() => this.handleDeleteComment(comment.id)} type="button" className="btn btn-light justify-content-start" aria-label="Supprimer"><i className="fa fa-trash"></i></button></td>
+            } }> consulter</Link></button><button onClick={() => this.handleDeleteComment(comment.id)} type="button" className="btn btn-light justify-content-start bouton-supprimer-commentaire" aria-label="Supprimer"><i className="fa fa-trash"></i></button></td>
             </tr>
             )
             })
@@ -163,7 +163,7 @@ class Profil extends React.Component {
               <tr key={advert.id}>
               <th>{advert.createdAtJson}</th>
                 <td>{advert.name} Ref : {advert.id}</td>
-                <td><button type="button" className="btn btn-light"><Link   style={{ textDecoration: 'none', color: 'black' }} to={ {
+                <td><button type="button" className="btn btn-light bouton-consulter"><Link   style={{ textDecoration: 'none', color: 'white' }} to={ {
               pathname: '/fiche-alerte-vue',
               state: { alertData: advert  }
             } }> consulter</Link></button></td>
